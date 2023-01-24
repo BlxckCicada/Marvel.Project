@@ -1,0 +1,53 @@
+.nav-links li a {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: black;
+  font-size:medium;
+}
+li {
+  width: 130px;
+}
+.nav-links .active a {
+  background-color: #4e1c1c;
+  color: white;
+}
+
+.nav-links li:hover {
+  background-color: white;
+}
+.nav-links {
+  cursor: pointer;
+  background-color: #d9d9d9;
+}
+.navbar {
+  background-color: #565252;
+  height: 63px;
+  margin: 0;
+  padding: 0;
+}
+.navbar-brand {
+  cursor: pointer;
+  padding: 24px;
+  background-color: #4e1c1c;
+  color: white;
+  height: 60px;
+}
+.navbar-brand:hover {
+  background-color: #4e1c1c;
+  color: white;
+}
+.header {
+  width: 600px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+.navbar-header {
+  height: 50px;
+}
+.toggler {
+  margin-top:-45px;
+}
+
+

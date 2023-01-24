@@ -1,106 +1,78 @@
 .home-container {
-    background-color: red;
-    position: relative;
-    width: 100%;
-    height: 110%;
-    margin: 0;
-    padding: 0;
-  }
-  
+  background-color: red;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.home-container .con img {
+  height: 700px;
+  width: 600px;
+}
+.home-container .overhead {
+  position: absolute;
+  height: 200px;
+  bottom: 0;
+}
+.overhead .square {
+  padding: 24px;
+  background: rgba(40, 23, 23, 0.5);
+  border: solid white 5px;
+  width: 200px;
+  height: 170px;
+}
+.overhead .square a {
+  cursor: pointer;
+  font-size: 25px;
+  text-decoration: none;
+  color: white;
+}
+.overhead .square:hover {
+  scale: 1.5;
+}
+
+.about {
+  margin-top:0.1%;
+  position: relative;
+  width: 100%;
+  background: #565252;
+  z-index:-9998;
+}
+.about-header,
+.about-marvel {
+  color: white;
+  width: 100px;
+  height: 50px;
+  border: none;
+}
+
+.about-header {
+  background-color: #4e1c1c;
+}
+.about-marvel {
+  background-color: #fd2424;
+}
+mat-card {
+  padding: 12px;
+  width: 660px;
+  background: #565252;
+}
+mat-card-title {
+  padding: 12px;
+}
+mat-card-content {
+  background-color: #766e6e;
+  color: white;
+}
+
+@media screen and (width<700px) {
   .home-container .con img {
-    height: 700px;
-    width: 600px;
-  }
-  .home-container .overhead {
-    position: absolute;
-    height: 200px;
-    bottom: 0;
-  }
-  .overhead .square {
-    display: inline-flex;
-    padding: 24px;
-    background: rgba(40, 23, 23, 0.5);
-    border: solid white 5px;
-    width: 215px;
-    height: 210px;
-  }
-  .overhead .square a {
-    cursor: pointer;
-    font-size: 25px;
-    text-decoration: none;
-    color: white;
-    margin-top: 50px;
-    margin-left: 30px;
-  }
-  .overhead .square:hover {
-    scale: 1.5;
+    height: 300px;
+    width: 280px;
+  }.overhead .square {
+    width: 130px;
+    height: 130px;
   }
   
-  .about {
-    padding: 0;
-    bottom: 0;
-    width: 100%;
-    background: #565252;
-  }
-  .about-header,
-  .about-marvel {
-    color: white;
-    width: 100px;
-    height: 50px;
-    border: none;
-  }
-  
-  .about-header {
-    background-color: #4e1c1c;
-  }
-  .about-marvel {
-    background-color: #fd2424;
-  }
-  mat-card {
-    padding: 12px;
-    width: 660px;
-    background: #565252;
-  }
-  mat-card-title {
-    padding: 12px;
-  }
-  mat-card-content {
-    background-color: #766e6e;
-    color: white;
-  }
-  
-  @media screen and (width<500px) {
-    .con{
-      margin-top:70px;
-    }
-    .home-container .con img {
-      width: 250px;
-      height: 300px;
-    }
-     .overhead .square {
-      width: 85px;
-      height: 90px;
-      display: inline-flexbox;
-    }
-     .overhead .square a {
-      margin-left: -10px;
-      margin-top: -5px;
-      align-items: center;
-      font-size: 12px;
-    }
-    .home-container .overhead {
-      position: absolute;
-      height: 70px;
-      width: 260px;
-      margin-left:12%;
-      bottom:0;
-    }
-    mat-card
-    {
-      width:100%;
-    }
-    .home-container {
-      height: 70%;
-    }
-  }
-  
+}

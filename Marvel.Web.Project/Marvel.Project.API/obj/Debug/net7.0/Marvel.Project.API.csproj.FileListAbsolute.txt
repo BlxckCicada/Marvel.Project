@@ -111,3 +111,4 @@ D:\Development\ASP Net Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project
 D:\Development\ASP Net Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.API\obj\Debug\net7.0\Marvel.Project.API.csproj.CopyComplete
 D:\Development\ASP Net Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.API\obj\Debug\net7.0\Marvel.Project.API.genruntimeconfig.cache
 D:\Development\ASP Net Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.API\obj\Debug\net7.0\ref\Marvel.Project.API.dll
+D:\Development\ASP Net Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.API\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

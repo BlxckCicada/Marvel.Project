@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Marvel.Project.API.Handlers;
 
 public class GetEntitiesRequestHandler<TModel, TKey, TCore> :
-IRequestHandler<GetEntitiesRequest<TModel, TKey, TCore>, QueryEntitiesResponse<TModel>>
+IRequestHandler<GetEntitiesRequest<TModel, TKey, TCore>, IList<TModel>>
 where TModel : class, IModel<TKey>
 where TCore : class, IEntity<TKey>
 {
@@ -20,14 +20,11 @@ where TCore : class, IEntity<TKey>
         this.query = query;
         this.mapper = mapper;
     }
-    public async Task<QueryEntitiesResponse<TModel>> Handle(GetEntitiesRequest<TModel, TKey, TCore> request, CancellationToken cancellationToken)
+    public async Task<IList<TModel>> Handle(GetEntitiesRequest<TModel, TKey, TCore> request, CancellationToken cancellationToken)
     {
         var entityQuery = query.Query<TCore>();
         var entities = await entityQuery.ToListAsync(cancellationToken);
 
-        return new QueryEntitiesResponse<TModel>
-        {
-            Entities = entities.Select(entity => mapper.Map<TModel>(entity)).ToList(),
-        };
+        return entities.Select(entity => mapper.Map<TModel>(entity)).ToList();
     }
 }

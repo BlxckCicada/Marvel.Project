@@ -5,30 +5,34 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeModule } from './home/home-module/home.module';
-import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ActiveDirective } from './header/directive/active.directive';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { VillainsModule } from './features/villains/villains-module/villains.module';
+import { MoviesModule } from './features/movies/movies.module/movies.module';
+import { HeroesModule } from './features/heroes/heroes-module/heroes.module';
+import { SharedModule } from './shared/shared/shared.module';
+import { StoreModule } from '@ngrx/store';
+import { routerReducer } from '@ngrx/router-store';
+import { EffectsModule } from '@ngrx/effects';
+
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
+
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, ActiveDirective],
+  declarations: [AppComponent, HeaderComponent],
+  providers: [],
+  bootstrap: [AppComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     HomeModule,
     BrowserAnimationsModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatButtonModule,
-    FlexLayoutModule,
+    MoviesModule,
+    VillainsModule,
+    HeroesModule,
+    SharedModule,
+    StoreModule.forRoot({ router: routerReducer }),
+    EffectsModule.forRoot([]),
   ],
-  providers: [],
-  bootstrap: [AppComponent],
 })
 export class AppModule {}

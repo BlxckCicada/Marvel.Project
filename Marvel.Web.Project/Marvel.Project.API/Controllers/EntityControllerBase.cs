@@ -20,7 +20,7 @@ where TCore : class, IEntity<Tkey>
         this.mediator = mediator;
     }
 
-    [HttpGet]
+    [HttpPost]
     public virtual async Task<IActionResult> Add([FromBody] TModel entity, CancellationToken cancellationToken)
     {
         var response = await mediator.Send(new AddEntityRequest<TModel, Tkey, TCore>

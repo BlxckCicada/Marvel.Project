@@ -5,29 +5,6 @@ import { Hero } from '../models/hero.model';
 
 @Injectable({ providedIn: 'root' })
 export class HeroService {
-  //   public heroes:Hero[] = [
-  // {'Iron-Man', 'Tony', 'Stark', '', '', '', 'assets/IronMan.jpeg'},
-  //     new Hero('Hulk', 'Bruce', 'Burner', '', '', '', 'assets/Hulk.jpg'),
-  //     new Hero(
-  //       'Spider-Man',
-  //       'Peter',
-  //       'Parker',
-  //       '',
-  //       '',
-  //       '',
-  //       'assets/Spiderman.jpg'
-  //     ),
-  //     new Hero(
-  //       'Captain-America',
-  //       'Steve',
-  //       'Rogers',
-  //       '',
-  //       '',
-  //       '',
-  //       'assets/CaptainAmerica.jpg'
-  //     ),
-  //     new Hero('Thor', 'Thor', '', '', '', '', 'assets/Thor.jpg'),
-  //   ];
 
   private url = 'https://localhost:7068';
   constructor(private http: HttpClient) {}

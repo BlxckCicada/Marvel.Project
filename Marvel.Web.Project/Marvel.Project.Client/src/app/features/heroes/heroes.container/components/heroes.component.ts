@@ -89,14 +89,12 @@ export class HeroesComponent implements OnInit {
     //     image: 'assets/ScarletWitch.jpg',
     //   },
     // ];
-    console.log(this.heroes);
     this.splitHeroes();
   }
 
   splitHeroes() {
     if (this.heroes) {
       for (let i = 0; i < this.heroes.length; i += 3) {
-        console.log(this.heroes[i]);
         this.chunks.push(this.heroes.slice(i, i + 3));
       }
     }

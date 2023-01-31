@@ -33,62 +33,62 @@ export class HeroesComponent implements OnInit {
   chunks: Hero[][] = [];
 
   ngOnInit(): void {
-    this.heroes = [
-      {
-        name: 'Iron-Man',
-        firstName: 'Tony',
-        lastName: 'Stark',
-        actualFirstName: '',
-        actualLastName: '',
-        description: '',
-        image: 'assets/IronMan.jpeg',
-      },
-      {
-        name: 'Hulk',
-        firstName: 'Bruce',
-        lastName: 'Banner',
-        actualFirstName: '',
-        actualLastName: '',
-        description: '',
-        image: 'assets/Hulk.jpg',
-      },
-      {
-        name: 'Spider-Man',
-        firstName: 'Peter',
-        lastName: 'Parker',
-        actualFirstName: '',
-        actualLastName: '',
-        description: '',
-        image: 'assets/Spiderman.jpg',
-      },
-      {
-        name: 'Captain-America',
-        firstName: 'Steve',
-        lastName: 'Rogers',
-        actualFirstName: '',
-        actualLastName: '',
-        description: '',
-        image: 'assets/CaptainAmerica.jpg',
-      },
-      {
-        name: 'Thor',
-        firstName: '',
-        lastName: '',
-        actualFirstName: '',
-        actualLastName: '',
-        description: '',
-        image: 'assets/Thor.jpg',
-      },
-      {
-        name: 'Scarlet-Witch',
-        firstName: 'Wanda',
-        lastName: 'Maximoff',
-        actualFirstName: '',
-        actualLastName: '',
-        description: '',
-        image: 'assets/ScarletWitch.jpg',
-      },
-    ];
+    // this.heroes = [
+    //   {
+    //     name: 'Iron-Man',
+    //     firstName: 'Tony',
+    //     lastName: 'Stark',
+    //     actualFirstName: '',
+    //     actualLastName: '',
+    //     description: '',
+    //     image: 'assets/IronMan.jpeg',
+    //   },
+    //   {
+    //     name: 'Hulk',
+    //     firstName: 'Bruce',
+    //     lastName: 'Banner',
+    //     actualFirstName: '',
+    //     actualLastName: '',
+    //     description: '',
+    //     image: 'assets/Hulk.jpg',
+    //   },
+    //   {
+    //     name: 'Spider-Man',
+    //     firstName: 'Peter',
+    //     lastName: 'Parker',
+    //     actualFirstName: '',
+    //     actualLastName: '',
+    //     description: '',
+    //     image: 'assets/Spiderman.jpg',
+    //   },
+    //   {
+    //     name: 'Captain-America',
+    //     firstName: 'Steve',
+    //     lastName: 'Rogers',
+    //     actualFirstName: '',
+    //     actualLastName: '',
+    //     description: '',
+    //     image: 'assets/CaptainAmerica.jpg',
+    //   },
+    //   {
+    //     name: 'Thor',
+    //     firstName: '',
+    //     lastName: '',
+    //     actualFirstName: '',
+    //     actualLastName: '',
+    //     description: '',
+    //     image: 'assets/Thor.jpg',
+    //   },
+    //   {
+    //     name: 'Scarlet-Witch',
+    //     firstName: 'Wanda',
+    //     lastName: 'Maximoff',
+    //     actualFirstName: '',
+    //     actualLastName: '',
+    //     description: '',
+    //     image: 'assets/ScarletWitch.jpg',
+    //   },
+    // ];
     this.splitHeroes();
   }
 
@@ -98,6 +98,5 @@ export class HeroesComponent implements OnInit {
         this.chunks.push(this.heroes.slice(i, i + 3));
       }
     }
-    console.log(this.chunks);
   }
 }

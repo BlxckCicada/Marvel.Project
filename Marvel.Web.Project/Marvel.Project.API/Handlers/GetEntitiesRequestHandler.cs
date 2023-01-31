@@ -22,9 +22,7 @@ where TCore : class, IEntity<TKey>
     }
     public async Task<IList<TModel>> Handle(GetEntitiesRequest<TModel, TKey, TCore> request, CancellationToken cancellationToken)
     {
-        var entityQuery = query.Query<TCore>();
-        var entities = await entityQuery.ToListAsync(cancellationToken);
-
+        var entities = await query.Query<TCore>().ToListAsync(cancellationToken);
         return entities.Select(entity => mapper.Map<TModel>(entity)).ToList();
     }
 }

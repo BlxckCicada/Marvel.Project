@@ -19,6 +19,7 @@ internal static class IServiceCollectionExtensions
             .AddEntityHandlers<FeaturedMovie, Guid, Core.Entities.FeaturedMovie>(replaceExistingImplementations);
     }
 
+
     public static IServiceCollection AddEntityHandlers<TModel, TKey, TCore>(this IServiceCollection services, bool replaceExistingImplementations = false)
         where TModel : class, IModel<TKey>
         where TCore : class, Core.Entities.IEntity<TKey>
@@ -92,7 +93,7 @@ internal static class IServiceCollectionExtensions
     {
          new EntityHandlerDefinition(typeof(AddEntityRequestHandler<,,>), typeof(AddEntityRequest<,,>), typeof(CommandResponse<>)),
         new EntityHandlerDefinition(typeof(DeleteEntityRequestHandler<,,>), typeof(DeleteEntityRequest<,,>), typeof(CommandResponse<>)),
-        new EntityHandlerDefinition(typeof(GetEntitiesRequestHandler<,,>), typeof(GetEntitiesRequest<,,>)),
+        new EntityHandlerDefinition(typeof(GetEntitiesRequestHandler<,,>), typeof(GetEntitiesRequest<,,>), typeof(IList<>)),
         new EntityHandlerDefinition(typeof(GetEntityByIdRequestHandler<,,>), typeof(GetEntityByIdRequest<,,>)),
         new EntityHandlerDefinition(typeof(UpdateEntityRequestHandler<,,>), typeof(UpdateEntityRequest<,,>), typeof(CommandResponse<>)),
     };

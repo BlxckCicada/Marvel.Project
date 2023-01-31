@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { createEffect, ofType,Actions } from '@ngrx/effects';
+import { createEffect, ofType, Actions } from '@ngrx/effects';
 import { catchError, exhaustMap, map, of, switchMap, tap } from 'rxjs';
 import { HeroService } from 'src/app/features/heroes/heroes.container/services/heroes.service';
 import * as heroActions from './actions';
@@ -11,8 +11,7 @@ export class HeroEffects {
     private actions$: Actions,
     private service: HeroService,
     private router: Router
-  ) {
-  }
+  ) {}
 
   loadHero$ = createEffect(() => {
     return this.actions$.pipe(
@@ -31,8 +30,23 @@ export class HeroEffects {
       ofType(heroActions.loadHeroes),
       switchMap(() =>
         this.service.getHeroes().pipe(
-          map((heroes) => heroActions.loadHeroesSuccess({ heroes })),
+          map((heroes) => 
+            heroActions.loadHeroesSuccess({ heroes }),
+          ),
           catchError((error) => of(heroActions.loadHeroesFailure({ error })))
+        )
+      )
+    );
+  });
+  queryHeroes$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(heroActions.queryHeroes),
+      switchMap(() =>
+        this.service.getHeroes().pipe(
+          map((heroes) => 
+            heroActions.queryHeroesSuccess({ heroes })
+          ),
+          catchError((error) => of(heroActions.queryHeroesFailure({ error })))
         )
       )
     );

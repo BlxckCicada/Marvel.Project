@@ -1,6 +1,6 @@
 export interface Character {
   id?: string;
-  name: string;
+  heroName: string;
   firstName: string;
   lastName: string;
   actualFirstName: string;

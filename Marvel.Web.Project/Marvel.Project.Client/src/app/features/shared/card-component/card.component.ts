@@ -11,9 +11,9 @@ import { Character } from '../models/character.model';
       fxLayout.sm="row wrap"
     >
       <app-card-item
-        *ngFor="let entry of entries"
         [entry]="entry"
-        style="padding:12px"
+        style="padding:12px;"
+        *ngFor="let entry of entries"
       ></app-card-item>
     </div>
   </div>`,
@@ -28,6 +28,8 @@ import { Character } from '../models/character.model';
 export class CardComponent implements OnInit {
   @Input() title = '';
   @Input() entries: undefined | Character[] | null;
+  entry: Character | undefined;
+
   ngOnInit(): void {
     console.log(this.entries);
   }

@@ -6,14 +6,13 @@ import { HeroAdapter } from './reducers';
 
 export const selectHeroesState = createFeatureSelector<HeroState>(featureName);
 export const selectHeroes = createSelector(
-  createFeatureSelector('Heros'),
-  (heroes: Hero[]) => {
-    return heroes;
-  }
+  selectHeroesState,
+  (state: HeroState) => state.entities
 );
+
 export const selectHeroesQueryResult = createSelector(
   selectHeroesState,
-  (state: HeroState) => state.queryResults
+  (state: HeroState) => state.heroesResults
 );
 export const { selectAll, selectEntities } =
   HeroAdapter.getSelectors(selectHeroesState);

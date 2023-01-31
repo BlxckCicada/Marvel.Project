@@ -27,62 +27,62 @@ export class VillainsComponent {
   chunks: Villain[][] = [];
 
   ngOnInit(): void {
-    this.villains = [
-      {
-        name: 'Thanos',
-        firstName: '',
-        lastName: '',
-        actualFirstName: '',
-        actualLastName: '',
-        description: '',
-        image: 'assets/Thanos.jpeg',
-      },
-      {
-        name: 'Ultron',
-        firstName: '',
-        lastName: '',
-        actualFirstName: '',
-        actualLastName: '',
-        description: '',
-        image: 'assets/Ultron.jpg',
-      },
-      {
-        name: 'Ebony Maw',
-        firstName: '',
-        lastName: '',
-        actualFirstName: '',
-        actualLastName: '',
-        description: '',
-        image: 'assets/Ebony Maw.jpg',
-      },
-      {
-        name: 'Hela',
-        firstName: '',
-        lastName: '',
-        actualFirstName: '',
-        actualLastName: '',
-        description: '',
-        image: 'assets/Hela.jpg',
-      },
-      {
-        name: 'Loki',
-        firstName: '',
-        lastName: '',
-        actualFirstName: '',
-        actualLastName: '',
-        description: '',
-        image: 'assets/Lokie.jpeg',
-      },
-      {
-        name: 'Green-Goblin',
-        firstName: '',
-        lastName: '',
-        actualFirstName: '',
-        actualLastName: '',
-        description: '',
-        image: 'assets/GreenGoblin.jpg',
-      },
-    ];
+    // this.villains = [
+    //   {
+    //     name: 'Thanos',
+    //     firstName: '',
+    //     lastName: '',
+    //     actualFirstName: '',
+    //     actualLastName: '',
+    //     description: '',
+    //     image: 'assets/Thanos.jpeg',
+    //   },
+    //   {
+    //     name: 'Ultron',
+    //     firstName: '',
+    //     lastName: '',
+    //     actualFirstName: '',
+    //     actualLastName: '',
+    //     description: '',
+    //     image: 'assets/Ultron.jpg',
+    //   },
+    //   {
+    //     name: 'Ebony Maw',
+    //     firstName: '',
+    //     lastName: '',
+    //     actualFirstName: '',
+    //     actualLastName: '',
+    //     description: '',
+    //     image: 'assets/Ebony Maw.jpg',
+    //   },
+    //   {
+    //     name: 'Hela',
+    //     firstName: '',
+    //     lastName: '',
+    //     actualFirstName: '',
+    //     actualLastName: '',
+    //     description: '',
+    //     image: 'assets/Hela.jpg',
+    //   },
+    //   {
+    //     name: 'Loki',
+    //     firstName: '',
+    //     lastName: '',
+    //     actualFirstName: '',
+    //     actualLastName: '',
+    //     description: '',
+    //     image: 'assets/Lokie.jpeg',
+    //   },
+    //   {
+    //     name: 'Green-Goblin',
+    //     firstName: '',
+    //     lastName: '',
+    //     actualFirstName: '',
+    //     actualLastName: '',
+    //     description: '',
+    //     image: 'assets/GreenGoblin.jpg',
+    //   },
+    // ];
     this.splitVillaines();
   }
 

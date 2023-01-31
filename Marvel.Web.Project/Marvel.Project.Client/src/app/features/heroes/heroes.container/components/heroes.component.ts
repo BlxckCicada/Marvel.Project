@@ -10,16 +10,19 @@ import { Hero } from '../models/hero.model';
     >
       {{ title }}
     </h1>
-    <app-card-component
-      class="card-component"
-      *ngFor="let entries of chunks; let i = index"
-      [entries]="entries"
-      [title]="title"
-      fxLayout="row"
-    ></app-card-component>
+      <app-card-component
+        class="card-component"
+        *ngFor="let entries of chunks; let i = index"
+        [entries]="entries"
+        [title]="title"
+        fxLayout="row"
+      ></app-card-component>
   `,
   styles: [
     `
+      a {
+        text-decoration:none;
+      }
       .card-component {
         top: 0;
       }

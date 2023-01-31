@@ -8,12 +8,12 @@ export const featureName = 'Heros';
 export const HeroAdapter = createEntityAdapter<Hero>({});
 
 export interface HeroState extends EntityState<Hero> {
-  queryResults?: Hero[];
+  heroesResults?: Hero[];
 }
 
 export const initialState: HeroState = {
   ...HeroAdapter.getInitialState(),
-  queryResults: undefined,
+  heroesResults: undefined,
 };
 
 export const heroReducer = createReducer(
@@ -51,7 +51,7 @@ export const heroReducer = createReducer(
     actions.queryHeroesSuccess,
     (state, { heroes }): HeroState => ({
       ...state,
-      queryResults: heroes,
+      heroesResults: heroes,
     })
   ),
   on(

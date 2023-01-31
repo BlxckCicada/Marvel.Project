@@ -1,9 +1,12 @@
-import { AsyncPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { Hero } from './models/hero.model';
-import { selectHeroesQueryResult } from './store/selectors';
+import {
+  selectEntities,
+  selectHeroes,
+  selectHeroesQueryResult,
+} from './store/selectors';
 
 @Component({
   selector: 'app-heroes.container',
@@ -17,7 +20,10 @@ export class HeroesContainerComponent {
   title = 'SuperHeroes';
 
   constructor(private store: Store) {
-    this.heroes$ = this.store.select(selectHeroesQueryResult);
+    this.heroes$ = this.store.select(selectHeroes);
+    this.heroes$.subscribe((heroes) => {
+      console.log(heroes);
+    });
   }
   ngOnInit() {}
 }

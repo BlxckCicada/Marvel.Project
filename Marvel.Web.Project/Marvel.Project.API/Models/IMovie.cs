@@ -15,7 +15,7 @@ public interface IMovie : IModel<Guid>
     public DateTime ReleaseDate { get; set; }
 
     [Required]
-    [MaxLength(140, ErrorMessage = "Movie description can only be 140 characters or less")]
+    [MaxLength(2048, ErrorMessage = "Movie description can only be 140 characters or less")]
     public string Description { get; set; }
 
     public string Image { get; set; }

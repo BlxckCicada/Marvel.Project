@@ -22,7 +22,7 @@ public record Hero : IEntity<Guid>
     public string ActualLastName { get; set; } = string.Empty;
 
     [Required]
-    [MaxLength(114, ErrorMessage = "Description of the character can only be 114 characters or less")]
+    [MaxLength(1024, ErrorMessage = "Description of the character can only be 114 characters or less")]
     public string Description { get; set; } = string.Empty;
 
     

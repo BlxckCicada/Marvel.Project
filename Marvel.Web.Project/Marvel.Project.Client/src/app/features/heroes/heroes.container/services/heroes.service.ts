@@ -31,7 +31,9 @@ export class HeroService {
   private url = 'https://localhost:7068';
   constructor(private http: HttpClient) {}
   getHeroes() {
-    return this.http.get<Hero[]>(`${this.url}/heroes`);
+    return this.http.get<Hero[]>(`${this.url}/heroes`, {
+      headers: { 'Access-Control-Allow-Origin': '*' },
+    });
   }
   getHero(id: string) {
     return this.http.get<Hero>(`${this.url}/heroes/${id}`);

@@ -11,9 +11,6 @@ export const selectHeroes = createSelector(
     return heroes;
   }
 );
-export const selectHeroesQueryResult = createSelector(
-  selectHeroesState,
-  (state: HeroState) => state.queryResults
-);
+
 export const { selectAll, selectEntities } =
   HeroAdapter.getSelectors(selectHeroesState);

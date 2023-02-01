@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { createEffect, ofType, Actions } from '@ngrx/effects';
 import { catchError, exhaustMap, map, of, switchMap, tap } from 'rxjs';
 import { HeroService } from 'src/app/features/heroes/heroes.container/services/heroes.service';
+import { Hero } from '../models/hero.model';
 import * as heroActions from './actions';
 
 @Injectable({ providedIn: 'root' })
@@ -30,9 +31,7 @@ export class HeroEffects {
       ofType(heroActions.loadHeroes),
       switchMap(() =>
         this.service.getHeroes().pipe(
-          map((heroes) => 
-            heroActions.loadHeroesSuccess({ heroes }),
-          ),
+          map((heroes) => heroActions.loadHeroesSuccess({ heroes })),
           catchError((error) => of(heroActions.loadHeroesFailure({ error })))
         )
       )
@@ -43,12 +42,29 @@ export class HeroEffects {
       ofType(heroActions.queryHeroes),
       switchMap(() =>
         this.service.getHeroes().pipe(
-          map((heroes) => 
-            heroActions.queryHeroesSuccess({ heroes })
-          ),
+          map((heroes) => heroActions.queryHeroesSuccess({ heroes })),
           catchError((error) => of(heroActions.queryHeroesFailure({ error })))
         )
       )
+    );
+  });
+
+  queryHero$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(heroActions.queryHero),
+      switchMap(({ id }) => {
+        return this.service.getHeroes().pipe(
+          map((heroes) => {
+            const hero: Hero | undefined = heroes.find((x) => x.heroName === id);
+            if (hero !== undefined) {
+              return heroActions.queryHeroSuccess({ hero });
+            }
+            return heroActions.queryHeroFailure({
+              error: `Hero with id ${id} is not found`,
+            });
+          })
+        );
+      })
     );
   });
 

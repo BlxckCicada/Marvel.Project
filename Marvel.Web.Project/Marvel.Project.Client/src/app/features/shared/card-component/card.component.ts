@@ -31,6 +31,5 @@ export class CardComponent implements OnInit {
   entry: Character | undefined;
 
   ngOnInit(): void {
-    console.log(this.entries);
   }
 }

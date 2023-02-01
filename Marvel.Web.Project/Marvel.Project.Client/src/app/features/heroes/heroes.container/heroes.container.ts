@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { select, Store } from '@ngrx/store';
-import { map, Observable, tap } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { Hero } from './models/hero.model';
-import { selectHeroes, selectHeroesQueryResult } from './store/selectors';
+import {selectHeroesQueryResult } from './store/selectors';
 
 import * as actions from '../heroes.container/store/actions';
-import { HeroService } from './services/heroes.service';
 
 @Component({
   selector: 'app-heroes.container',
@@ -26,6 +25,5 @@ export class HeroesContainerComponent {
   ngOnInit() {
     this.heroes$ = this.store.select(selectHeroesQueryResult);
     this.store.dispatch(actions.queryHeroes());
-    console.log('This is the heroes$');
   }
 }

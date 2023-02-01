@@ -9,11 +9,13 @@ export const HeroAdapter = createEntityAdapter<Hero>({});
 
 export interface HeroState extends EntityState<Hero> {
   heroesResults?: Hero[];
+  hero?: Hero;
 }
 
 export const initialState: HeroState = {
   ...HeroAdapter.getInitialState(),
   heroesResults: undefined,
+  hero: undefined,
 };
 
 export const heroReducer = createReducer(
@@ -46,6 +48,13 @@ export const heroReducer = createReducer(
   on(
     actions.updateHeroSuccess,
     (state, { hero }): HeroState => HeroAdapter.upsertOne(hero, { ...state })
+  ),
+  on(
+    actions.queryHeroSuccess,
+    (state, { hero }): HeroState => ({
+      ...state,
+      hero: hero
+    })
   ),
   on(
     actions.queryHeroesSuccess,

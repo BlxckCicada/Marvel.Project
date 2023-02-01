@@ -26,7 +26,20 @@ export const loadHeroFailure = createAction(
   props<{ error: any }>()
 );
 
-export const queryHeroes = createAction('[Hero Query Guard] Query Hero');
+export const queryHero = createAction(
+  '[Hero Query Guard] Query Hero',
+  props<{ id: string }>()
+);
+export const queryHeroSuccess = createAction(
+  '[Hero Query] Query Hero Success',
+  props<{ hero: Hero }>()
+);
+export const queryHeroFailure = createAction(
+  '[Hero Query] Query Hero Failure',
+  props<{ error: any }>()
+);
+
+export const queryHeroes = createAction('[Hero Query Guard] Query Heroes');
 export const queryHeroesSuccess = createAction(
   '[Heroes API] Query Heroes Success',
   props<{ heroes: Hero[] }>()

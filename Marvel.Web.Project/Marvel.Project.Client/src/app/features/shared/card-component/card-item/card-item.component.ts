@@ -54,12 +54,16 @@ import { Character } from '../../models/character.model';
 export class CardItemComponent {
   @Input() entry: undefined | Character;
 
-  constructor(private router: Router, private route:ActivatedRoute) {}
-  ngOnInit() {
-    console.log(this.entry);
-  }
+  constructor(private router: Router, private route: ActivatedRoute) {}
+  ngOnInit() {}
 
   onCharacterClick() {
-    this.router.navigate([this.entry?.heroName],{relativeTo: this.route});
+    let character = JSON.stringify(this.entry);
+    this.router.navigate(
+      [this.entry?.heroName],
+      {
+        relativeTo: this.route,
+      }
+    );
   }
 }

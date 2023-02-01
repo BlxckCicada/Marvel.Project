@@ -5,9 +5,10 @@ import { HeroState } from './reducers';
 import { HeroAdapter } from './reducers';
 
 export const selectHeroesState = createFeatureSelector<HeroState>(featureName);
-export const selectHeroes = createSelector(
+
+export const selectQueryHero = createSelector(
   selectHeroesState,
-  (state: HeroState) => state.entities
+  (state: HeroState) => state.hero
 );
 
 export const selectHeroesQueryResult = createSelector(

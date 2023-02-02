@@ -26,6 +26,8 @@ import { Hero } from '../models/hero.model';
       .card-component {
         top: 0;
       }
+
+    
     `,
   ],
 })

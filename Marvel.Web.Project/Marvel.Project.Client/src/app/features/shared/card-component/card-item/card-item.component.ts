@@ -48,6 +48,18 @@ import { Character } from '../../models/character.model';
         width: 390px;
         height: 340px;
       }
+
+      @media screen and (width<600px){
+        .card{
+          width:300px;
+          height:450px;
+          
+        }
+        .card img{
+          width:250px;
+          height:300px;
+        }
+      }
     `,
   ],
 })

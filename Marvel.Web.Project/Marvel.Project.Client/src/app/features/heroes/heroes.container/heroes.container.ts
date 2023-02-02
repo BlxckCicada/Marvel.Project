@@ -19,11 +19,12 @@ import * as actions from '../heroes.container/store/actions';
 })
 export class HeroesContainerComponent {
   public heroes$: Observable<Hero[] | undefined> | undefined;
-  title = 'SuperHeroes';
+  title = 'Super-Heroes';
 
   constructor(private store: Store) {}
   ngOnInit() {
     this.heroes$ = this.store.select(selectHeroesQueryResult);
     this.store.dispatch(actions.queryHeroes());
+    this.heroes$.subscribe(heroes => console.log(heroes));
   }
 }

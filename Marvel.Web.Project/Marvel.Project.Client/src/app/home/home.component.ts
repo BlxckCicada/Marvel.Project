@@ -13,11 +13,15 @@ import { Component } from '@angular/core';
           <img src="assets/IronMan.jpeg" alt="" />
         </div>
         <div class="overhead" fxLayout="row">
-          <div class="square" fxLayoutAlign="center center"><a>Movies</a></div>
-          <div class="square" fxLayoutAlign="center center"><a>Heroes</a></div>
-          <div class="square" fxLayoutAlign="center center">
-            <a>Villains</a>
-          </div>
+          <a routerLink="/movies" class="square" fxLayoutAlign="center center"
+            >Movies</a
+          >
+          <a routerLink="/heroes" class="square" fxLayoutAlign="center center"
+            >Heroes</a
+          >
+          <a routerLink="/villains" class="square" fxLayoutAlign="center center"
+            >Villains</a
+          >
         </div>
       </div>
     </div>
@@ -66,13 +70,12 @@ import { Component } from '@angular/core';
         border: solid white 5px;
         width: 200px;
         height: 170px;
-      }
-      .overhead .square a {
         cursor: pointer;
         font-size: 25px;
         text-decoration: none;
         color: white;
       }
+    
       .overhead .square:hover {
         scale: 1.5;
       }

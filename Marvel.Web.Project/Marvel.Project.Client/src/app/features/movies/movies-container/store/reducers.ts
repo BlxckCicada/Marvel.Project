@@ -3,16 +3,16 @@ import { createReducer, on } from '@ngrx/store';
 import { Movie } from '../models/movie.model';
 import * as actions from './actions';
 
-export const feature = 'Movies';
+export const featureName = 'Movies';
 export const MoviesAdapter = createEntityAdapter<Movie>({});
 
 export interface MovieState extends EntityState<Movie> {
-  queryResults?: Movie[];
+  moviesResults?: Movie[];
 }
 
 export const initialState: MovieState = {
   ...MoviesAdapter.getInitialState(),
-  queryResults: undefined,
+  moviesResults: undefined,
 };
 
 export const movieReducer = createReducer(
@@ -21,6 +21,7 @@ export const movieReducer = createReducer(
     actions.addMovie,
     actions.loadMovie,
     actions.loadMovies,
+    actions.queryMovies,
     (state): MovieState => ({
       ...state,
     })
@@ -35,6 +36,12 @@ export const movieReducer = createReducer(
       MoviesAdapter.setAll(movies, { ...state })
   ),
   on(
+    actions.queryMoviesSuccess,
+    (state, { movies }): MovieState => 
+    ({ ...state, moviesResults: movies })
+  ),
+
+  on(
     actions.addMovieSuccess,
     (state, { movie }): MovieState => MoviesAdapter.addOne(movie, { ...state })
   ),
@@ -46,6 +53,6 @@ export const movieReducer = createReducer(
   on(
     actions.deleteMovieSuccess,
     (state, { movie }): MovieState =>
-      MoviesAdapter.removeOne(movie.id??'', { ...state })
+      MoviesAdapter.removeOne(movie.id ?? '', { ...state })
   )
 );

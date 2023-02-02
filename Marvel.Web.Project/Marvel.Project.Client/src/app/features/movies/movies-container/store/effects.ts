@@ -54,6 +54,18 @@ export class MovieEffects {
       )
     );
   });
+  queryMovies$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(moviesActions.queryMovies),
+      switchMap(() =>
+        this.service.getMovies().pipe(
+          map((movies) => moviesActions.queryMoviesSuccess({ movies })),
+          catchError((error) => of(moviesActions.queryMoviesFailure({ error })))
+        )
+      )
+    );
+  });
+
 
   updateMovie$ = createEffect(() => {
     return this.actions$.pipe(

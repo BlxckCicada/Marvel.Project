@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid" fxLayout="row">
         <div class="navbar-header" fxLayoutAlign="center">
-          <a fxLayoutAlign="center center" class="navbar-brand">Marvel</a>
+          <a fxLayoutAlign="center center" class="navbar-brand" routerLink="/home">Marvel</a>
         </div>
 
         <div
@@ -19,6 +19,7 @@ import { Component } from '@angular/core';
           <button
             [fxHide]="true"
             [fxShow.xs]="true"
+            [fxShow.sm]="true"
             fxFlexAlign="start center"
             class="navbar-toggle"
             (click)="onDisplayOnSmallerScreen()"
@@ -29,7 +30,7 @@ import { Component } from '@angular/core';
             class="nav navbar-nav nav-links"
             fxFlexAlign="center"
             [fxShow.xs]="displaySmallerScreen"
-            fxLayout.sm
+            [fxShow.sm]="displaySmallerScreen"
           >
             <li routerLinkActive="active">
               <a fxLayoutAlign="center center" routerLink="/home">Home</a>
@@ -43,7 +44,7 @@ import { Component } from '@angular/core';
               >
             </li>
             <li routerLinkActive="active">
-              <a fxLayoutAlign="center center" routerLink="movies">Movies</a>
+              <a fxLayoutAlign="center center" routerLink="/movies">Movies</a>
             </li>
           </ul>
         </div>

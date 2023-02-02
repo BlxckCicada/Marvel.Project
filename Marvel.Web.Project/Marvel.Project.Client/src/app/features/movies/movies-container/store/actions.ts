@@ -14,15 +14,23 @@ export const loadMovieFailure = createAction(
   props<{ error: any }>()
 );
 
-export const loadMovies = createAction(
-  '[Load Movies] Load Movies',
-);
+export const loadMovies = createAction('[Load Movies] Load Movies');
 export const loadMoviesSuccess = createAction(
   '[Load Movies Success] Load Movies Success',
   props<{ movies: Movie[] }>()
 );
 export const loadMoviesFailure = createAction(
   '[Load Movies Failure] Load Movies Failure',
+  props<{ error: any }>()
+);
+
+export const queryMovies = createAction('[Query Movies ] Query Movies');
+export const queryMoviesSuccess = createAction(
+  '[Query Movies Success] Query Movies Success',
+  props<{ movies: Movie[] }>()
+);
+export const queryMoviesFailure = createAction(
+  '[Query Movies Failure] Query Movies Failure',
   props<{ error: any }>()
 );
 

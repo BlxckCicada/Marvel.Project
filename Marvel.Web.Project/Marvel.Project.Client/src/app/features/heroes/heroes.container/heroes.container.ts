@@ -25,6 +25,5 @@ export class HeroesContainerComponent {
   ngOnInit() {
     this.heroes$ = this.store.select(selectHeroesQueryResult);
     this.store.dispatch(actions.queryHeroes());
-    this.heroes$.subscribe(heroes => console.log(heroes));
   }
 }

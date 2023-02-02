@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Villain } from 'src/app/features/villains/villains-container/models/villains.model';
 import { Character } from '../../models/character.model';
 
 @Component({
@@ -9,7 +10,7 @@ import { Character } from '../../models/character.model';
       <mat-card class="card">
         <mat-card-header class="card-header" fxLayoutAlign="center center">
           <mat-card-title class="title" style="font-size: 48px;">
-            {{ entry?.heroName }}
+            {{ entry?.name }}
           </mat-card-title>
 
           <mat-card-subtitle
@@ -49,15 +50,14 @@ import { Character } from '../../models/character.model';
         height: 340px;
       }
 
-      @media screen and (width<600px){
-        .card{
-          width:300px;
-          height:450px;
-          
+      @media screen and (width<600px) {
+        .card {
+          width: 300px;
+          height: 450px;
         }
-        .card img{
-          width:250px;
-          height:300px;
+        .card img {
+          width: 250px;
+          height: 300px;
         }
       }
     `,
@@ -67,15 +67,14 @@ export class CardItemComponent {
   @Input() entry: undefined | Character;
 
   constructor(private router: Router, private route: ActivatedRoute) {}
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.entry?.name);
+  }
 
   onCharacterClick() {
-    let character = JSON.stringify(this.entry);
-    this.router.navigate(
-      [this.entry?.heroName],
-      {
-        relativeTo: this.route,
-      }
-    );
+    console.log(this.entry?.name);
+    this.router.navigate([this.entry?.name], {
+      relativeTo: this.route,
+    });
   }
 }

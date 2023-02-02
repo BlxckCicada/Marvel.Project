@@ -7,11 +7,13 @@ export const featureName = 'Villains';
 export const VillainAdapter = createEntityAdapter<Villain>({});
 export interface VillainState extends EntityState<Villain> {
   queryResults?: Villain[];
+  villain?: Villain;
 }
 
 export const initialState: VillainState = {
   ...VillainAdapter.getInitialState(),
   queryResults: undefined,
+  villain: undefined,
 };
 
 export const villainReducer = createReducer(
@@ -38,6 +40,20 @@ export const villainReducer = createReducer(
     actions.addVillainSuccess,
     (state, { villain }): VillainState =>
       VillainAdapter.addOne(villain, { ...state })
+  ),
+  on(
+    actions.queryVillainsSuccess,
+    (state, { villains }): VillainState => ({
+      ...state,
+      queryResults: villains,
+    })
+  ),
+  on(
+    actions.queryVillainSuccess,
+    (state, { villain }): VillainState => ({
+      ...state,
+      villain: villain,
+    })
   ),
   on(
     actions.updateVillainSuccess,

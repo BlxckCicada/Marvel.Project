@@ -8,7 +8,7 @@ public record Hero : IEntity<Guid>
     public Guid Id { get; set; }
 
     [Required]
-    public string HeroName { get; set; } = string.Empty;
+    public string Name { get; set; } = string.Empty;
 
     [Required]
     public string FirstName { get; set; } = string.Empty;
@@ -22,7 +22,7 @@ public record Hero : IEntity<Guid>
     public string ActualLastName { get; set; } = string.Empty;
 
     [Required]
-    [MaxLength(1024, ErrorMessage = "Description of the character can only be 114 characters or less")]
+    [MaxLength(1024, ErrorMessage = "Description of the character can only be 114 words or less")]
     public string Description { get; set; } = string.Empty;
 
     

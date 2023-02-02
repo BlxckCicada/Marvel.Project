@@ -11,5 +11,9 @@ export const selectVillainsQueryResult = createSelector(
   selectVillainsState,
   (state: VillainState) => state.queryResults
 );
+export const selectVillainQuery= createSelector(
+  selectVillainsState,
+  (state: VillainState) => state.villain
+);
 export const { selectAll, selectEntities } =
   VillainAdapter.getSelectors(selectVillainsState);

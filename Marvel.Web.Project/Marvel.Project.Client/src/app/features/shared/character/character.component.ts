@@ -4,7 +4,10 @@ import { Store } from '@ngrx/store';
 import { selectQueryHero } from '../../heroes/heroes.container/store/selectors';
 import { Character } from '../models/character.model';
 import * as heroesActions from '../../heroes/heroes.container/store/actions';
+import * as villainActions from '../../villains/villains-container/store/actions';
 import { Observable } from 'rxjs';
+import { selectVillainQuery } from '../../villains/villains-container/store/selectors';
+import { Villain } from '../../villains/villains-container/models/villains.model';
 
 @Component({
   selector: 'app-character',
@@ -23,7 +26,7 @@ import { Observable } from 'rxjs';
       >
         <mat-card-header fxLayoutAlign="center center">
           <mat-card-title>
-            <h2>{{ character?.heroName }}</h2>
+            <h2>{{ character?.name }}</h2>
           </mat-card-title>
           <mat-card-subtitle style="color:white">
             <h4>
@@ -43,7 +46,7 @@ import { Observable } from 'rxjs';
       </mat-card-content>
     </mat-card>
 
-    <div class="movies">
+    <div class="movies" *ngIf="isHero">
       <h2>Movies</h2>
     </div>
     <div class="featured-movies">
@@ -98,16 +101,27 @@ import { Observable } from 'rxjs';
 })
 export class CharacterComponent {
   character$: Observable<Character | undefined> | undefined;
+  isHero = false;
 
   constructor(private route: ActivatedRoute, private store: Store) {}
   ngOnInit() {
-    this.route.paramMap.subscribe(
-      (params) => (this.character$ = this.getCharacter(params.get('id') ?? ''))
-    );
+    this.route.url.subscribe((url) => {
+      if (url.toString().includes('heroes')) {
+        this.isHero = true;
+      }
+    });
+    this.route.paramMap.subscribe((params) => {
+      console.log(params.get('id'));
+      this.character$ = this.getCharacter(params.get('id') ?? '');
+    });
   }
 
-  getCharacter(heroName: string) {
-    this.store.dispatch(heroesActions.queryHero({ id: heroName }));
-    return this.store.select(selectQueryHero);
+  getCharacter(name: string) {
+    if (this.isHero) {
+      this.store.dispatch(heroesActions.queryHero({ id: name }));
+      return this.store.select(selectQueryHero);
+    }
+    this.store.dispatch(villainActions.queryVillain({ id: name }));
+    return this.store.select(selectVillainQuery);
   }
 }

@@ -50,6 +50,33 @@ export const updateVillainFailure = createAction(
   props<{ error: any }>()
 );
 
+export const queryVillains = createAction(
+  '[Query Villains] Query Villains',
+);
+export const queryVillainsSuccess = createAction(
+  '[Query Villains Success] Query Villains Success',
+  props<{ villains: Villain[] }>()
+);
+export const queryVillainsFailure = createAction(
+  '[Query Villain Failure] Query Villains Failure',
+  props<{ error: any }>()
+);
+
+
+export const queryVillain = createAction(
+  '[Villain Query Guard] Query Villain',
+  props<{ id: string }>()
+);
+export const queryVillainSuccess = createAction(
+  '[Villain Query] Query Villain Success',
+  props<{ villain: Villain }>()
+);
+export const queryVillainFailure = createAction(
+  '[Villain Query] Query Villain Failure',
+  props<{ error: any }>()
+);
+
+
 export const deleteVillain = createAction(
   '[Delete Villain] Delete Villain',
   props<{ villain: Villain }>()

@@ -55,7 +55,7 @@ export class HeroEffects {
       switchMap(({ id }) => {
         return this.service.getHeroes().pipe(
           map((heroes) => {
-            const hero: Hero | undefined = heroes.find((x) => x.heroName === id);
+            const hero: Hero | undefined = heroes.find((x) => x.name === id);
             if (hero !== undefined) {
               return heroActions.queryHeroSuccess({ hero });
             }

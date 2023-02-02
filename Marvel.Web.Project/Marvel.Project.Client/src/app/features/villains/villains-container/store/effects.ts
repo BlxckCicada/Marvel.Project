@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, exhaustMap, map, of, switchMap, tap } from 'rxjs';
+import { Villain } from '../models/villains.model';
 import { VillainService } from '../services/villain.service';
 import * as villainActions from '../store/actions';
 
@@ -38,6 +39,37 @@ export class VillainEffects {
           )
         )
       )
+    );
+  });
+  queryVillains$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(villainActions.queryVillains),
+      switchMap(() =>
+        this.service.getVillains().pipe(
+          map((villains) => villainActions.queryVillainsSuccess({ villains })),
+          catchError((error) =>
+            of(villainActions.queryVillainsFailure({ error }))
+          )
+        )
+      )
+    );
+  });
+  queryVillain$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(villainActions.queryVillain),
+      switchMap(({ id }) => {
+        return this.service.getVillains().pipe(
+          map((villains) => {
+            const villain: Villain | undefined = villains.find((x) => x.name === id);
+            if (villain !== undefined) {
+              return villainActions.queryVillainSuccess({ villain });
+            }
+            return villainActions.queryVillainFailure({
+              error: `Villain with id ${id} is not found`,
+            });
+          })
+        );
+      })
     );
   });
 

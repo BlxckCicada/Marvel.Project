@@ -19,6 +19,7 @@ import { Villain } from '../models/villains.model';
     ></app-card-component>
   `,
   styles: [``],
+  
 })
 export class VillainsComponent {
   @Input() title = '';

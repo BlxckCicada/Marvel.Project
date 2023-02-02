@@ -1,8 +1,8 @@
-namespace Marvel.Project.API.Models;
+namespace Marvel.Project.Core.Entities;
 using System.ComponentModel.DataAnnotations;
 using System;
 
-public record Hero : IModel<Guid>
+public record Villain : IEntity<Guid>
 {
     [Required]
     public Guid Id { get; set; }

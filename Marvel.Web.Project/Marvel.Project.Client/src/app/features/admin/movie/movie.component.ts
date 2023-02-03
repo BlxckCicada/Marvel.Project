@@ -45,17 +45,7 @@ import { CharacterService } from '../services/character.service';
           *ngIf="form.get('characterType')?.value === 'Hero'"
         >
           <option
-            value="{{
-              {
-                name: hero.name,
-                firstName: hero.firstName,
-                lastName: hero.lastName,
-                actualFirstName: hero.actualFirstName,
-                actualLastName: hero.actualLastName,
-                description: hero.description,
-                image: hero.image
-              }
-            }}"
+            value="{{ hero.name }}"
             *ngFor="let hero of heroes$ | async as heroes"
           >
             {{ hero.name }}
@@ -88,7 +78,10 @@ import { CharacterService } from '../services/character.service';
           formControlName="movie"
           required
         >
-          <option value="{{ movie }}" *ngFor="let movie of movies$ | async">
+          <option
+            value="{{ movie.name }}"
+            *ngFor="let movie of movies$ | async"
+          >
             {{ movie.name }}
           </option>
           <option value="addMovie">Add Movie</option>
@@ -103,6 +96,7 @@ import { CharacterService } from '../services/character.service';
           formControlName="movieType"
           required
         >
+          <option value=""></option>
           <option
             value="movie"
             *ngIf="form.get('characterType')?.value === 'Hero'"
@@ -160,27 +154,25 @@ export class MovieComponent {
     });
   }
   onSubmit() {
-    console.log(this.form.get('character'));
-    console.log(this.form.get('characterType'));
-    const character: Character = this.form.get('character')?.value;
-    const movie: Movie = this.form.get('movie')?.value;
-    console.log(
-      `${character.name}, ${character.actualFirstName}, ${character.actualLastName}`
-    );
-    console.log(movie.name);
-    if (movie !== null) {
+    const characterName = this.form.get('character')?.value;
+    const movieName = this.form.get('movie')?.value;
+    console.log(movieName);
+    if (movieName === null) {
+      console.log('returning');
+      return;
+    } else {
+      /// the movie is captured
       if (this.form.get('characterType')?.value === 'Hero') {
         if (this.form.get('movieType')?.value === 'movie') {
-          this.service.addHeroMovie(character, movie);
+          this.service.addHeroMovie(characterName, movieName);
         } else {
           /// movie is featured
         }
       } else {
         /// the character is villain
-        this.service.addVillainFeaturedMovie(character, movie);
+        // this.service.addVillainFeaturedMovie(characterName, movieName);
       }
-    } else {
-      /// the movie is captured
     }
+    this.form.reset();
   }
 }

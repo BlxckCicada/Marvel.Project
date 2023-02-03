@@ -148,5 +148,7 @@ export class CharacterAddComponent {
     } else {
       this.service.addVillain(character);
     }
+
+    this.form.reset();
   }
 }

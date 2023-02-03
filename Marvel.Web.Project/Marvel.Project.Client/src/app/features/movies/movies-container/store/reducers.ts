@@ -8,11 +8,13 @@ export const MoviesAdapter = createEntityAdapter<Movie>({});
 
 export interface MovieState extends EntityState<Movie> {
   moviesResults?: Movie[];
+  movie?: Movie;
 }
 
 export const initialState: MovieState = {
   ...MoviesAdapter.getInitialState(),
   moviesResults: undefined,
+  movie: undefined,
 };
 
 export const movieReducer = createReducer(
@@ -37,8 +39,11 @@ export const movieReducer = createReducer(
   ),
   on(
     actions.queryMoviesSuccess,
-    (state, { movies }): MovieState => 
-    ({ ...state, moviesResults: movies })
+    (state, { movies }): MovieState => ({ ...state, moviesResults: movies })
+  ),
+  on(
+    actions.queryMovieSuccess,
+    (state, { movie }): MovieState => ({ ...state, movie: movie })
   ),
 
   on(

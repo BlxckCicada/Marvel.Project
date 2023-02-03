@@ -18,7 +18,7 @@ export class HeroService {
   }
 
   addHero(hero: Hero) {
-    return this.http.post<Hero>(`${this.url}heroes/`, hero);
+    return this.http.post<Hero>(`${this.url}/heroes/`, hero);
   }
 
   updateHero(hero: Hero) {

@@ -12,45 +12,53 @@ import { Villain } from '../../villains/villains-container/models/villains.model
 @Component({
   selector: 'app-character',
   template: `
-    <mat-card
-      *ngIf="character$ | async as character"
-      fxLayout="row"
-      fxLayout.xs="column"
-      fxLayout.sm="column"
-      class="card"
-    >
-      <mat-card-content
-        class="left-content"
-        fxLayoutAlign.xs="start"
+    <div *ngIf="character$ | async as character">
+      <mat-card
+        fxLayout="row"
         fxLayout.xs="column"
+        fxLayout.sm="column"
+        class="card"
       >
-        <mat-card-header fxLayoutAlign="center center">
-          <mat-card-title>
-            <h2>{{ character?.name }}</h2>
-          </mat-card-title>
-          <mat-card-subtitle style="color:white">
-            <h4>
-              Played by {{ character?.actualFirstName }}
-              {{ character?.actualLastName }}
-            </h4>
-          </mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content fxLayoutAlign="center center">
-          <img mat-card-image src="{{ character?.image }}" alt="" />
+        <mat-card-content
+          class="left-content"
+          fxLayoutAlign.xs="start"
+          fxLayout.xs="column"
+        >
+          <mat-card-header fxLayoutAlign="center center">
+            <mat-card-title>
+              <h2>{{ character?.name }}</h2>
+            </mat-card-title>
+            <mat-card-subtitle style="color:white">
+              <h4>
+                Played by {{ character?.actualFirstName }}
+                {{ character?.actualLastName }}
+              </h4>
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content fxLayoutAlign="center center">
+            <img mat-card-image src="{{ character?.image }}" alt="" />
+          </mat-card-content>
         </mat-card-content>
-      </mat-card-content>
-      <mat-card-content class="right-content">
-        <p>
-          {{ character?.description }}
-        </p>
-      </mat-card-content>
-    </mat-card>
+        <mat-card-content class="right-content">
+          <p>
+            {{ character?.description }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+      <div class="movies" *ngIf="isHero">
+        <h2>Movies</h2>
 
-    <div class="movies" *ngIf="isHero">
-      <h2>Movies</h2>
-    </div>
-    <div class="featured-movies">
-      <h2>Featured Movies</h2>
+        <div *ngIf="character?.movies">
+          <img
+            *ngFor="let movie of character?.movies"
+            src="{{ movie.image }}"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="featured-movies">
+        <h2>Featured Movies</h2>
+      </div>
     </div>
   `,
   styles: [
@@ -114,6 +122,7 @@ export class CharacterComponent {
       console.log(params.get('id'));
       this.character$ = this.getCharacter(params.get('id') ?? '');
     });
+    console.log(this.character$);
   }
 
   getCharacter(name: string) {

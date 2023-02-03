@@ -34,6 +34,19 @@ export const queryMoviesFailure = createAction(
   props<{ error: any }>()
 );
 
+export const queryMovie = createAction(
+  '[Movie Query Guard] Query Movie',
+  props<{ id: string }>()
+);
+export const queryMovieSuccess = createAction(
+  '[Movie Query] Query Movie Success',
+  props<{ movie: Movie }>()
+);
+export const queryMovieFailure = createAction(
+  '[Movie Query] Query Movie Failure',
+  props<{ error: any }>()
+);
+
 export const addMovie = createAction(
   '[Add Movie ] Add Movie',
   props<{ movie: Movie }>()

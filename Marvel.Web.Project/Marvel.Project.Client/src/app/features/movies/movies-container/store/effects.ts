@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, exhaustMap, map, of, switchMap, tap } from 'rxjs';
+import { Movie } from '../models/movie.model';
 import { MovieService } from '../services/movies.service';
 import * as moviesActions from '../store/actions';
 
@@ -66,7 +67,24 @@ export class MovieEffects {
     );
   });
 
-
+  queryMovie$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(moviesActions.queryMovie),
+      switchMap(({ id }) => {
+        return this.service.getMovies().pipe(
+          map((movies) => {
+            const movie: Movie | undefined = movies.find((x) => x.name === id);
+            if (movie !== undefined) {
+              return moviesActions.queryMovieSuccess({ movie });
+            }
+            return moviesActions.queryMovieFailure({
+              error: `Movie with id ${id} is not found`,
+            });
+          })
+        );
+      })
+    );
+  });
   updateMovie$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(moviesActions.updateMovie),

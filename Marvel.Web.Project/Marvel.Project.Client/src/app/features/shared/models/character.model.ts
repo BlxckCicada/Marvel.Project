@@ -1,3 +1,5 @@
+import { FeaturedMovie, Movie } from "../../movies/movies-container/models/movie.model";
+
 export interface Character {
   id?: string;
   name: string;
@@ -7,4 +9,10 @@ export interface Character {
   actualLastName: string;
   description: string;
   image: string;
+
+  movies?:Movie[];
+  featuredMovies?:FeaturedMovie[];
+
 }
+
+

@@ -5,3 +5,5 @@ export interface Movie {
   description: string;
   image: string;
 }
+
+export interface FeaturedMovie extends Movie {}

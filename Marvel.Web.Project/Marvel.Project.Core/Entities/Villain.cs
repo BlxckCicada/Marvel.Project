@@ -27,4 +27,6 @@ public record Villain : IEntity<Guid>
 
     
     public string Image { get; set; } = string.Empty;
+
+    public IList<FeaturedMovie>? FeaturedMovies { get; set; }
 }

@@ -25,6 +25,10 @@ public record Hero : IModel<Guid>
     [MaxLength(1024, ErrorMessage = "Description of the character can only be 114 words or less")]
     public string Description { get; set; } = string.Empty;
 
-    
+
     public string Image { get; set; } = string.Empty;
+
+
+    public IList<Movie>? Movies { get; set; }
+    public IList<FeaturedMovie>? FeaturedMovies { get; set; }
 }

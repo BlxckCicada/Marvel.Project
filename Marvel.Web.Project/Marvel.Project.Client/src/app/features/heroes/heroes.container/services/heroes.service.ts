@@ -5,7 +5,6 @@ import { Hero } from '../models/hero.model';
 
 @Injectable({ providedIn: 'root' })
 export class HeroService {
-
   private url = 'https://localhost:7068';
   constructor(private http: HttpClient) {}
   getHeroes() {
@@ -22,7 +21,9 @@ export class HeroService {
   }
 
   updateHero(hero: Hero) {
-    return this.http.put<Hero>(`${this.url}/heroes`, hero);
+    console.log(hero);
+  
+    return this.http.put<Hero>(`${this.url}/heroes/${hero.id}`, hero);
   }
   deleteHero(id: string) {
     return this.http.delete<Hero>(`${this.url}/heroes/${id}`);

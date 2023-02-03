@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Subject } from 'rxjs';
+import { first, last, Subject } from 'rxjs';
 import { Hero } from '../../heroes/heroes.container/models/hero.model';
 import { Villain } from '../../villains/villains-container/models/villains.model';
 import * as heroActions from '../../heroes/heroes.container/store/actions';
 import * as villainActions from '../../villains/villains-container/store/actions';
 import * as movieActions from '../../movies/movies-container/store/actions';
-import * as heroMovieActions from '../../shared/store/hero-movies-store/actions';
-import * as villainMovieActions from '../../shared/store/villain-featuredmovies-store/actions';
 
 import {
   selectHeroesQueryResult,
   selectQueryHero,
 } from '../../heroes/heroes.container/store/selectors';
 import { selectVillainsQueryResult } from '../../villains/villains-container/store/selectors';
-import { selectMoviesQueryResult, selectQueryMovie } from '../../movies/movies-container/store/selectors';
+import {
+  selectMoviesQueryResult,
+  selectQueryMovie,
+} from '../../movies/movies-container/store/selectors';
 import { Movie } from '../../movies/movies-container/models/movie.model';
-import { CharacterMovie } from '../../shared/models/heromovie.model';
 import { Character } from '../../shared/models/character.model';
 
 @Injectable()
@@ -48,30 +48,36 @@ export class CharacterService {
     return this.store.select(selectMoviesQueryResult);
   }
 
-  addHeroMovie(heroName: string, movieName: string) {
+  updateHeroMovie(heroName: string, movieName: string) {
     this.queryHeroByName(heroName).subscribe((hero) => {
+      console.log('let"s see', hero);
       this.queryMovieByName(movieName).subscribe((movie) => {
         if (hero !== undefined && movie !== undefined) {
-          const heroMovie: CharacterMovie = {
-            hero: hero,
-            movie: movie,
-          };
-          this.store.dispatch(
-            heroMovieActions.addHeroMovie({ heroMovie: heroMovie })
-          );
+          let editedHero = Object.assign({}, hero);
+          if (editedHero.movies) {
+            editedHero.movies = { ...editedHero.movies };
+            if (editedHero.movies.length === 0) {
+              editedHero.movies.push(movie);
+              this.store.dispatch(heroActions.updateHero({ hero: editedHero }));
+            }
+          }
         }
       });
     });
   }
-  // addVillainFeaturedMovie(hero: string, movie: string) {
-  //   const villainMovie: CharacterMovie = {
-  //     hero: hero,
-  //     movie: movie,
-  //   };
-  //   this.store.dispatch(
-  //     villainMovieActions.addVillainMovie({ villainMovie: villainMovie })
-  //   );
-  // }
+
+  addHeroMovie(characterName: string, movie: Movie) {
+    this.queryHeroByName(characterName).subscribe((hero) => {
+      if (hero !== undefined && movie !== undefined) {
+        let editedHero = Object.assign({}, hero);
+        editedHero.movies = [];
+        if (editedHero.movies.length === 0) {
+          editedHero.movies.push(movie);
+          this.store.dispatch(heroActions.addHero({ hero: editedHero }));
+        }
+      }
+    });
+  }
 
   queryHeroByName(characterName: string) {
     this.store.dispatch(heroActions.queryHero({ id: characterName }));

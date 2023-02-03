@@ -6,6 +6,7 @@ using Marvel.Project.Core;
 using Marvel.Project.Core.Data;
 using Marvel.Project.Core.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 public class MarvelProjectDbContext : DbContext, IRepository
 {
@@ -26,7 +27,13 @@ public class MarvelProjectDbContext : DbContext, IRepository
 
     public IQueryable<T> Query<T>() where T : class, IEntity
     {
+        Type type = typeof(T);
+        if (typeof(Hero).IsAssignableFrom(type))
+        {
+            return this.Set<T>().Include(nameof(Hero.Movies)).Include(nameof(Hero.FeaturedMovies));
+        }
         return this.Set<T>();
+
     }
 
     public T RemoveOne<T>(T entity) where T : class, IEntity

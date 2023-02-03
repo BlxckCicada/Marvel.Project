@@ -61,7 +61,7 @@ import { CharacterService } from '../services/character.service';
           *ngIf="form.get('characterType')?.value === 'Villain'"
         >
           <option
-            value="{{ villain }}"
+            value="{{ villain.name }}"
             *ngFor="let villain of villains$ | async as villains"
           >
             {{ villain.name }}
@@ -113,19 +113,32 @@ import { CharacterService } from '../services/character.service';
             type="text"
             class="form-control"
             placeholder="Enter movie name"
+            formControlName="name"
           />
         </div>
         <div class="form-group">
           <label for="" class="form-control-static">Release Date</label>
-          <input type="date" class="form-control" />
+          <input
+            type="date"
+            class="form-control"
+            formControlName="releaseDate"
+          />
         </div>
         <div class="form-group">
           <label for="" class="form-control-static">Description</label>
-          <textarea type="text" class="form-control"></textarea>
+          <textarea
+            type="text"
+            class="form-control"
+            formControlName="description"
+          ></textarea>
         </div>
         <div class="form-group">
           <label for="" class="form-control-static">Image</label>
-          <textarea type="text" class="form-control"></textarea>
+          <textarea
+            type="text"
+            class="form-control"
+            formControlName="image"
+          ></textarea>
         </div>
       </div>
       <button class="form-control" style="background:royalblue;color:white">
@@ -151,6 +164,10 @@ export class MovieComponent {
       character: new FormControl(),
       movie: new FormControl(),
       movieType: new FormControl(),
+      name: new FormControl(),
+      releaseDate: new FormControl(),
+      description: new FormControl(),
+      image: new FormControl(),
     });
   }
   onSubmit() {
@@ -161,16 +178,31 @@ export class MovieComponent {
       console.log('returning');
       return;
     } else {
-      /// the movie is captured
-      if (this.form.get('characterType')?.value === 'Hero') {
-        if (this.form.get('movieType')?.value === 'movie') {
-          this.service.addHeroMovie(characterName, movieName);
-        } else {
-          /// movie is featured
-        }
+      if (movieName === 'addMovie') {
+        const name = this.form.get('name')?.value;
+        const releaseDate = this.form.get('releaseDate')?.value;
+        const description = this.form.get('description')?.value;
+        const image = this.form.get('image')?.value;
+        const movie: Movie = {
+          name: name,
+          releaseDate: releaseDate,
+          description: description,
+          image: image,
+        };
+        console.log(movie);
+        this.service.addHeroMovie(characterName, movie);
       } else {
-        /// the character is villain
-        // this.service.addVillainFeaturedMovie(characterName, movieName);
+        /// the movie is captured
+        if (this.form.get('characterType')?.value === 'Hero') {
+          if (this.form.get('movieType')?.value === 'movie') {
+            this.service.updateHeroMovie(characterName, movieName);
+          } else {
+            /// movie is featured
+          }
+        } else {
+          /// the character is villain
+          // this.service.addVillainFeaturedMovie(characterName, movieName);
+        }
       }
     }
     this.form.reset();

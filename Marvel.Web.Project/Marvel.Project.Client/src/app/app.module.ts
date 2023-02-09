@@ -13,14 +13,14 @@ import { SharedModule } from './shared/shared/shared.module';
 import { StoreModule } from '@ngrx/store';
 import { routerReducer } from '@ngrx/router-store';
 import { EffectsModule } from '@ngrx/effects';
-import { CharacterComponent } from './features/shared/character/character.component';
+import { AdminModule } from './features/admin/admin-module/admin.module';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, CharacterComponent],
+  declarations: [AppComponent, HeaderComponent],
   providers: [],
   bootstrap: [AppComponent],
   imports: [
@@ -31,6 +31,7 @@ const appRoutes: Routes = [
     MoviesModule,
     VillainsModule,
     HeroesModule,
+    AdminModule,
     SharedModule,
     StoreModule.forRoot({ router: routerReducer }),
     EffectsModule.forRoot([]),

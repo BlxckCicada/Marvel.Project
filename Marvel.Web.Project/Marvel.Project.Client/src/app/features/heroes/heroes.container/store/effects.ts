@@ -73,9 +73,6 @@ export class HeroEffects {
       ofType(heroActions.addHero),
       exhaustMap(({ hero }) =>
         this.service.addHero(hero).pipe(
-          tap((_) => {
-            this.router.navigate(['/heroes']);
-          }),
           map((hero) => heroActions.addHeroSuccess({ hero })),
           catchError((error) => {
             return of(heroActions.addHeroFailure({ error }));
@@ -90,9 +87,6 @@ export class HeroEffects {
       ofType(heroActions.updateHero),
       exhaustMap(({ hero }) =>
         this.service.updateHero(hero).pipe(
-          tap((_) => {
-            this.router.navigate(['/heroes']);
-          }),
           map((hero) => heroActions.updateHeroSuccess({ hero })),
           catchError((error) => {
             return of(heroActions.updateHeroFailure({ error }));
@@ -106,9 +100,6 @@ export class HeroEffects {
       ofType(heroActions.deleteHero),
       exhaustMap(({ hero }) =>
         this.service.deleteHero(hero.id ?? '').pipe(
-          tap((_) => {
-            this.router.navigate(['/heroes']);
-          }),
           map((id) => heroActions.deleteHeroSuccess({ hero })),
           catchError((error) => {
             return of(heroActions.deleteHeroFailure({ error }));

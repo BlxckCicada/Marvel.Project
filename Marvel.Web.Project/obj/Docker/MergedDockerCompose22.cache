@@ -1,0 +1,91 @@
+name: dockercompose12885275475808557083
+services:
+  marvel.project.api:
+    build:
+      context: D:\Development\ASP Net Projects\Marvel.Project\Marvel.Web.Project
+      dockerfile: Marvel.Project.API\Dockerfile
+    command:
+    - dotnet
+    - ef
+    - database
+    - update
+    depends_on:
+      marveldb:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      CONNECTION_STRING: Server=localhost;Initial Catalog=marveldb;User Id=sa;Password=Amogelang#5;TrustServerCertificate=True
+    image: marvelprojectapi
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 80
+      published: "8080"
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      published: "7068"
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: C:\Users\sebat\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\sebat\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+  marvel.project.client:
+    build:
+      context: D:\Development\ASP Net Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.Client
+      dockerfile: .\Dockerfile
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: "4200"
+      protocol: tcp
+  marvel.project.core:
+    build:
+      context: D:\Development\ASP Net Projects\Marvel.Project\Marvel.Web.Project
+      dockerfile: Marvel.Project.Core\Dockerfile
+    image: marvelprojectcore
+    networks:
+      default: null
+  marvel.project.data:
+    build:
+      context: D:\Development\ASP Net Projects\Marvel.Project\Marvel.Web.Project
+      dockerfile: Marvel.Project.Data\Dockerfile
+    environment:
+      CONNECTION_STRING: Server=localhost;Initial Catalog=marveldb;User Id=sa;Password=Amogelang#5;TrustServerCertificate=True
+    image: marvelprojectdata
+    networks:
+      default: null
+  marveldb:
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Amogelang#5
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 1433
+      published: "1433"
+      protocol: tcp
+networks:
+  default:
+    name: dockercompose12885275475808557083_default

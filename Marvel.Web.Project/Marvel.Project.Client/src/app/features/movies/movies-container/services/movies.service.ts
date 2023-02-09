@@ -5,7 +5,7 @@ import { Movie } from '../models/movie.model';
 
 @Injectable({providedIn:'root'})
 export class MovieService {
-  private url = 'https://localhost:7068';
+  private url = 'https://marvelmcu-api.azurewebsites.net';
   constructor(private http: HttpClient) {}
 
   getMovies() {

@@ -10,5 +10,10 @@ export const selectMoviesQueryResult = createSelector(
   selectMoviesState,
   (state: MovieState) => state.moviesResults
 );
+
+export const selectQueryMovie = createSelector(
+  selectMoviesState,
+  (state: MovieState) => state.movie
+);
 export const { selectAll, selectEntities } =
   MoviesAdapter.getSelectors(selectMoviesState);

@@ -1,0 +1,139 @@
+name: dockercompose12885275475808557083
+services:
+  marvel.project.api:
+    build:
+      context: D:\Development\ASP Net Projects\Marvel.Project\Marvel.Web.Project
+      dockerfile: Marvel.Project.API\Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: Marvel.Project.API
+      target: base
+    container_name: Marvel.Project.API
+    depends_on:
+      marveldb:
+        condition: service_started
+    entrypoint:
+    - C:\remote_debugger\x64\msvsmon.exe
+    - /noauth
+    - /anyuser
+    - /silent
+    - /nostatus
+    - /noclrwarn
+    - /nosecuritywarn
+    - /nofirewallwarn
+    - /nowowwarn
+    - /timeout:2147483646
+    - /LogDebuggeeOutputToStdOut
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORT: https://*:7068
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      CONNECTION_STRING: Server=localhost;Initial Catalog=marveldb;User Id=sa;Password=Amogelang#5;TrustServerCertificate=True
+      DOTNET_USE_POLLING_FILE_WATCHER: "1"
+      NUGET_FALLBACK_PACKAGES: c:\.nuget\fallbackpackages
+      NUGET_PACKAGES: C:\.nuget\packages
+    image: marvelprojectapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath c:\.nuget\packages
+        --additionalProbingPath c:\.nuget\fallbackpackages  "C:\app\bin\Debug\net7.0\Marvel.Project.API.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: C:\remote_debugger\x64\utils\KillProcess.exe
+        dotnet.exe
+      com.microsoft.visualstudio.debuggee.program: '"C:\Program Files\dotnet\dotnet.exe"'
+      com.microsoft.visualstudio.debuggee.workingdirectory: C:\app
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    - mode: ingress
+      target: 7068
+      published: "7068"
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: C:\Users\sebat\AppData\Roaming/ASP.NET/Https
+      target: C:\Users\ContainerUser\AppData\Roaming\ASP.NET\Https
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\sebat\AppData\Roaming/Microsoft/UserSecrets
+      target: C:\Users\ContainerUser\AppData\Roaming\Microsoft\UserSecrets
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: D:\Development\ASP Net Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.API
+      target: C:\app
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\sebat\onecoremsvsmon\17.4.11004.1991
+      target: C:\remote_debugger
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: D:\Development\ASP Net Projects\Marvel.Project\Marvel.Web.Project
+      target: C:\src
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages
+      target: c:\.nuget\fallbackpackages
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\sebat\.nuget\packages\
+      target: c:\.nuget\packages
+      read_only: true
+      bind:
+        create_host_path: true
+  marvel.project.client:
+    build:
+      context: D:\Development\ASP Net Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.Client
+      dockerfile: .\Dockerfile
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: "4200"
+      protocol: tcp
+  marvel.project.core:
+    build:
+      context: D:\Development\ASP Net Projects\Marvel.Project\Marvel.Web.Project
+      dockerfile: Marvel.Project.Core\Dockerfile
+    image: marvelprojectcore
+    networks:
+      default: null
+  marvel.project.data:
+    build:
+      context: D:\Development\ASP Net Projects\Marvel.Project\Marvel.Web.Project
+      dockerfile: Marvel.Project.Data\Dockerfile
+    environment:
+      CONNECTION_STRING: Server=localhost;Initial Catalog=marveldb;User Id=sa;Password=Amogelang#5;TrustServerCertificate=True
+    image: marvelprojectdata
+    networks:
+      default: null
+  marveldb:
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Amogelang#5
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 1433
+      published: "1433"
+      protocol: tcp
+networks:
+  default:
+    name: dockercompose12885275475808557083_default

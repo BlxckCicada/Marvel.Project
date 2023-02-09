@@ -8,15 +8,17 @@ import { SharedModule } from 'src/app/shared/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CharacterService } from '../services/character.service';
 import { MovieComponent } from '../movie/movie.component';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
+import { MovieAddContainerComponent } from '../movie-add-container/movie-add-container.component';
+import { MovieAddComponent } from '../movie-add-container/movie-add/movie-add.component';
 
 @NgModule({
   declarations: [
     CharacterAddComponent,
     CharacterContainerComponent,
     AdminComponent,
-    MovieComponent
+    MovieComponent,
+    MovieAddContainerComponent,
+    MovieAddComponent,
   ],
   imports: [
     CommonModule,

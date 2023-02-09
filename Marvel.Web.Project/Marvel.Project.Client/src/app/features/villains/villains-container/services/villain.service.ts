@@ -4,7 +4,7 @@ import { Villain } from '../models/villains.model';
 
 @Injectable({providedIn:'root'})
 export class VillainService {
-  private url = 'https://localhost:7068';
+  private url = 'https://marvelmcu-api.azurewebsites.net';
   constructor(private http: HttpClient) {}
 
   getVillains() {

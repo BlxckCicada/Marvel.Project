@@ -1,11 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
 import { Hero } from '../models/hero.model';
 
 @Injectable({ providedIn: 'root' })
 export class HeroService {
-  private url = 'https://localhost:7068';
+  private url = 'https://marvelmcu-api.azurewebsites.net';
   constructor(private http: HttpClient) {}
   getHeroes() {
     return this.http.get<Hero[]>(`${this.url}/heroes`, {

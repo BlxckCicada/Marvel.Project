@@ -189,8 +189,13 @@ export class MovieComponent {
           description: description,
           image: image,
         };
-        console.log(movie);
-        this.service.addHeroMovie(characterName, movie);
+        if (this.form.get('characterType')?.value === 'Hero') {
+          this.service.addHeroMovie(characterName, movie);
+        }else{
+          this.service.addVIllainMovie(characterName, movie);
+        }
+      
+       
       } else {
         /// the movie is captured
         if (this.form.get('characterType')?.value === 'Hero') {
@@ -198,10 +203,12 @@ export class MovieComponent {
             this.service.updateHeroMovie(characterName, movieName);
           } else {
             /// movie is featured
+            this.service.updateHeroFeaturedMovie(characterName, movieName);
           }
         } else {
           /// the character is villain
           // this.service.addVillainFeaturedMovie(characterName, movieName);
+          this.service.updateVillainFeaturedMovie(characterName, movieName);
         }
       }
     }

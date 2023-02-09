@@ -50,7 +50,7 @@ import { Component } from '@angular/core';
         </div>
       </div>
     </nav>
-    <div style="width:100%; height:150px;background-color: red;"></div>
+    <div style="width:100%; height:80px;background-color: red;"></div>
   `,
   styles: [
     `
@@ -108,15 +108,7 @@ import { Component } from '@angular/core';
         max-width: 50px;
         max-height: 50px;
       }
-      /* 
-  @media screen and (width<600px) {
-    .nav-links{
-      margin-top:100%;
-    }
-    .navbar-toggle{
-      margin-top:100%;
-    }
-  } */
+
     `,
   ],
 })

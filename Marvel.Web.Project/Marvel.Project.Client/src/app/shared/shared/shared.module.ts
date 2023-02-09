@@ -9,12 +9,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CardComponent } from 'src/app/features/shared/card-component/card.component';
 import { ActiveDirective } from 'src/app/header/directive/active.directive';
+import { SpinnerComponent } from 'src/app/features/shared/spinners';
 
 
 
 @NgModule({
   declarations: [ 
-    ActiveDirective,CardItemComponent,CardComponent,
+    ActiveDirective,CardItemComponent,CardComponent, SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +33,7 @@ import { ActiveDirective } from 'src/app/header/directive/active.directive';
     MatCardModule,
     MatButtonModule,
     FlexLayoutModule,
-    ActiveDirective,CardItemComponent,CardComponent,
+    ActiveDirective,CardItemComponent,CardComponent,SpinnerComponent
   ]
 })
 export class SharedModule { }

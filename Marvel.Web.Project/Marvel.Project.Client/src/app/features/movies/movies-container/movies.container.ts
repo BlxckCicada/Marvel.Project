@@ -7,16 +7,27 @@ import * as actions from './store/actions';
 @Component({
   selector: 'app-movies-container',
   template: `
-      <app-movies [movies]="movies$ | async "></app-movies>
+    <app-spinner *ngIf="isLoading" fxLayoutAlign="center center"></app-spinner>
+    <ng-container *ngIf="movies$ | async as movies">
+      <app-movies [movies]="movies" *ngIf="movies"></app-movies>
+    </ng-container>
   `,
   styles: [``],
 })
 export class MoviesContainerComponent implements OnInit {
   public movies$: Observable<Movie[] | undefined> | undefined;
+  isLoading = true;
   constructor(private store: Store) {}
 
   ngOnInit(): void {
     this.store.dispatch(actions.queryMovies());
     this.movies$ = this.store.select(selectMoviesQueryResult);
+    this.movies$.subscribe((movies) => {
+      if (movies === undefined || movies.length === 0) {
+        this.isLoading = true;
+      } else {
+        this.isLoading = false;
+      }
+    });
   }
 }

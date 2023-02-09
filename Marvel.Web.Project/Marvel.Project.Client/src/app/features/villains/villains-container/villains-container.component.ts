@@ -7,18 +7,29 @@ import * as actions from './store/actions';
 @Component({
   selector: 'app-villains-container',
   template: `
-    <app-villains *ngIf="villains$ | async as villains" [villains]="villains" [title]="title"></app-villains>
+    <app-spinner *ngIf="isLoading" fxLayoutAlign="center center"></app-spinner>
+
+    <ng-container *ngIf="villains$ | async as villains">
+      <app-villains [villains]="villains" [title]="title"></app-villains>
+    </ng-container>
   `,
   styles: [``],
 })
 export class VillainsContainerComponent {
   title = 'Villains';
-  public villains$: Observable<Villain[] | undefined>|undefined;
-
+  public villains$: Observable<Villain[] | undefined> | undefined;
+  isLoading = true;
   constructor(private store: Store) {}
 
   ngOnInit() {
     this.store.dispatch(actions.queryVillains());
     this.villains$ = this.store.select(selectVillainsQueryResult);
+    this.villains$.subscribe((villains) => {
+      if (villains === undefined || villains.length === 0) {
+        this.isLoading = true;
+      } else {
+        this.isLoading = false;
+      }
+    });
   }
 }

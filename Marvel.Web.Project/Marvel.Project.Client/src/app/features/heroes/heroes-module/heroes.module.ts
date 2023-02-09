@@ -9,7 +9,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { featureName, heroReducer } from '../heroes.container/store/reducers';
 import { HeroEffects } from '../heroes.container/store/effects';
 import { CommonModule } from '@angular/common';
-import { CharacterAddComponent } from '../../admin/character-container/character-add-component/character-add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CharacterComponent } from '../../shared/character/character.component';
 
@@ -17,7 +16,8 @@ import { CharacterComponent } from '../../shared/character/character.component';
   declarations: [
     HeroesComponent,
     HeroesContainerComponent,
-    CharacterComponent
+    CharacterComponent,
+
   ],
   imports: [
     CommonModule,

@@ -49,7 +49,6 @@ export class MovieEffects {
       exhaustMap(({ movie }) =>
         this.service.addMovie(movie).pipe(
           map((movie) => moviesActions.addMovieSuccess({ movie })),
-          tap((_) => this.router.navigate(['/movies'])),
           catchError((error) => of(moviesActions.addMovieFailure({ error })))
         )
       )
@@ -91,7 +90,6 @@ export class MovieEffects {
       exhaustMap(({ movie }) =>
         this.service.updateMovie(movie).pipe(
           map((movie) => moviesActions.updateMovieSuccess({ movie })),
-          tap((_) => this.router.navigate(['/movies'])),
           catchError((error) => of(moviesActions.updateMovieFailure({ error })))
         )
       )
@@ -104,7 +102,6 @@ export class MovieEffects {
       exhaustMap(({ movie }) =>
         this.service.deleteMovie(movie.id ?? '').pipe(
           map((movie) => moviesActions.deleteMovieSuccess({ movie })),
-          tap((_) => this.router.navigate(['/movies'])),
           catchError((error) => of(moviesActions.deleteMovieFailure({ error })))
         )
       )

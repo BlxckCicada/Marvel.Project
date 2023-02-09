@@ -76,5 +76,6 @@ export class MovieAddComponent {
     };
 
     this.store.dispatch(actions.addMovie({ movie: movie }));
+    this.form.reset();
   }
 }

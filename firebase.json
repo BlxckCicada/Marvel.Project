@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "Marvel.Web.Project/Marvel.Project.Client/dist",
+    "public": "Marvel.Web.Project/Marvel.Project.Client/dist/marvel.project.client",
     "ignore": [
       "firebase.json",
       "**/.*",

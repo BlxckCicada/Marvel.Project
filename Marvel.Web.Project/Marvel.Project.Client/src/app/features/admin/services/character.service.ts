@@ -69,12 +69,11 @@ export class CharacterService {
     this.queryHeroByName(heroName).subscribe((hero) => {
       this.queryMovieByName(movieName).subscribe((movie) => {
         if (hero !== undefined && movie !== undefined) {
+          console.log('this is the hero ', hero, 'this is the movie', movie);
           let editedHero = Object.assign({}, hero);
           if (editedHero.featuredMovies) {
             editedHero.featuredMovies = { ...editedHero.featuredMovies };
-            console.log('featured movies', editedHero.featuredMovies);
             if (editedHero.featuredMovies.length === 0) {
-             
               editedHero.featuredMovies.push(movie);
               this.store.dispatch(heroActions.updateHero({ hero: editedHero }));
             }

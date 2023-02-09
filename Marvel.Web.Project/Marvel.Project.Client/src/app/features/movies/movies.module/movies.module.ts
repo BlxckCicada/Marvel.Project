@@ -10,9 +10,10 @@ import { MoviesContainerComponent } from '../movies-container/movies.container';
 import { MovieEffects } from '../movies-container/store/effects';
 import { featureName, movieReducer } from '../movies-container/store/reducers';
 import { MoviesRoutes } from '../movies.routes/movies.routes';
+import { SortDatePipe } from '../sort.pipe';
 
 @NgModule({
-  declarations: [MoviesComponent, MoviesContainerComponent, MovieItemComponent],
+  declarations: [MoviesComponent, MoviesContainerComponent, MovieItemComponent, SortDatePipe],
   imports: [
     CommonModule,
     MoviesRoutes,

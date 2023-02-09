@@ -26,32 +26,32 @@ import { Villain } from '../../villains/villains-container/models/villains.model
         >
           <mat-card-header fxLayoutAlign="center center">
             <mat-card-title>
-              <h2>{{ character?.name }}</h2>
+              <h2>{{ character.name }}</h2>
             </mat-card-title>
             <mat-card-subtitle style="color:white">
               <h4>
-                Played by {{ character?.actualFirstName }}
-                {{ character?.actualLastName }}
+                Played by {{ character.actualFirstName }}
+                {{ character.actualLastName }}
               </h4>
             </mat-card-subtitle>
           </mat-card-header>
           <mat-card-content fxLayoutAlign="center center">
-            <img mat-card-image src="{{ character?.image }}" alt="" />
+            <img mat-card-image src="{{ character.image }}" alt="" />
           </mat-card-content>
         </mat-card-content>
         <mat-card-content class="right-content">
           <p>
-            {{ character?.description }}
+            {{ character.description }}
           </p>
         </mat-card-content>
       </mat-card>
       <div class="movies" *ngIf="isHero">
         <h2>Movies</h2>
 
-        <div *ngIf="character?.movies" FxLayoutAlign="row">
+        <div *ngIf="character.movies" FxLayoutAlign="row">
           <a routerLink="/movies">
             <img
-              *ngFor="let movie of character?.movies"
+              *ngFor="let movie of character.movies"
               src="{{ movie.image }}"
               alt=""
               style="width:100px;height:100px;"
@@ -61,6 +61,16 @@ import { Villain } from '../../villains/villains-container/models/villains.model
       </div>
       <div class="featured-movies">
         <h2>Featured Movies</h2>
+        <div *ngIf="character.featuredMovies" FxLayoutAlign="row">
+          <a routerLink="/movies">
+            <img
+              *ngFor="let movie of character.featuredMovies"
+              src="{{ movie.image }}"
+              alt=""
+              style="width:100px;height:100px;"
+            />
+          </a>
+        </div>
       </div>
     </div>
   `,

@@ -6,6 +6,8 @@ import { HeroesContainerComponent } from '../../heroes/heroes.container/heroes.c
 import { CharacterAddComponent } from '../character-container/character-add-component/character-add.component';
 import { CharacterContainerComponent } from '../character-container/character-container.component';
 import { MovieComponent } from '../movie/movie.component';
+import { MovieAddContainerComponent } from '../movie-add-container/movie-add-container.component';
+import { MovieAddComponent } from '../movie-add-container/movie-add/movie-add.component';
 
 const appRoutes: Routes = [
   {
@@ -21,7 +23,12 @@ const appRoutes: Routes = [
           { path: 'movies', component: MovieComponent },
         ],
       },
-      { path: '', redirectTo: '/admin/characters', pathMatch: 'full' },
+      {
+        path: 'movies',
+        component: MovieAddContainerComponent,
+        children: [{ path: 'add', component: MovieAddComponent }],
+      },
+      { path: '', redirectTo: '/admin', pathMatch: 'full' },
     ],
   },
 ];

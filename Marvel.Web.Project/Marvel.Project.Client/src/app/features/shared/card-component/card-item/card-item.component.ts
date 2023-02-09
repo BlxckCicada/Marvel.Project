@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Villain } from 'src/app/features/villains/villains-container/models/villains.model';
 import { Character } from '../../models/character.model';
 
 @Component({
@@ -68,11 +67,9 @@ export class CardItemComponent {
 
   constructor(private router: Router, private route: ActivatedRoute) {}
   ngOnInit() {
-    console.log(this.entry?.name);
   }
 
   onCharacterClick() {
-    console.log(this.entry?.name);
     this.router.navigate([this.entry?.name], {
       relativeTo: this.route,
     });

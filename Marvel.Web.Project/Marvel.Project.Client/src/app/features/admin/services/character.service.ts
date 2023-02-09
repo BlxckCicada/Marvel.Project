@@ -65,6 +65,42 @@ export class CharacterService {
       });
     });
   }
+  updateHeroFeaturedMovie(heroName: string, movieName: string) {
+    this.queryHeroByName(heroName).subscribe((hero) => {
+      this.queryMovieByName(movieName).subscribe((movie) => {
+        if (hero !== undefined && movie !== undefined) {
+          let editedHero = Object.assign({}, hero);
+          if (editedHero.featuredMovies) {
+            editedHero.featuredMovies = { ...editedHero.featuredMovies };
+            console.log('featured movies', editedHero.featuredMovies);
+            if (editedHero.featuredMovies.length === 0) {
+             
+              editedHero.featuredMovies.push(movie);
+              this.store.dispatch(heroActions.updateHero({ hero: editedHero }));
+            }
+          }
+        }
+      });
+    });
+  }
+  updateVillainFeaturedMovie(villainName: string, movieName: string) {
+    this.queryVillainByName(villainName).subscribe((villain) => {
+      this.queryMovieByName(villainName).subscribe((movie) => {
+        if (villain !== undefined && movie !== undefined) {
+          let editedVillain = Object.assign({}, villain);
+          if (editedVillain.featuredMovies) {
+            editedVillain.featuredMovies = { ...editedVillain.featuredMovies };
+            if (editedVillain.featuredMovies.length === 0) {
+              editedVillain.featuredMovies.push(movie);
+              this.store.dispatch(
+                villainActions.updateVillain({ villain: editedVillain })
+              );
+            }
+          }
+        }
+      });
+    });
+  }
 
   addHeroMovie(characterName: string, movie: Movie) {
     this.queryHeroByName(characterName).subscribe((hero) => {
@@ -78,9 +114,27 @@ export class CharacterService {
       }
     });
   }
+  addVIllainMovie(characterName: string, movie: Movie) {
+    this.queryVillainByName(characterName).subscribe((villain) => {
+      if (villain !== undefined && movie !== undefined) {
+        let editedVillain = Object.assign({}, villain);
+        editedVillain.movies = [];
+        if (editedVillain.movies.length === 0) {
+          editedVillain.movies.push(movie);
+          this.store.dispatch(
+            villainActions.addVillain({ villain: editedVillain })
+          );
+        }
+      }
+    });
+  }
 
   queryHeroByName(characterName: string) {
     this.store.dispatch(heroActions.queryHero({ id: characterName }));
+    return this.store.select(selectQueryHero);
+  }
+  queryVillainByName(characterName: string) {
+    this.store.dispatch(villainActions.queryVillain({ id: characterName }));
     return this.store.select(selectQueryHero);
   }
   queryMovieByName(movieName: string) {

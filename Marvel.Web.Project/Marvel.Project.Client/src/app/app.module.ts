@@ -13,11 +13,7 @@ import { SharedModule } from './shared/shared/shared.module';
 import { StoreModule } from '@ngrx/store';
 import { routerReducer } from '@ngrx/router-store';
 import { EffectsModule } from '@ngrx/effects';
-import { CharacterComponent } from './features/shared/character/character.component';
-import { AdminComponent } from './features/admin/admin.component';
 import { AdminModule } from './features/admin/admin-module/admin.module';
-import { CharacterContainerComponent } from './features/admin/character-container/character-container.component';
-import { MovieComponent } from './features/admin/movie/movie.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },

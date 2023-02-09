@@ -48,12 +48,15 @@ import { Villain } from '../../villains/villains-container/models/villains.model
       <div class="movies" *ngIf="isHero">
         <h2>Movies</h2>
 
-        <div *ngIf="character?.movies">
-          <img
-            *ngFor="let movie of character?.movies"
-            src="{{ movie.image }}"
-            alt=""
-          />
+        <div *ngIf="character?.movies" FxLayoutAlign="row">
+          <a routerLink="/movies">
+            <img
+              *ngFor="let movie of character?.movies"
+              src="{{ movie.image }}"
+              alt=""
+              style="width:100px;height:100px;"
+            />
+          </a>
         </div>
       </div>
       <div class="featured-movies">
@@ -119,10 +122,8 @@ export class CharacterComponent {
       }
     });
     this.route.paramMap.subscribe((params) => {
-      console.log(params.get('id'));
       this.character$ = this.getCharacter(params.get('id') ?? '');
     });
-    console.log(this.character$);
   }
 
   getCharacter(name: string) {

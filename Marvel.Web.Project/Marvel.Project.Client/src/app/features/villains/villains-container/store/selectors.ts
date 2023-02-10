@@ -1,6 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { featureName } from 'src/app/features/villains/villains-container/store/reducers';
-import { Villain } from '../models/villains.model';
 import { VillainState } from './reducers';
 import { VillainAdapter } from './reducers';
 

@@ -20,7 +20,6 @@ export class HeroService {
   }
 
   updateHero(hero: Hero) {
-    console.log(hero);
   
     return this.http.put<Hero>(`${this.url}/heroes/${hero.id}`, hero);
   }

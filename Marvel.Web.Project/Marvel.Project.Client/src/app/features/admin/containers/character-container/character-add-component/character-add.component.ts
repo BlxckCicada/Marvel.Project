@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Character } from 'src/app/features/shared/models/character.model';
-import { CharacterService } from '../../services/character.service';
+import { CharacterService } from '../../../services/character.service';
 
 @Component({
   selector: 'app-character-add-component',
@@ -9,19 +9,33 @@ import { CharacterService } from '../../services/character.service';
     <mat-card class="card">
       <form (ngSubmit)="onSubmit()" [formGroup]="form">
         <div class="form-group">
-          <div class="form-group">
-            <label for="" class="form-control-static">Character Type</label>
-            <select
-              name=""
-              id=""
-              class="form-control"
-              formControlName="characterType"
-              required
-            >
-              <option value="Hero">Hero</option>
-              <option value="Villain">Villain</option>
-            </select>
-          </div>
+          <label for="" class="form-control-static">Option Type</label>
+          <select
+            name=""
+            id=""
+            class="form-control"
+            formControlName="optionType"
+            required
+          >
+            <option value="add">Add</option>
+            <option value="edit">Edit</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="" class="form-control-static">Character Type</label>
+          <select
+            name=""
+            id=""
+            class="form-control"
+            formControlName="characterType"
+            required
+          >
+            <option value="Hero">Hero</option>
+            <option value="Villain">Villain</option>
+          </select>
+        </div>
+        <div class="form-group">
           <label for="" class="form-control-static"
             >{{ form.get('characterType')?.value }} Name</label
           ><input
@@ -123,6 +137,7 @@ export class CharacterAddComponent {
       characterType: new FormControl(null, Validators.required),
       description: new FormControl(null, Validators.required),
       image: new FormControl(),
+      optionType: new FormControl(null),
     });
   }
   onSubmit() {
@@ -133,6 +148,7 @@ export class CharacterAddComponent {
     const actualLastname = this.form.get('actualLastname')?.value;
     const image = this.form.get('image')?.value;
     const description = this.form.get('description')?.value;
+    const optionType = this.form.get('optionType')?.value;
 
     const character: Character = {
       name: name,
@@ -143,10 +159,19 @@ export class CharacterAddComponent {
       description: description,
       image: image,
     };
-    if (this.form.get('characterType')?.value === 'Hero') {
-      this.service.addHero(character);
+    if (optionType === 'add') {
+      if (this.form.get('characterType')?.value === 'Hero') {
+        this.service.addHero(character);
+      } else {
+        this.service.addVillain(character);
+      }
     } else {
-      this.service.addVillain(character);
+      if (this.form.get('characterType')?.value === 'Hero') {
+        this.service.updateHero(character);
+      } else {
+        console.log(character);
+        this.service.updateVillain(character);
+      }
     }
 
     this.form.reset();

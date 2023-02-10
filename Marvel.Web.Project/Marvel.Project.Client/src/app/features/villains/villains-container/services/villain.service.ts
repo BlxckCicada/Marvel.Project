@@ -20,7 +20,7 @@ export class VillainService {
   }
 
   updateVillain(villain: Villain) {
-    return this.http.put<Villain>(`${this.url}/villains`, villain);
+    return this.http.put<Villain>(`${this.url}/villains/${villain.id}`, villain);
   }
 
   deleteVillain(id: string) {

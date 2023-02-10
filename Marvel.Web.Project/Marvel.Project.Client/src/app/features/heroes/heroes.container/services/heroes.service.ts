@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Hero } from '../models/hero.model';
 
@@ -20,8 +20,12 @@ export class HeroService {
   }
 
   updateHero(hero: Hero) {
-  
-    return this.http.put<Hero>(`${this.url}/heroes/${hero.id}`, hero);
+    const headers = new HttpHeaders();
+    headers.set('Access-Control-Allow-Origin', '*');
+
+    return this.http.put<Hero>(`${this.url}/heroes/${hero.id}`, hero, {
+      headers,
+    });
   }
   deleteHero(id: string) {
     return this.http.delete<Hero>(`${this.url}/heroes/${id}`);

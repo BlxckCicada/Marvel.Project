@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Subject } from 'rxjs';
+import { delay, forkJoin, interval, map, Subject, switchMap, zip } from 'rxjs';
 import { Hero } from '../../heroes/heroes.container/models/hero.model';
 import { Villain } from '../../villains/villains-container/models/villains.model';
 import * as heroActions from '../../heroes/heroes.container/store/actions';
@@ -51,55 +51,62 @@ export class CharacterService {
   }
 
   updateHeroMovie(heroName: string, movieName: string) {
-    this.queryHeroByName(heroName).subscribe((hero) => {
-      console.log('let"s see', hero);
-      this.queryMovieByName(movieName).subscribe((movie) => {
+    zip(
+      this.queryHeroByName(heroName),
+      this.queryMovieByName(movieName)
+    ).subscribe(([hero, movie]) => {
+      if (hero && movie) {
         if (hero !== undefined && movie !== undefined) {
-          let editedHero = Object.assign({}, hero);
-          if (editedHero.movies) {
-            editedHero.movies = { ...editedHero.movies };
-            if (editedHero.movies.length === 0) {
-              editedHero.movies.push(movie);
-              this.store.dispatch(heroActions.updateHero({ hero: editedHero }));
-            }
+          let editedHero = { ...hero };
+          if (editedHero.movies !== undefined) {
+            editedHero.movies = [...editedHero.movies].slice();
+
+            editedHero.movies.push(movie);
+            hero = editedHero;
+            this.store.dispatch(heroActions.updateHero({ hero: hero }));
           }
         }
-      });
+      }
     });
+
+ 
   }
   updateHeroFeaturedMovie(heroName: string, movieName: string) {
-    this.queryHeroByName(heroName).subscribe((hero) => {
-      this.queryMovieByName(movieName).subscribe((movie) => {
+    zip(
+      this.queryHeroByName(heroName),
+      this.queryMovieByName(movieName)
+    ).subscribe(([hero, movie]) => {
+      if (hero && movie) {
         if (hero !== undefined && movie !== undefined) {
-          console.log('this is the hero ', hero, 'this is the movie', movie);
-          let editedHero = Object.assign({}, hero);
-          if (editedHero.featuredMovies) {
-            editedHero.featuredMovies = { ...editedHero.featuredMovies };
-            if (editedHero.featuredMovies.length === 0) {
-              editedHero.featuredMovies.push(movie);
-              this.store.dispatch(heroActions.updateHero({ hero: editedHero }));
-            }
+          let editedHero = { ...hero };
+          if (editedHero.featuredMovies !== undefined) {
+            editedHero.featuredMovies = [...editedHero.featuredMovies].slice();
+
+            editedHero.featuredMovies.push(movie);
+            hero = editedHero;
+            this.store.dispatch(heroActions.updateHero({ hero: hero }));
           }
         }
-      });
+      }
     });
   }
   updateVillainFeaturedMovie(villainName: string, movieName: string) {
-    this.queryVillainByName(villainName).subscribe((villain) => {
-      this.queryMovieByName(movieName).subscribe((movie) => {
+    zip(
+      this.queryVillainByName(villainName),
+      this.queryMovieByName(movieName)
+    ).subscribe(([villain, movie]) => {
+      if (villain && movie) {
         if (villain !== undefined && movie !== undefined) {
-          let editedVillain = Object.assign({}, villain);
-          if (editedVillain.featuredMovies) {
-            editedVillain.featuredMovies = { ...editedVillain.featuredMovies };
-            if (editedVillain.featuredMovies.length === 0) {
-              editedVillain.featuredMovies.push(movie);
-              this.store.dispatch(
-                villainActions.updateVillain({ villain: editedVillain })
-              );
-            }
+          let editedVillain = { ...villain };
+          if (editedVillain.featuredMovies !== undefined) {
+            editedVillain.featuredMovies = [...editedVillain.featuredMovies].slice();
+
+            editedVillain.featuredMovies.push(movie);
+            villain = editedVillain;
+            this.store.dispatch(villainActions.updateVillain({ villain: villain }));
           }
         }
-      });
+      }
     });
   }
 

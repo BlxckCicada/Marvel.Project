@@ -11,12 +11,13 @@ import { Movie } from '../models/movie.model';
       >
         {{ title }}
       </h1>
-      <app-movie-item
-        *ngFor="let movie of movies; let i = index"
-        [movie]="movie"
-        [order]="i"
-      ></app-movie-item>
-     
+      <ng-container *ngIf="movies">
+        <app-movie-item
+          *ngFor="let movie of movies | sortDate; let i = index"
+          [movie]="movie"
+          [order]="i"
+        ></app-movie-item>
+      </ng-container>
     </div>
   `,
   styles: [``],

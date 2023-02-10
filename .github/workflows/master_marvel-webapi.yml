@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Navigate 
-        run: cd /Marvel.Project/Marvel.Web.Project/Marvel.Project.API
+        run: cd a/Marvel.Project/Marvel.Web.Project/Marvel.Project.API
         
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1

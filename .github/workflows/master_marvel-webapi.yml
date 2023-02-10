@@ -8,7 +8,11 @@ on:
     branches:
       - master
   workflow_dispatch:
-
+env:
+  SOLUTION_NAME: Marvel.Web.Project/Marvel.Project.API
+  PROJECT_NAME: Marvel.Project.API
+  BUILD_CONFIGURATION: Release
+  
 jobs:
   build:
     runs-on: windows-latest
@@ -28,13 +32,13 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/Marvel.Web.Project/Marvel.Project.API/myapp
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/Marvel.Web.Project/myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/Marvel.Web.Project/Marvel.Project.API/myapp
+          path: ${{env.DOTNET_ROOT}}/Marvel.Web.Project/myapp
 
   deploy:
     runs-on: windows-latest

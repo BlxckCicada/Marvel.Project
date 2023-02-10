@@ -21,7 +21,7 @@ export class MovieService {
   }
 
   updateMovie(movie: Movie) {
-    return this.http.put<Movie>(`${this.url}/movies`, movie);
+    return this.http.put<Movie>(`${this.url}/movies/${movie.id}`, movie);
   }
 
   deleteMovie(id: string) {

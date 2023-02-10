@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { first, last, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Hero } from '../../heroes/heroes.container/models/hero.model';
 import { Villain } from '../../villains/villains-container/models/villains.model';
 import * as heroActions from '../../heroes/heroes.container/store/actions';
@@ -11,13 +11,15 @@ import {
   selectHeroesQueryResult,
   selectQueryHero,
 } from '../../heroes/heroes.container/store/selectors';
-import { selectVillainsQueryResult } from '../../villains/villains-container/store/selectors';
+import {
+  selectVillainQuery,
+  selectVillainsQueryResult,
+} from '../../villains/villains-container/store/selectors';
 import {
   selectMoviesQueryResult,
   selectQueryMovie,
 } from '../../movies/movies-container/store/selectors';
 import { Movie } from '../../movies/movies-container/models/movie.model';
-import { Character } from '../../shared/models/character.model';
 
 @Injectable()
 export class CharacterService {
@@ -84,7 +86,7 @@ export class CharacterService {
   }
   updateVillainFeaturedMovie(villainName: string, movieName: string) {
     this.queryVillainByName(villainName).subscribe((villain) => {
-      this.queryMovieByName(villainName).subscribe((movie) => {
+      this.queryMovieByName(movieName).subscribe((movie) => {
         if (villain !== undefined && movie !== undefined) {
           let editedVillain = Object.assign({}, villain);
           if (editedVillain.featuredMovies) {
@@ -127,14 +129,81 @@ export class CharacterService {
       }
     });
   }
+  updateHero(hero: Hero) {
+    this.queryHeroByName(hero.name).subscribe((x) => {
+      if (x !== undefined) {
+        hero.id ??= x.id;
+        hero.name ??= x.name;
+        hero.actualFirstName ??= x.actualFirstName;
+        hero.actualLastName ??= x.actualLastName;
+        hero.firstName ??= x.firstName;
+        hero.lastName ??= x.lastName;
+        hero.description ??= x.description;
+        hero.image ??= x.image;
+        hero.movies ??= x.movies;
+        hero.featuredMovies ?? x.featuredMovies;
 
+        this.store.dispatch(heroActions.updateHero({ hero: hero }));
+      }
+    });
+  }
+  updateVillain(villain: Villain) {
+    console.log('villain name', villain.name);
+    this.queryVillainByName(villain.name).subscribe((x) => {
+      if (x !== undefined) {
+        villain.id ??= x.id;
+        villain.name ??= x.name;
+        villain.actualFirstName ??= x.actualFirstName;
+        villain.actualLastName ??= x.actualLastName;
+        villain.firstName ??= x.firstName;
+        villain.lastName ??= x.lastName;
+        villain.description ??= x.description;
+        villain.image ??= x.image;
+        villain.movies ??= x.movies;
+        villain.featuredMovies ??= x.featuredMovies;
+        console.log('villain before update', villain);
+        this.store.dispatch(villainActions.updateVillain({ villain: villain }));
+      }
+    });
+  }
+  deleteMovie(movieName: string) {
+    this.queryMovieByName(movieName).subscribe((movie) => {
+      if (movie !== undefined) {
+        this.store.dispatch(movieActions.deleteMovie({ movie: movie }));
+      }
+    });
+  }
+  deleteHero(characterName: string) {
+    this.queryHeroByName(characterName).subscribe((hero) => {
+      if (hero !== undefined) {
+        this.store.dispatch(heroActions.deleteHero({ hero: hero }));
+      }
+    });
+  }
+  deleteVillain(characterName: string) {
+    this.queryVillainByName(characterName).subscribe((villain) => {
+      if (villain !== undefined) {
+        this.store.dispatch(villainActions.deleteVillain({ villain: villain }));
+      }
+    });
+  }
+
+  updateMovie(movie: Movie) {
+    this.queryMovieByName(movie.name).subscribe((x) => {
+      if (x !== undefined) {
+        movie.id = x.id;
+        this.store.dispatch(movieActions.updateMovie({ movie: movie }));
+      }
+    });
+  }
   queryHeroByName(characterName: string) {
     this.store.dispatch(heroActions.queryHero({ id: characterName }));
     return this.store.select(selectQueryHero);
   }
   queryVillainByName(characterName: string) {
+    console.log(characterName);
     this.store.dispatch(villainActions.queryVillain({ id: characterName }));
-    return this.store.select(selectQueryHero);
+    return this.store.select(selectVillainQuery);
   }
   queryMovieByName(movieName: string) {
     this.store.dispatch(movieActions.queryMovie({ id: movieName }));

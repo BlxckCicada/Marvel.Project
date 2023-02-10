@@ -2,11 +2,11 @@ import { ObserversModule } from '@angular/cdk/observers';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Hero } from '../../heroes/heroes.container/models/hero.model';
-import { Movie } from '../../movies/movies-container/models/movie.model';
-import { Character } from '../../shared/models/character.model';
-import { Villain } from '../../villains/villains-container/models/villains.model';
-import { CharacterService } from '../services/character.service';
+import { Hero } from 'src/app/features/heroes/heroes.container/models/hero.model';
+import { Movie } from 'src/app/features/movies/movies-container/models/movie.model';
+import { Villain } from 'src/app/features/villains/villains-container/models/villains.model';
+import { CharacterService } from '../../services/character.service';
+
 
 @Component({
   selector: 'app-movie',
@@ -173,9 +173,7 @@ export class MovieComponent {
   onSubmit() {
     const characterName = this.form.get('character')?.value;
     const movieName = this.form.get('movie')?.value;
-    console.log(movieName);
     if (movieName === null) {
-      console.log('returning');
       return;
     } else {
       if (movieName === 'addMovie') {

@@ -1,15 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminRouteModule } from '../admin-route/admin-route.module';
-import { CharacterAddComponent } from '../character-container/character-add-component/character-add.component';
-import { CharacterContainerComponent } from '../character-container/character-container.component';
 import { AdminComponent } from '../admin.component';
 import { SharedModule } from 'src/app/shared/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CharacterService } from '../services/character.service';
-import { MovieComponent } from '../movie/movie.component';
-import { MovieAddContainerComponent } from '../movie-add-container/movie-add-container.component';
-import { MovieAddComponent } from '../movie-add-container/movie-add/movie-add.component';
+import {
+  AdminLoginComponent,
+  AdminLoginContainer,
+  AdminPortalComponent,
+  AdminPortalContainer,
+  CharacterAddComponent,
+  CharacterContainerComponent,
+  CharacterDeleteComponent,
+  MovieAddComponent,
+  MovieAddContainerComponent,
+  MovieComponent,
+  MovieDeleteComponent,
+  MovieDeleteContainerComponent,
+} from '../containers';
+import { AdminService, User } from '../services/admin.service';
 
 @NgModule({
   declarations: [
@@ -19,6 +29,13 @@ import { MovieAddComponent } from '../movie-add-container/movie-add/movie-add.co
     MovieComponent,
     MovieAddContainerComponent,
     MovieAddComponent,
+    AdminLoginComponent,
+    AdminLoginContainer,
+    AdminPortalComponent,
+    AdminPortalContainer,
+    MovieDeleteComponent,
+    MovieDeleteContainerComponent,
+    CharacterDeleteComponent,
   ],
   imports: [
     CommonModule,
@@ -27,6 +44,6 @@ import { MovieAddComponent } from '../movie-add-container/movie-add/movie-add.co
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [CharacterService],
+  providers: [CharacterService, AdminService],
 })
 export class AdminModule {}

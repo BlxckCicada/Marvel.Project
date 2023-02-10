@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CharacterAddComponent } from '../../admin/character-container/character-add-component/character-add.component';
+import { CharacterAddComponent } from '../../admin/containers';
 import { CharacterComponent } from '../../shared/character/character.component';
-import { HeroesContainerComponent } from '../heroes.container/heroes.container';
+import { HeroesContainerComponent } from '../heroes.container';
 
 const appRoutes: Routes = [
   {

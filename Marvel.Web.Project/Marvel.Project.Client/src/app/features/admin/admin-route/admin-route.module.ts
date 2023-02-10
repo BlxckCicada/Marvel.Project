@@ -3,34 +3,72 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from '../admin.component';
 import { HeroesContainerComponent } from '../../heroes/heroes.container/heroes.container';
-import { CharacterAddComponent } from '../character-container/character-add-component/character-add.component';
-import { CharacterContainerComponent } from '../character-container/character-container.component';
-import { MovieComponent } from '../movie/movie.component';
-import { MovieAddContainerComponent } from '../movie-add-container/movie-add-container.component';
-import { MovieAddComponent } from '../movie-add-container/movie-add/movie-add.component';
+import {
+  AdminLoginContainer,
+  AdminPortalContainer,
+  CharacterAddComponent,
+  CharacterContainerComponent,
+  CharacterDeleteComponent,
+  MovieAddComponent,
+  MovieAddContainerComponent,
+  MovieComponent,
+  MovieDeleteComponent,
+} from '../containers';
+import { LoginGuard } from '../guards/login.guard';
 
 const appRoutes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
+    canActivate: [LoginGuard],
     children: [
-      { path: 'dashboard', component: HeroesContainerComponent },
+      {
+        path: 'portal',
+        component: AdminPortalContainer,
+        canActivateChild: [LoginGuard],
+      },
       {
         path: 'characters',
         component: CharacterContainerComponent,
         children: [
-          { path: 'add', component: CharacterAddComponent },
-          { path: 'movies', component: MovieComponent },
+          {
+            path: 'add',
+            component: CharacterAddComponent,
+            canActivateChild: [LoginGuard],
+          },
+          {
+            path: 'delete',
+            component: CharacterDeleteComponent,
+            canActivateChild: [LoginGuard],
+          },
+          {
+            path: 'movies',
+            component: MovieComponent,
+            canActivateChild: [LoginGuard],
+          },
         ],
       },
       {
         path: 'movies',
         component: MovieAddContainerComponent,
-        children: [{ path: 'add', component: MovieAddComponent }],
+        children: [
+          {
+            path: 'add',
+            component: MovieAddComponent,
+            canActivateChild: [LoginGuard],
+          },
+          {
+            path: 'delete',
+            component: MovieDeleteComponent,
+            canActivateChild: [LoginGuard],
+          },
+        ],
       },
-      { path: '', redirectTo: '/admin', pathMatch: 'full' },
+
+      { path: '', redirectTo: '/admin/login', pathMatch: 'full' },
     ],
   },
+  { path: 'admin/login', component: AdminLoginContainer },
 ];
 
 @NgModule({

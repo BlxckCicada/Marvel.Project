@@ -6,10 +6,9 @@ import { HeroesContainerComponent } from '../heroes.container/heroes.container';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { featureName, heroReducer } from '../heroes.container/store/reducers';
-import { HeroEffects } from '../heroes.container/store/effects';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { featureName, HeroEffects, heroReducer } from '../heroes.container';
 import { CharacterComponent } from '../../shared/character/character.component';
 
 @NgModule({

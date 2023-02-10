@@ -14,7 +14,6 @@ import { StoreModule } from '@ngrx/store';
 import { routerReducer } from '@ngrx/router-store';
 import { EffectsModule } from '@ngrx/effects';
 import { AdminModule } from './features/admin/admin-module/admin.module';
-import { SpinnerComponent } from './features/shared/spinners';
 import { NameFooterComponent } from './features/shared/name-footer/name-footer.component';
 
 const appRoutes: Routes = [

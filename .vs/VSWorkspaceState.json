@@ -1,8 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Marvel.Web.Project"
+    "\\Marvel.Web.Project",
+    "\\Marvel.Web.Project\\Marvel.Project.Client",
+    "\\Marvel.Web.Project\\Marvel.Project.Client\\src",
+    "\\Marvel.Web.Project\\Marvel.Project.Client\\src\\app",
+    "\\Marvel.Web.Project\\Marvel.Project.Client\\src\\app\\features",
+    "\\Marvel.Web.Project\\Marvel.Project.Client\\src\\app\\features\\shared",
+    "\\Marvel.Web.Project\\Marvel.Project.Client\\src\\app\\features\\villains",
+    "\\Marvel.Web.Project\\Marvel.Project.Client\\src\\app\\features\\villains\\villains-container",
+    "\\Marvel.Web.Project\\Marvel.Project.Client\\src\\app\\features\\villains\\villains-container\\services"
   ],
-  "SelectedNode": "\\Marvel.Web.Project\\docker-compose.yml",
+  "SelectedNode": "\\Marvel.Web.Project\\Marvel.Project.Client\\src\\app\\features\\heroes",
   "PreviewInSolutionExplorer": false
 }

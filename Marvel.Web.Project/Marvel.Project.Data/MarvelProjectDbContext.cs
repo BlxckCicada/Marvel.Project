@@ -32,6 +32,11 @@ public class MarvelProjectDbContext : DbContext, IRepository
         {
             return this.Set<T>().Include(nameof(Hero.Movies)).Include(nameof(Hero.FeaturedMovies));
         }
+        if (typeof(Villain).IsAssignableFrom(type))
+        {
+            return this.Set<T>().Include(nameof(Hero.FeaturedMovies));
+        }
+
         return this.Set<T>();
 
     }

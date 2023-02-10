@@ -20,5 +20,8 @@ public interface IMovie : IModel<Guid>
 
     public string Image { get; set; }
 
+IList<Hero> heroes { get; set; }
+  
+
 
 }

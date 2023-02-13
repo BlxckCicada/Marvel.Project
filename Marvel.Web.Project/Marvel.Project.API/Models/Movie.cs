@@ -9,5 +9,5 @@ public record Movie : IMovie
     public string Description { get; set; } = string.Empty;
     public string Image { get; set; } = string.Empty;
 
-    public IList<Hero> heroes { get; set; } = new List<Hero>();
+    public IList<Hero>? heroes { get; set; }
 }

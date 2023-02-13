@@ -1,6 +1,5 @@
 namespace Marvel.Project.API.Models;
 using System.ComponentModel.DataAnnotations;
-using Marvel.Project.API.Models;
 
 public interface IMovie : IModel<Guid>
 {
@@ -20,8 +19,8 @@ public interface IMovie : IModel<Guid>
 
     public string Image { get; set; }
 
-IList<Hero> heroes { get; set; }
-  
+    public IList<Hero>? heroes { get; set; }
+
 
 
 }

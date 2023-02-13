@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Data\\Marvel.Project.Data.csproj": {}
+    "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.data\\Marvel.Project.Data.csproj": {}
   },
   "projects": {
     "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Core\\Marvel.Project.Core.csproj": {
@@ -74,14 +74,14 @@
         }
       }
     },
-    "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Data\\Marvel.Project.Data.csproj": {
+    "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.data\\Marvel.Project.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Data\\Marvel.Project.Data.csproj",
+        "projectUniqueName": "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.data\\Marvel.Project.Data.csproj",
         "projectName": "Marvel.Project.Data",
-        "projectPath": "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Data\\Marvel.Project.Data.csproj",
+        "projectPath": "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.data\\Marvel.Project.Data.csproj",
         "packagesPath": "C:\\Users\\sebat\\.nuget\\packages\\",
-        "outputPath": "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Data\\obj\\",
+        "outputPath": "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

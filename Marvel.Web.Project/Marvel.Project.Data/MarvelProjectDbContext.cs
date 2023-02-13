@@ -27,15 +27,15 @@ public class MarvelProjectDbContext : DbContext, IRepository
 
     public IQueryable<T> Query<T>() where T : class, IEntity
     {
-        Type type = typeof(T);
-        if (typeof(Hero).IsAssignableFrom(type))
-        {
-            return this.Set<T>().Include(nameof(Hero.Movies)).Include(nameof(Hero.FeaturedMovies));
-        }
-        if (typeof(Villain).IsAssignableFrom(type))
-        {
-            return this.Set<T>().Include(nameof(Hero.FeaturedMovies));
-        }
+        // Type type = typeof(T);
+        // if (typeof(Hero).IsAssignableFrom(type))
+        // {
+        //     return this.Set<T>().Include(nameof(Hero.Movies)).Include(nameof(Hero.FeaturedMovies));
+        // }
+        // if (typeof(Villain).IsAssignableFrom(type))
+        // {
+        //     return this.Set<T>().Include(nameof(Hero.FeaturedMovies));
+        // }
 
         return this.Set<T>();
 

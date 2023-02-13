@@ -45,10 +45,10 @@ import { Villain } from '../../villains/villains-container/models/villains.model
           </p>
         </mat-card-content>
       </mat-card>
-      <div class="movies" *ngIf="isHero">
+      <div class="movies" *ngIf="character.movies?.length!==0">
         <h2>Movies</h2>
 
-        <div *ngIf="character.movies" FxLayoutAlign="row">
+        <div FxLayoutAlign="row">
           <a routerLink="/movies">
             <img
               *ngFor="let movie of character.movies"
@@ -59,19 +59,7 @@ import { Villain } from '../../villains/villains-container/models/villains.model
           </a>
         </div>
       </div>
-      <div class="featured-movies">
-        <h2>Featured Movies</h2>
-        <div *ngIf="character.featuredMovies" FxLayoutAlign="row">
-          <a routerLink="/movies">
-            <img
-              *ngFor="let movie of character.featuredMovies"
-              src="{{ movie.image }}"
-              alt=""
-              style="width:100px;height:100px;"
-            />
-          </a>
-        </div>
-      </div>
+     
     </div>
   `,
   styles: [

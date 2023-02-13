@@ -63,47 +63,8 @@ export class CharacterService {
 
             editedHero.movies.push(movie);
             hero = editedHero;
-            this.store.dispatch(heroActions.updateHero({ hero: hero }));
-          }
-        }
-      }
-    });
-
- 
-  }
-  updateHeroFeaturedMovie(heroName: string, movieName: string) {
-    zip(
-      this.queryHeroByName(heroName),
-      this.queryMovieByName(movieName)
-    ).subscribe(([hero, movie]) => {
-      if (hero && movie) {
-        if (hero !== undefined && movie !== undefined) {
-          let editedHero = { ...hero };
-          if (editedHero.featuredMovies !== undefined) {
-            editedHero.featuredMovies = [...editedHero.featuredMovies].slice();
-
-            editedHero.featuredMovies.push(movie);
-            hero = editedHero;
-            this.store.dispatch(heroActions.updateHero({ hero: hero }));
-          }
-        }
-      }
-    });
-  }
-  updateVillainFeaturedMovie(villainName: string, movieName: string) {
-    zip(
-      this.queryVillainByName(villainName),
-      this.queryMovieByName(movieName)
-    ).subscribe(([villain, movie]) => {
-      if (villain && movie) {
-        if (villain !== undefined && movie !== undefined) {
-          let editedVillain = { ...villain };
-          if (editedVillain.featuredMovies !== undefined) {
-            editedVillain.featuredMovies = [...editedVillain.featuredMovies].slice();
-
-            editedVillain.featuredMovies.push(movie);
-            villain = editedVillain;
-            this.store.dispatch(villainActions.updateVillain({ villain: villain }));
+            console.log(hero);
+            this.updateHero(hero);
           }
         }
       }
@@ -148,7 +109,6 @@ export class CharacterService {
         hero.description ??= x.description;
         hero.image ??= x.image;
         hero.movies ??= x.movies;
-        hero.featuredMovies ?? x.featuredMovies;
 
         this.store.dispatch(heroActions.updateHero({ hero: hero }));
       }
@@ -167,7 +127,6 @@ export class CharacterService {
         villain.description ??= x.description;
         villain.image ??= x.image;
         villain.movies ??= x.movies;
-        villain.featuredMovies ??= x.featuredMovies;
         console.log('villain before update', villain);
         this.store.dispatch(villainActions.updateVillain({ villain: villain }));
       }

@@ -29,6 +29,5 @@ public record Hero : IEntity<Guid>
     public string Image { get; set; } = string.Empty;
 
 
-    public IList<Movie>? Movies { get; set; }
-    public IList<FeaturedMovie>? FeaturedMovies { get; set; }
+    public ICollection<HeroMovie>? Movies { get; set; }
 }

@@ -1,4 +1,4 @@
-import { FeaturedMovie, Movie } from "../../movies/movies-container/models/movie.model";
+import {  Movie } from "../../movies/movies-container/models/movie.model";
 
 export interface Character {
   id?: string;
@@ -11,7 +11,6 @@ export interface Character {
   image: string;
 
   movies?:Movie[];
-  featuredMovies?:FeaturedMovie[];
 
 }
 

@@ -14,8 +14,7 @@ internal static class IServiceCollectionExtensions
         return services
             .AddEntityHandlers<Hero, Guid, Core.Entities.Hero>(replaceExistingImplementations)
             .AddEntityHandlers<Villain, Guid, Core.Entities.Villain>(replaceExistingImplementations)
-            .AddEntityHandlers<Movie, Guid, Core.Entities.Movie>(replaceExistingImplementations)
-            .AddEntityHandlers<FeaturedMovie, Guid, Core.Entities.FeaturedMovie>(replaceExistingImplementations);
+            .AddEntityHandlers<Movie, Guid, Core.Entities.Movie>(replaceExistingImplementations);
     }
 
 

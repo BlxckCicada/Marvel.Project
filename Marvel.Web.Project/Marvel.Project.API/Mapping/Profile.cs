@@ -8,7 +8,8 @@ public class DefaultProfile : Profile
         CreateMap<Marvel.Project.Core.Entities.Hero, Hero>().ReverseMap();
         CreateMap<Marvel.Project.Core.Entities.Villain, Villain>().ReverseMap();
         CreateMap<Marvel.Project.Core.Entities.Movie, Movie>().ReverseMap();
-        CreateMap<Marvel.Project.Core.Entities.FeaturedMovie, FeaturedMovie>().ReverseMap();
+        CreateMap<Marvel.Project.Core.Entities.HeroMovie, HeroMovie>().ReverseMap();
+        CreateMap<Marvel.Project.Core.Entities.VillainMovie, VillainMovie>().ReverseMap();
 
         
     }

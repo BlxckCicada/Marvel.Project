@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { UrlClass } from 'src/app/shared/urls';
 import { Movie } from '../models/movie.model';
 
 
 @Injectable({providedIn:'root'})
 export class MovieService {
-  private url = 'https://marvelmcu-api.azurewebsites.net';
+  private url = UrlClass.client_url;;
   constructor(private http: HttpClient) {}
 
   getMovies() {

@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { UrlClass } from 'src/app/shared/urls';
 import { Villain } from '../models/villains.model';
 
 @Injectable({providedIn:'root'})
 export class VillainService {
-  private url = 'https://marvelmcu-api.azurewebsites.net';
+  private url =UrlClass.client_url;;
   constructor(private http: HttpClient) {}
 
   getVillains() {

@@ -87,25 +87,7 @@ import { CharacterService } from '../../services/character.service';
           <option value="addMovie">Add Movie</option>
         </select>
       </div>
-      <div class="form-group">
-        <label for="" class="form-control-static">Movie Type</label>
-        <select
-          name=""
-          id=""
-          class="form-control"
-          formControlName="movieType"
-          required
-        >
-          <option value=""></option>
-          <option
-            value="movie"
-            *ngIf="form.get('characterType')?.value === 'Hero'"
-          >
-            Hero Movie
-          </option>
-          <option value="featured">Featured</option>
-        </select>
-      </div>
+     
       <div *ngIf="form.get('movie')?.value === 'addMovie'">
         <div class="form-group">
           <label for="" class="form-control-static">Name</label>
@@ -197,16 +179,11 @@ export class MovieComponent {
       } else {
         /// the movie is captured
         if (this.form.get('characterType')?.value === 'Hero') {
-          if (this.form.get('movieType')?.value === 'movie') {
             this.service.updateHeroMovie(characterName, movieName);
-          } else {
-            /// movie is featured
-            this.service.updateHeroFeaturedMovie(characterName, movieName);
-          }
         } else {
           /// the character is villain
           // this.service.addVillainFeaturedMovie(characterName, movieName);
-          this.service.updateVillainFeaturedMovie(characterName, movieName);
+          // this.service.updateVillainMovie(characterName, movieName);
         }
       }
     }

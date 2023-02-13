@@ -2,6 +2,7 @@ namespace Marvel.Project.Core.Entities;
 using System.ComponentModel.DataAnnotations;
 using System;
 
+
 public record Villain : IEntity<Guid>
 {
     [Required]
@@ -28,5 +29,6 @@ public record Villain : IEntity<Guid>
     
     public string Image { get; set; } = string.Empty;
 
-    public IList<FeaturedMovie>? FeaturedMovies { get; set; }
+     public ICollection<VillainMovie>? Movies { get; set; }
+
 }

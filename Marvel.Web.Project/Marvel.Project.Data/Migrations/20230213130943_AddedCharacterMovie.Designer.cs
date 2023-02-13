@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Marvel.Project.Data.Migrations
 {
     [DbContext(typeof(MarvelProjectDbContext))]
-    [Migration("20230131081440_Updated")]
-    partial class Updated
+    [Migration("20230213130943_AddedCharacterMovie")]
+    partial class AddedCharacterMovie
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,32 +24,6 @@ namespace Marvel.Project.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("Marvel.Project.Core.Entities.FeaturedMovie", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("FeaturedMovies", (string)null);
-                });
 
             modelBuilder.Entity("Marvel.Project.Core.Entities.Hero", b =>
                 {
@@ -74,10 +48,6 @@ namespace Marvel.Project.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("HeroName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -85,51 +55,28 @@ namespace Marvel.Project.Data.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Heroes", (string)null);
                 });
 
-            modelBuilder.Entity("Marvel.Project.Core.Entities.HeroFeaturedMovie", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("HeroId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("MovieId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("HeroId");
-
-                    b.HasIndex("MovieId");
-
-                    b.ToTable("HeroFeaturedMovie", (string)null);
-                });
-
             modelBuilder.Entity("Marvel.Project.Core.Entities.HeroMovie", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("HeroId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("MovieId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("HeroId");
+                    b.HasKey("HeroId", "MovieId");
 
                     b.HasIndex("MovieId");
 
-                    b.ToTable("HeroMovie", (string)null);
+                    b.ToTable("HeroMovie");
                 });
 
             modelBuilder.Entity("Marvel.Project.Core.Entities.Movie", b =>
@@ -158,16 +105,70 @@ namespace Marvel.Project.Data.Migrations
                     b.ToTable("Movies", (string)null);
                 });
 
-            modelBuilder.Entity("Marvel.Project.Core.Entities.HeroFeaturedMovie", b =>
+            modelBuilder.Entity("Marvel.Project.Core.Entities.Villain", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ActualFirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ActualLastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(1024)
+                        .HasColumnType("nvarchar(1024)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Villains", (string)null);
+                });
+
+            modelBuilder.Entity("Marvel.Project.Core.Entities.VillainMovie", b =>
+                {
+                    b.Property<Guid>("VillainId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("MovieId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("VillainId", "MovieId");
+
+                    b.HasIndex("MovieId");
+
+                    b.ToTable("VillainMovie");
+                });
+
+            modelBuilder.Entity("Marvel.Project.Core.Entities.HeroMovie", b =>
                 {
                     b.HasOne("Marvel.Project.Core.Entities.Hero", "Hero")
-                        .WithMany()
+                        .WithMany("Movies")
                         .HasForeignKey("HeroId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Marvel.Project.Core.Entities.Movie", "Movie")
-                        .WithMany()
+                        .WithMany("Heroes")
                         .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -177,23 +178,40 @@ namespace Marvel.Project.Data.Migrations
                     b.Navigation("Movie");
                 });
 
-            modelBuilder.Entity("Marvel.Project.Core.Entities.HeroMovie", b =>
+            modelBuilder.Entity("Marvel.Project.Core.Entities.VillainMovie", b =>
                 {
-                    b.HasOne("Marvel.Project.Core.Entities.Hero", "Hero")
-                        .WithMany()
-                        .HasForeignKey("HeroId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Marvel.Project.Core.Entities.Movie", "Movie")
-                        .WithMany()
+                        .WithMany("Villains")
                         .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Hero");
+                    b.HasOne("Marvel.Project.Core.Entities.Villain", "Villain")
+                        .WithMany("Movies")
+                        .HasForeignKey("VillainId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Movie");
+
+                    b.Navigation("Villain");
+                });
+
+            modelBuilder.Entity("Marvel.Project.Core.Entities.Hero", b =>
+                {
+                    b.Navigation("Movies");
+                });
+
+            modelBuilder.Entity("Marvel.Project.Core.Entities.Movie", b =>
+                {
+                    b.Navigation("Heroes");
+
+                    b.Navigation("Villains");
+                });
+
+            modelBuilder.Entity("Marvel.Project.Core.Entities.Villain", b =>
+                {
+                    b.Navigation("Movies");
                 });
 #pragma warning restore 612, 618
         }

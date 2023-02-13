@@ -1,4 +1,5 @@
-﻿namespace Marvel.Project.Data;
+﻿using System.Security.Cryptography;
+namespace Marvel.Project.Data;
 
 using System.Linq;
 using System.Reflection;
@@ -18,6 +19,15 @@ public class MarvelProjectDbContext : DbContext, IRepository
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(MarvelProjectDbContext).Assembly);
+
+        modelBuilder.Entity<HeroMovie>().HasKey(hm => new { hm.HeroId, hm.MovieId });
+        modelBuilder.Entity<HeroMovie>().HasOne(hm => hm.Hero).WithMany(hm => hm.Movies).HasForeignKey(hm => hm.HeroId);
+        modelBuilder.Entity<HeroMovie>().HasOne(hm => hm.Movie).WithMany(hm => hm.Heroes).HasForeignKey(hm => hm.MovieId);
+        
+        
+        modelBuilder.Entity<VillainMovie>().HasKey(hm => new { hm.VillainId, hm.MovieId });
+        modelBuilder.Entity<VillainMovie>().HasOne(hm => hm.Villain).WithMany(hm => hm.Movies).HasForeignKey(hm => hm.VillainId);
+        modelBuilder.Entity<VillainMovie>().HasOne(hm => hm.Movie).WithMany(hm => hm.Villains).HasForeignKey(hm => hm.MovieId);
     }
 
     public T AddOne<T>(T entity) where T : class, IEntity
@@ -30,7 +40,9 @@ public class MarvelProjectDbContext : DbContext, IRepository
         // Type type = typeof(T);
         // if (typeof(Hero).IsAssignableFrom(type))
         // {
-        //     return this.Set<T>().Include(nameof(Hero.Movies)).Include(nameof(Hero.FeaturedMovies));
+
+
+        //     return this.Set<T>().Include(nameof(Hero.Movies));
         // }
         // if (typeof(Villain).IsAssignableFrom(type))
         // {

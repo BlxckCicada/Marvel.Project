@@ -20,7 +20,7 @@ public interface IMovie : IEntity<Guid>
     public string Image { get; set; }
 
 
-    public IList<Hero>? heroes { get; set; }
+    public ICollection<HeroMovie>? Heroes { get; set; }
 
 
 }

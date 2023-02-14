@@ -30,6 +30,7 @@ jobs:
           app_location: "Marvel.Web.Project/Marvel.Project.Client/" # App source code path
           api_location: "" # Api source code path - optional
           output_location: "Marvel.Web.Project/Marvel.Project.Client/dist/marvel.project.client" # Built app content directory - optional
+          command: npm install --force && npm run build
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:

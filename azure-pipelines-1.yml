@@ -17,4 +17,4 @@ steps:
       app_location: './Marvel.Web.Project/Marvel.Project.Client/'
       api_location: '' 
       output_location: './Marvel.Web.Project/Marvel.Project.Client/dist/marvel.project.client'
-      azure_static_web_apps_api_token:$(my_static_web)
+      azure_static_web_apps_api_token: $(my_static_web)

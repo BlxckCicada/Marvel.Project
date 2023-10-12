@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.data\\Marvel.Project.Data.csproj": {}
+    "D:\\Development\\Personal Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Data\\Marvel.Project.Data.csproj": {}
   },
   "projects": {
-    "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Core\\Marvel.Project.Core.csproj": {
+    "D:\\Development\\Personal Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Core\\Marvel.Project.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Core\\Marvel.Project.Core.csproj",
+        "projectUniqueName": "D:\\Development\\Personal Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Core\\Marvel.Project.Core.csproj",
         "projectName": "Marvel.Project.Core",
-        "projectPath": "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Core\\Marvel.Project.Core.csproj",
+        "projectPath": "D:\\Development\\Personal Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Core\\Marvel.Project.Core.csproj",
         "packagesPath": "C:\\Users\\sebat\\.nuget\\packages\\",
-        "outputPath": "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Core\\obj\\",
+        "outputPath": "D:\\Development\\Personal Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -70,18 +70,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.data\\Marvel.Project.Data.csproj": {
+    "D:\\Development\\Personal Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Data\\Marvel.Project.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.data\\Marvel.Project.Data.csproj",
+        "projectUniqueName": "D:\\Development\\Personal Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Data\\Marvel.Project.Data.csproj",
         "projectName": "Marvel.Project.Data",
-        "projectPath": "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.data\\Marvel.Project.Data.csproj",
+        "projectPath": "D:\\Development\\Personal Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Data\\Marvel.Project.Data.csproj",
         "packagesPath": "C:\\Users\\sebat\\.nuget\\packages\\",
-        "outputPath": "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.data\\obj\\",
+        "outputPath": "D:\\Development\\Personal Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -103,8 +103,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Core\\Marvel.Project.Core.csproj": {
-                "projectPath": "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Core\\Marvel.Project.Core.csproj"
+              "D:\\Development\\Personal Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Core\\Marvel.Project.Core.csproj": {
+                "projectPath": "D:\\Development\\Personal Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Core\\Marvel.Project.Core.csproj"
               }
             }
           }
@@ -133,6 +133,10 @@
               "target": "Package",
               "version": "[7.0.2, )"
             },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            },
             "System.ComponentModel.Annotations": {
               "target": "Package",
               "version": "[5.0.0, )"
@@ -154,7 +158,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

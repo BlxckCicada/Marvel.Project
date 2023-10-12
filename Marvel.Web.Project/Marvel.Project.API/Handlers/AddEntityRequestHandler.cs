@@ -7,7 +7,8 @@ using MediatR;
 
 namespace Marvel.Project.API.Handlers;
 
-public record AddEntityRequestHandler<TModel, TKey, TCore> : IRequestHandler<AddEntityRequest<TModel, TKey, TCore>, CommandResponse<TModel>>
+public record AddEntityRequestHandler<TModel, TKey, TCore> :
+IRequestHandler<AddEntityRequest<TModel, TKey, TCore>, CommandResponse<TModel>>
 where TModel : class, IModel<TKey>
 where TCore : class, IEntity<TKey>
 {

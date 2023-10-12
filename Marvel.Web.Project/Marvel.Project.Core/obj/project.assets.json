@@ -187,11 +187,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Core\\Marvel.Project.Core.csproj",
+      "projectUniqueName": "d:\\Development\\Personal Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Core\\Marvel.Project.Core.csproj",
       "projectName": "Marvel.Project.Core",
-      "projectPath": "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Core\\Marvel.Project.Core.csproj",
+      "projectPath": "d:\\Development\\Personal Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Core\\Marvel.Project.Core.csproj",
       "packagesPath": "C:\\Users\\sebat\\.nuget\\packages\\",
-      "outputPath": "D:\\Development\\ASP Net Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Core\\obj\\",
+      "outputPath": "d:\\Development\\Personal Projects\\Marvel.Project\\Marvel.Web.Project\\Marvel.Project.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -250,7 +250,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

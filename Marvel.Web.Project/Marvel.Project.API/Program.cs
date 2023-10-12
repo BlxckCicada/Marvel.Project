@@ -12,13 +12,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("MarvelProject");
-// var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
-builder.Services.AddDbContext<MarvelProjectDbContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<MarvelProjectDbContext>(options => options.UseSqlite(connectionString));
 builder.Services.Add(new ServiceDescriptor(typeof(IRepository), typeof(MarvelProjectDbContext), ServiceLifetime.Scoped));
 builder.Services.Add(new ServiceDescriptor(typeof(IQueryRepository), typeof(MarvelProjectDbContext), ServiceLifetime.Scoped));
 builder.Services.Add(new ServiceDescriptor(typeof(ICommandRepository), typeof(MarvelProjectDbContext), ServiceLifetime.Scoped));
 builder.Services.Add(new ServiceDescriptor(typeof(IModelGenerateIdentityKey<Guid>), typeof(GenerateIdentityKey), ServiceLifetime.Scoped));
-
 
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
@@ -43,10 +41,10 @@ var app = builder.Build();
 //     using(var scope = app.Services.CreateScope()){
 //         var context = scope.ServiceProvider.GetRequiredService<MarvelProjectDbContext>();
 //         context.Database.EnsureCreated();
-        
+
 //     }
 // }*/
-
+app.UseCors(options => options.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
 app.UseHttpsRedirection();
 app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 app.UseAuthorization();

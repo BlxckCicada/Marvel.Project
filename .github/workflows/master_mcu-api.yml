@@ -22,14 +22,16 @@ jobs:
           dotnet-version: '7.x'
           include-prerelease: true
 
-      - name: Change to project directory
-        run : cd Marvel.Web.Project/Marvel.Project.API
+      # - name: Change to project directory
+      #   run : cd Marvel.Web.Project/Marvel.Project.API
         
       - name: Build with dotnet
         run: dotnet build --configuration Release
+        working-directory: Marvel.Web.Project/Marvel.Project.API
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        working-directory: Marvel.Web.Project/Marvel.Project.API
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2

@@ -9,12 +9,12 @@ namespace Marvel.Project.API.Controllers;
 
 [ApiController]
 [Route("villains")]
-public class VillainController : EntityControllerBase<Villain, Guid, Core.Entities.Villain>
+public class VillainController : EntityControllerBase<Villain, Guid>
 {
     public VillainController(IMediator mediator) : base(mediator)
     {
 
     }
 
-    
+
 }

@@ -12,23 +12,22 @@ internal static class IServiceCollectionExtensions
     {
         // TODO: Map all generic entity handlers here
         return services
-            .AddEntityHandlers<Hero, Guid, Core.Entities.Hero>(replaceExistingImplementations)
-            .AddEntityHandlers<Villain, Guid, Core.Entities.Villain>(replaceExistingImplementations)
-            .AddEntityHandlers<Movie, Guid, Core.Entities.Movie>(replaceExistingImplementations);
+            .AddEntityHandlers<Hero, Guid>(replaceExistingImplementations)
+            .AddEntityHandlers < Villain, Guid>(replaceExistingImplementations)
+            .AddEntityHandlers<Movie, Guid>(replaceExistingImplementations);
     }
 
 
-    public static IServiceCollection AddEntityHandlers<TModel, TKey, TCore>(this IServiceCollection services, bool replaceExistingImplementations = false)
+    public static IServiceCollection AddEntityHandlers<TModel, TKey>(this IServiceCollection services, bool replaceExistingImplementations = false)
         where TModel : class, IModel<TKey>
-        where TCore : class, Core.Entities.IEntity<TKey>
+
     {
         var modelType = typeof(TModel);
         var keyType = typeof(TKey);
-        var coreType = typeof(TCore);
 
         foreach (var definition in EntityHandlerDefinitions)
         {
-            var serviceType = definition.BuildServiceType(modelType, keyType, coreType);
+            var serviceType = definition.BuildServiceType(modelType, keyType);
 
             var duplicate = services.FirstOrDefault(d => d.ServiceType == serviceType);
             if (duplicate != null && !replaceExistingImplementations)
@@ -41,7 +40,7 @@ internal static class IServiceCollectionExtensions
                 services.Remove(duplicate);
             }
 
-            var implementationType = definition.BuildImplementationType(modelType, keyType, coreType);
+            var implementationType = definition.BuildImplementationType(modelType, keyType);
             var descriptor = new ServiceDescriptor(serviceType, implementationType, ServiceLifetime.Scoped);
             services.Add(descriptor);
         }
@@ -63,39 +62,36 @@ internal static class IServiceCollectionExtensions
         private readonly Type requestType;
         private readonly Type? responseType;
 
-        public Type BuildServiceType(Type modelType, Type keyType, Type coreType)
+        public Type BuildServiceType(Type modelType, Type keyType)
         {
             // Use the model type as the response type if not provided
             if (this.responseType == null)
             {
-                return GenericHandlerType.MakeGenericType(this.requestType.MakeGenericType(modelType, keyType, coreType), modelType);
+                return GenericHandlerType.MakeGenericType(this.requestType.MakeGenericType(modelType, keyType), modelType);
             }
 
             if (!this.responseType.IsGenericTypeDefinition)
             {
                 // Use the actual response type if it is not a generic type definition
-                return GenericHandlerType.MakeGenericType(this.requestType.MakeGenericType(modelType, keyType, coreType), this.responseType);
+                return GenericHandlerType.MakeGenericType(this.requestType.MakeGenericType(modelType, keyType), this.responseType);
             }
 
             // Otherwise assume a single generic argument
-            return GenericHandlerType.MakeGenericType(this.requestType.MakeGenericType(modelType, keyType, coreType), this.responseType.MakeGenericType(modelType));
+            return GenericHandlerType.MakeGenericType(this.requestType.MakeGenericType(modelType, keyType), this.responseType.MakeGenericType(modelType));
         }
 
-        public Type BuildImplementationType(Type modelType, Type keyType, Type coreType)
+        public Type BuildImplementationType(Type modelType, Type keyType)
         {
-            return this.handlerType.MakeGenericType(modelType, keyType, coreType);
+            return this.handlerType.MakeGenericType(modelType, keyType);
         }
     }
 
     private static readonly EntityHandlerDefinition[] EntityHandlerDefinitions = new EntityHandlerDefinition[]
     {
-         new EntityHandlerDefinition(typeof(AddEntityRequestHandler<,,>), typeof(AddEntityRequest<,,>), typeof(CommandResponse<>)),
-        new EntityHandlerDefinition(typeof(DeleteEntityRequestHandler<,,>), typeof(DeleteEntityRequest<,,>), typeof(CommandResponse<>)),
-        new EntityHandlerDefinition(typeof(GetEntitiesRequestHandler<,,>), typeof(GetEntitiesRequest<,,>), typeof(IList<>)),
-        new EntityHandlerDefinition(typeof(GetEntityByIdRequestHandler<,,>), typeof(GetEntityByIdRequest<,,>)),
-        new EntityHandlerDefinition(typeof(UpdateEntityRequestHandler<,,>), typeof(UpdateEntityRequest<,,>), typeof(CommandResponse<>)),
+         new EntityHandlerDefinition(typeof(AddEntityRequestHandler<,>), typeof(AddEntityRequest<,>), typeof(CommandResponse<>)),
+        new EntityHandlerDefinition(typeof(DeleteEntityRequestHandler<,>), typeof(DeleteEntityRequest<,>), typeof(CommandResponse<>)),
+        new EntityHandlerDefinition(typeof(GetEntitiesRequestHandler<,>), typeof(GetEntitiesRequest<,>), typeof(IList<>)),
+        new EntityHandlerDefinition(typeof(GetEntityByIdRequestHandler<,>), typeof(GetEntityByIdRequest<,>)),
+        new EntityHandlerDefinition(typeof(UpdateEntityRequestHandler<,>), typeof(UpdateEntityRequest<,>), typeof(CommandResponse<>)),
     };
 }
-
-
-

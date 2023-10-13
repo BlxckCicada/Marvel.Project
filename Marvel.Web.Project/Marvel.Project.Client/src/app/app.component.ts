@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styles: [``],
 })
 export class AppComponent {
-  title = 'Marvel.Project.Client';
+  title = 'Marvel Web';
 }

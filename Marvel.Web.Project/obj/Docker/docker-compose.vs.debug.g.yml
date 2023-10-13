@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   marvel.project.api:
-    image: marvelprojectapi:dev
+    image: marvelcontainerreg.azurecr.io/marvelprojectapi:dev
     container_name: Marvel.Project.API
     build:
       target: base

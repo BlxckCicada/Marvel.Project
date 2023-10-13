@@ -1,17 +1,14 @@
-using System.Threading;
 using Marvel.Project.API.Commands;
 using Marvel.Project.API.Models;
 using Marvel.Project.API.Queries;
-using Marvel.Project.Core.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Marvel.Project.API.Controllers;
 
 
-public class EntityControllerBase<TModel, Tkey, TCore> : ControllerBase
+public class EntityControllerBase<TModel, Tkey> : ControllerBase
 where TModel : class, IModel<Tkey>
-where TCore : class, IEntity<Tkey>
 {
     protected readonly IMediator mediator;
 
@@ -23,7 +20,7 @@ where TCore : class, IEntity<Tkey>
     [HttpPost]
     public virtual async Task<IActionResult> Add([FromBody] TModel entity, CancellationToken cancellationToken)
     {
-        var response = await mediator.Send(new AddEntityRequest<TModel, Tkey, TCore>
+        var response = await mediator.Send(new AddEntityRequest<TModel, Tkey>
         {
             Entity = entity,
 
@@ -39,14 +36,14 @@ where TCore : class, IEntity<Tkey>
     [HttpGet]
     public virtual async Task<IActionResult> Get(CancellationToken cancellationToken)
     {
-        var entities = await mediator.Send(new GetEntitiesRequest<TModel, Tkey, TCore>(), cancellationToken);
+        var entities = await mediator.Send(new GetEntitiesRequest<TModel, Tkey>(), cancellationToken);
         return Ok(entities);
     }
 
     [HttpGet("{Id}")]
     public virtual async Task<TModel> GetEntityById(Tkey Id, CancellationToken cancellationToken)
     {
-        var entity = await mediator.Send(new GetEntityByIdRequest<TModel, Tkey, TCore>()
+        var entity = await mediator.Send(new GetEntityByIdRequest<TModel, Tkey>()
         {
             Id = Id
         }, cancellationToken);
@@ -67,7 +64,7 @@ where TCore : class, IEntity<Tkey>
         {
             throw new BadHttpRequestException("Entity is null");
         }
-        var response = await mediator.Send(new UpdateEntityRequest<TModel, Tkey, TCore>()
+        var response = await mediator.Send(new UpdateEntityRequest<TModel, Tkey>()
         {
             Id = Id,
             Entity = entity
@@ -79,7 +76,7 @@ where TCore : class, IEntity<Tkey>
     [HttpDelete("{Id}")]
     public virtual async Task<IActionResult> DeleteEntity(Tkey Id, CancellationToken cancellationToken)
     {
-        var response = await mediator.Send(new DeleteEntityRequest<TModel, Tkey, TCore>() { Id = Id }, cancellationToken);
+        var response = await mediator.Send(new DeleteEntityRequest<TModel, Tkey>() { Id = Id }, cancellationToken);
 
         return Ok(response);
     }

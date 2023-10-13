@@ -33,16 +33,11 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-// /*if (app.Environment.IsDevelopment())
-// {
-//     app.UseSwagger();
-//     app.UseSwaggerUI();
-//     using(var scope = app.Services.CreateScope()){
-//         var context = scope.ServiceProvider.GetRequiredService<MarvelProjectDbContext>();
-//         context.Database.EnsureCreated();
-
-//     }
-// }*/
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseDeveloperExceptionPage();
+}
 app.UseCors(options => options.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
 app.UseHttpsRedirection();
 app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());

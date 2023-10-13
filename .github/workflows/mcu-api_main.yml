@@ -28,7 +28,7 @@ jobs:
       # - name: Change to project directory
       #   run : cd Marvel.Web.Project/Marvel.Project.API
 
-     - name: Initialize Database
+      - name: Initialize Database
         run: dotnet ef migrations add InitialCreate && dotnet ef database update
         working-directory: Marvel.Web.Project/Marvel.Project.API
 

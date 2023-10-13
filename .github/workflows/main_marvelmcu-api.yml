@@ -24,7 +24,7 @@ jobs:
 
 
       - name: Initialize Database
-        run: dotnet ef migrations add InitialCreate && dotnet ef database update
+        run: dotnet tool install --global dotnet-ef && dotnet ef migrations add InitialCreate && dotnet ef database update
         working-directory: Marvel.Web.Project/Marvel.Project.API
 
 

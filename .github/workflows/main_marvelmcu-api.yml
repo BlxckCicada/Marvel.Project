@@ -23,9 +23,9 @@ jobs:
           include-prerelease: true
 
 
-      - name: Initialize Database
-        run: dotnet tool install --global dotnet-ef && dotnet ef migrations add InitialCreate && dotnet ef database update
-        working-directory: Marvel.Web.Project/Marvel.Project.API
+      # - name: Initialize Database
+      #   run: dotnet tool install --global dotnet-ef && dotnet ef migrations add InitialCreate && dotnet ef database update
+      #   working-directory: Marvel.Web.Project/Marvel.Project.API
 
 
       - name: Build with dotnet

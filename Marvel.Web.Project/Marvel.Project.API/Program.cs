@@ -10,8 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("MarvelProject");
-builder.Services.AddDbContext<MarvelProjectDbContext>(options => options.UseSqlite(connectionString));
+// var connectionString = builder.Configuration.GetConnectionString("MarvelProject");
+builder.Services.AddDbContext<MarvelProjectDbContext>(options => options.UseSqlite("Data Source=marvel.db"));
 builder.Services.Add(new ServiceDescriptor(typeof(IRepository), typeof(MarvelProjectDbContext), ServiceLifetime.Scoped));
 builder.Services.Add(new ServiceDescriptor(typeof(IQueryRepository), typeof(MarvelProjectDbContext), ServiceLifetime.Scoped));
 builder.Services.Add(new ServiceDescriptor(typeof(ICommandRepository), typeof(MarvelProjectDbContext), ServiceLifetime.Scoped));
@@ -36,9 +36,10 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
+
+}
     app.UseSwagger();
     app.UseSwaggerUI();
-}
 app.UseCors(options => options.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
 app.UseHttpsRedirection();
 app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());

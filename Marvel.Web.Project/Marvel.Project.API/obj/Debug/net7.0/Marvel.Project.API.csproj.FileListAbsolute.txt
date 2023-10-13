@@ -206,10 +206,6 @@ D:\Development\Personal Projects\Marvel.Project\Marvel.Web.Project\Marvel.Projec
 D:\Development\Personal Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.API\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\Development\Personal Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.API\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\Development\Personal Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.API\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-D:\Development\Personal Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.API\bin\Debug\net7.0\Marvel.Project.Core.dll
-D:\Development\Personal Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.API\bin\Debug\net7.0\Marvel.Project.Data.dll
-D:\Development\Personal Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.API\bin\Debug\net7.0\Marvel.Project.Core.pdb
-D:\Development\Personal Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.API\bin\Debug\net7.0\Marvel.Project.Data.pdb
 D:\Development\Personal Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.API\obj\Debug\net7.0\staticwebassets\msbuild.Marvel.Project.API.Microsoft.AspNetCore.StaticWebAssets.props
 D:\Development\Personal Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.API\obj\Debug\net7.0\staticwebassets\msbuild.build.Marvel.Project.API.props
 D:\Development\Personal Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.API\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.Marvel.Project.API.props
@@ -221,3 +217,7 @@ D:\Development\Personal Projects\Marvel.Project\Marvel.Web.Project\Marvel.Projec
 D:\Development\Personal Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.API\obj\Debug\net7.0\Marvel.Project.API.csproj.CopyComplete
 D:\Development\Personal Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.API\obj\Debug\net7.0\Marvel.Project.API.genruntimeconfig.cache
 D:\Development\Personal Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.API\obj\Debug\net7.0\ref\Marvel.Project.API.dll
+D:\Development\Personal Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.API\bin\Debug\net7.0\Humanizer.dll
+D:\Development\Personal Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Development\Personal Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.API\bin\Debug\net7.0\Mono.TextTemplating.dll
+D:\Development\Personal Projects\Marvel.Project\Marvel.Web.Project\Marvel.Project.API\bin\Debug\net7.0\System.CodeDom.dll

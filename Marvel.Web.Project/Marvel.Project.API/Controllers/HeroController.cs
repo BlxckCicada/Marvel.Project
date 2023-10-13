@@ -9,12 +9,12 @@ namespace Marvel.Project.API.Controllers;
 
 [ApiController]
 [Route("heroes")]
-public class HeroController : EntityControllerBase<Hero, Guid, Core.Entities.Hero>
+public class HeroController : EntityControllerBase<Hero, Guid>
 {
     public HeroController(IMediator mediator) : base(mediator)
     {
 
     }
 
-    
+
 }

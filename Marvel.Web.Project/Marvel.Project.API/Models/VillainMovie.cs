@@ -1,8 +1,5 @@
 namespace Marvel.Project.API.Models;
-using System.ComponentModel.DataAnnotations;
 using System;
-
-using Marvel.Project.API.Models;
 
 public record VillainMovie
 {

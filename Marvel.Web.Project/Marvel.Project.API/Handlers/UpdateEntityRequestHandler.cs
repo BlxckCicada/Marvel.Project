@@ -1,16 +1,14 @@
 using AutoMapper;
 using Marvel.Project.API.Commands;
 using Marvel.Project.API.Models;
-using Marvel.Project.Core.Data;
-using Marvel.Project.Core.Entities;
+using Marvel.Project.Api.Data;
 using MediatR;
 
 namespace Marvel.Project.API.Handlers;
 
 
-public record UpdateEntityRequestHandler<TModel, TKey, TCore> : IRequestHandler<UpdateEntityRequest<TModel, TKey, TCore>, CommandResponse<TModel>>
+public record UpdateEntityRequestHandler<TModel, TKey> : IRequestHandler<UpdateEntityRequest<TModel, TKey>, CommandResponse<TModel>>
 where TModel : class, IModel<TKey>
-where TCore : class, IEntity<TKey>
 {
 
     private readonly ICommandRepository command;
@@ -21,10 +19,10 @@ where TCore : class, IEntity<TKey>
         this.mapper = mapper;
         this.command = command;
     }
-    public async Task<CommandResponse<TModel>> Handle(UpdateEntityRequest<TModel, TKey, TCore> request, CancellationToken cancellationToken)
+    public async Task<CommandResponse<TModel>> Handle(UpdateEntityRequest<TModel, TKey> request, CancellationToken cancellationToken)
     {
         var entity = request.Entity;
-        var updatedEntity = command.UpdateOne<TCore>(mapper.Map<TCore>(entity));
+        var updatedEntity = command.UpdateOne<TModel>(mapper.Map<TModel>(entity));
         await command.SaveChangesAsync(cancellationToken);
 
         return new CommandResponse<TModel>

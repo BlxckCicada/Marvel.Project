@@ -8,7 +8,7 @@ namespace Marvel.Project.API.Controllers;
 
 [ApiController]
 [Route("movies")]
-public class MovieController : EntityControllerBase<Movie, Guid, Core.Entities.Movie>
+public class MovieController : EntityControllerBase<Movie, Guid>
 {
 
     public MovieController(IMediator mediator) : base(mediator) { }

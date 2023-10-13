@@ -5,13 +5,13 @@ public class DefaultProfile : Profile
 {
    public  DefaultProfile()
     {
-        CreateMap<Marvel.Project.Core.Entities.Hero, Hero>().ReverseMap();
-        CreateMap<Marvel.Project.Core.Entities.Villain, Villain>().ReverseMap();
-        CreateMap<Marvel.Project.Core.Entities.Movie, Movie>().ReverseMap();
-        CreateMap<Marvel.Project.Core.Entities.HeroMovie, HeroMovie>().ReverseMap();
-        CreateMap<Marvel.Project.Core.Entities.VillainMovie, VillainMovie>().ReverseMap();
+        CreateMap<Hero, Hero>().ReverseMap();
+        CreateMap<Villain, Villain>().ReverseMap();
+        CreateMap<Movie, Movie>().ReverseMap();
+        CreateMap<HeroMovie, HeroMovie>().ReverseMap();
+        CreateMap<VillainMovie, VillainMovie>().ReverseMap();
 
-        
+
     }
 
 }

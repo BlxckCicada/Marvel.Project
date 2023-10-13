@@ -1,10 +1,9 @@
-using System.Runtime.CompilerServices;
-using Marvel.Project.Core.Data;
 using Marvel.Project.Data;
 using Microsoft.EntityFrameworkCore;
 using MediatR;
 using Marvel.Project.API.Commands;
 using Marvel.Project.Api.DependencyInjection;
+using Marvel.Project.Api.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

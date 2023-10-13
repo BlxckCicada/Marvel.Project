@@ -1,17 +1,15 @@
-using System.Linq;
 using AutoMapper;
 using Marvel.Project.API.Models;
 using Marvel.Project.API.Queries;
-using Marvel.Project.Core.Data;
-using Marvel.Project.Core.Entities;
+using Marvel.Project.Api.Data;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace Marvel.Project.API.Handlers;
 
-public record GetEntityByIdRequestHandler<TModel, TKey, TCore> : IRequestHandler<GetEntityByIdRequest<TModel, TKey, TCore>, TModel>
+public record GetEntityByIdRequestHandler<TModel, TKey> : IRequestHandler<GetEntityByIdRequest<TModel, TKey>, TModel>
 where TModel : class, IModel<TKey>
-where TCore : class, IEntity<TKey>
+
  where TKey : IEquatable<TKey>
 {
     private readonly IQueryRepository query;
@@ -22,9 +20,9 @@ where TCore : class, IEntity<TKey>
         this.mapper = mapper;
 
     }
-    public async Task<TModel> Handle(GetEntityByIdRequest<TModel, TKey, TCore> request, CancellationToken cancellationToken)
+    public async Task<TModel> Handle(GetEntityByIdRequest<TModel, TKey> request, CancellationToken cancellationToken)
     {
-        var entity = await query.Query<TCore>().SingleOrDefaultAsync(x => x.Id.Equals(request.Id), cancellationToken);
+        var entity = await query.Query<TModel>().SingleOrDefaultAsync(x => x.Id.Equals(request.Id), cancellationToken);
         return mapper.Map<TModel>(entity);
     }
 }

@@ -1,16 +1,14 @@
 using AutoMapper;
 using Marvel.Project.API.Commands;
 using Marvel.Project.API.Models;
-using Marvel.Project.Core.Data;
-using Marvel.Project.Core.Entities;
+using Marvel.Project.Api.Data;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace Marvel.Project.API.Handlers;
 
-public record DeleteEntityRequestHandler<TModel, TKey, TCore> : IRequestHandler<DeleteEntityRequest<TModel, TKey, TCore>, CommandResponse<TModel>>
+public record DeleteEntityRequestHandler<TModel, TKey> : IRequestHandler<DeleteEntityRequest<TModel, TKey>, CommandResponse<TModel>>
 where TModel : class, IModel<TKey>
-where TCore : class, IEntity<TKey>
  where TKey : IEquatable<TKey>
 {
 
@@ -25,9 +23,9 @@ where TCore : class, IEntity<TKey>
         this.query = query;
     }
 
-    public async Task<CommandResponse<TModel>> Handle(DeleteEntityRequest<TModel, TKey, TCore> request, CancellationToken cancellationToken)
+    public async Task<CommandResponse<TModel>> Handle(DeleteEntityRequest<TModel, TKey> request, CancellationToken cancellationToken)
     {
-        var entity = await query.Query<TCore>().SingleOrDefaultAsync(x => x.Id.Equals(request.Id), cancellationToken);
+        var entity = await query.Query<TModel>().SingleOrDefaultAsync(x => x.Id.Equals(request.Id), cancellationToken);
         if (entity == null)
         {
             return new CommandResponse<TModel>();

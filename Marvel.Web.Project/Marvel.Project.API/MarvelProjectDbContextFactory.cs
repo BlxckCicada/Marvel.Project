@@ -8,7 +8,7 @@ public class MarvelProjectDbContextFactory : IDesignTimeDbContextFactory<MarvelP
     public MarvelProjectDbContext CreateDbContext(string[] args)
     {
 
-        string DefaultConnectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING") ?? "Data Source=sqlite/marvel.db";
+        string DefaultConnectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING") ?? "Data Source=marvel.db";
         var optionsBuilder = new DbContextOptionsBuilder<MarvelProjectDbContext>();
         optionsBuilder.UseSqlite(DefaultConnectionString);
 

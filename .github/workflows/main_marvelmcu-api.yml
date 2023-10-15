@@ -22,12 +22,6 @@ jobs:
           dotnet-version: '7.x'
           include-prerelease: true
 
-
-      # - name: Initialize Database
-      #   run: dotnet tool install --global dotnet-ef && dotnet ef migrations add InitialCreate && dotnet ef database update
-      #   working-directory: Marvel.Web.Project/Marvel.Project.API
-
-
       - name: Build with dotnet
         run: dotnet build --configuration Release
         working-directory: Marvel.Web.Project/Marvel.Project.API
@@ -55,7 +49,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      working-directory: Marvel.Web.Project/Marvel.Project.API
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 

@@ -10,7 +10,7 @@ public class MarvelProjectDbContextFactory : IDesignTimeDbContextFactory<MarvelP
 
         string DefaultConnectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
         var optionsBuilder = new DbContextOptionsBuilder<MarvelProjectDbContext>();
-        optionsBuilder.UseSqlite(DefaultConnectionString);
+        optionsBuilder.UseSqlServer(DefaultConnectionString);
 
 
         return new MarvelProjectDbContext(optionsBuilder.Options);

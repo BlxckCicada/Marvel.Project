@@ -28,7 +28,7 @@ jobs:
       # - name: Change to project directory
       #   run : cd Marvel.Web.Project/Marvel.Project.API
 
-      
+
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
@@ -39,11 +39,11 @@ jobs:
         working-directory: Marvel.Web.Project/Marvel.Project.API
 
       - name: Initialize Database
-        run: dotnet tool install --global dotnet-ef && dotnet ef database update --connection "Data Source=marvel.db"
+        run: dotnet tool install --global dotnet-ef && dotnet ef database update 
         working-directory: Marvel.Web.Project/Marvel.Project.API
 
 
-     
+
       #- name: Check Database Migration Status
      #   run: dotnet ef database list --connection "Data Source=marvel.db"
      #   working-directory: Marvel.Web.Project/Marvel.Project.API

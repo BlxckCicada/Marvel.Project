@@ -55,7 +55,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      working-directory: Marvel.Web.Project/Marvel.Project.API
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 

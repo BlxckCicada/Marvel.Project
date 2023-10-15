@@ -39,7 +39,7 @@ jobs:
         working-directory: Marvel.Web.Project/Marvel.Project.API
 
       - name: Initialize Database
-        run: dotnet tool install --global dotnet-ef && dotnet ef database update
+        run: dotnet tool install --global dotnet-ef && dotnet ef database update --connection "Data Source=marvel.db"
         working-directory: Marvel.Web.Project/Marvel.Project.API
 
 

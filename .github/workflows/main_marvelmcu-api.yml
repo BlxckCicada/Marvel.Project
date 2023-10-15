@@ -27,45 +27,45 @@ jobs:
       #   run: dotnet tool install --global dotnet-ef && dotnet ef migrations add InitialCreate && dotnet ef database update
       #   working-directory: Marvel.Web.Project/Marvel.Project.API
 
-      - name: Navigate to working directory
-        run: cd Marvel.Web.Project/Marvel.Project.API
-
-
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
-       # working-directory: Marvel.Web.Project/Marvel.Project.API
+        working-directory: Marvel.Web.Project/Marvel.Project.API
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
-      #  working-directory: Marvel.Web.Project/Marvel.Project.API
+        working-directory: Marvel.Web.Project/Marvel.Project.API
 
       - name: Initialize Database
         run: dotnet tool install --global dotnet-ef && dotnet ef database update
-       # working-directory: Marvel.Web.Project/Marvel.Project.API
+        working-directory: Marvel.Web.Project/Marvel.Project.API
 
       - name: Check Database Migration Status
         run: dotnet ef migrations list --connection "Data Source=marvel.db"
-       # working-directory: Marvel.Web.Project/Marvel.Project.API
+        working-directory: Marvel.Web.Project/Marvel.Project.API
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
+          working-directory: Marvel.Web.Project/Marvel.Project.API
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
     environment:
+      working-directory: Marvel.Web.Project/Marvel.Project.API
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
 
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
           name: .net-app
+          working-directory: Marvel.Web.Project/Marvel.Project.API
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -75,3 +75,4 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B4AB9337C1A74DF789D16E39747BD282 }}
           package: .
+          working-directory: Marvel.Web.Project/Marvel.Project.API

@@ -17,18 +17,10 @@ namespace Marvel.Project.API.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.3");
 
-            modelBuilder.Entity("Marvel.Project.API.Models.Hero", b =>
+            modelBuilder.Entity("Marvel.Project.API.Models.Character", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("ActualFirstName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("ActualLastName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
@@ -51,24 +43,25 @@ namespace Marvel.Project.API.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("Role")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Heroes", (string)null);
+                    b.ToTable("Characters", (string)null);
                 });
 
-            modelBuilder.Entity("Marvel.Project.API.Models.HeroMovie", b =>
+            modelBuilder.Entity("Marvel.Project.API.Models.CharacterMovie", b =>
                 {
-                    b.Property<Guid>("HeroId")
+                    b.Property<Guid>("CharacterId")
                         .HasColumnType("TEXT");
 
                     b.Property<Guid>("MovieId")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("HeroId", "MovieId");
+                    b.HasKey("CharacterId", "MovieId");
 
-                    b.HasIndex("MovieId");
-
-                    b.ToTable("HeroMovie");
+                    b.ToTable("CharacterMovie");
                 });
 
             modelBuilder.Entity("Marvel.Project.API.Models.Movie", b =>
@@ -95,115 +88,6 @@ namespace Marvel.Project.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Movies", (string)null);
-                });
-
-            modelBuilder.Entity("Marvel.Project.API.Models.Villain", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("ActualFirstName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("ActualLastName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(1024)
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Villains", (string)null);
-                });
-
-            modelBuilder.Entity("Marvel.Project.API.Models.VillainMovie", b =>
-                {
-                    b.Property<Guid>("VillainId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid>("MovieId")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("VillainId", "MovieId");
-
-                    b.HasIndex("MovieId");
-
-                    b.ToTable("VillainMovie");
-                });
-
-            modelBuilder.Entity("Marvel.Project.API.Models.HeroMovie", b =>
-                {
-                    b.HasOne("Marvel.Project.API.Models.Hero", "Hero")
-                        .WithMany("Movies")
-                        .HasForeignKey("HeroId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Marvel.Project.API.Models.Movie", "Movie")
-                        .WithMany("Heroes")
-                        .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Hero");
-
-                    b.Navigation("Movie");
-                });
-
-            modelBuilder.Entity("Marvel.Project.API.Models.VillainMovie", b =>
-                {
-                    b.HasOne("Marvel.Project.API.Models.Movie", "Movie")
-                        .WithMany("Villains")
-                        .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Marvel.Project.API.Models.Villain", "Villain")
-                        .WithMany("Movies")
-                        .HasForeignKey("VillainId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Movie");
-
-                    b.Navigation("Villain");
-                });
-
-            modelBuilder.Entity("Marvel.Project.API.Models.Hero", b =>
-                {
-                    b.Navigation("Movies");
-                });
-
-            modelBuilder.Entity("Marvel.Project.API.Models.Movie", b =>
-                {
-                    b.Navigation("Heroes");
-
-                    b.Navigation("Villains");
-                });
-
-            modelBuilder.Entity("Marvel.Project.API.Models.Villain", b =>
-                {
-                    b.Navigation("Movies");
                 });
 #pragma warning restore 612, 618
         }

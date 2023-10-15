@@ -25,6 +25,7 @@ jobs:
       - name: Build with dotnet
         run: dotnet build --configuration Release
         working-directory: Marvel.Web.Project/Marvel.Project.API
+        #https://github.com/BlxckCicada/Marvel.Project/raw/main/Marvel.Web.Project/Marvel.Project.API/marvel.db
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp

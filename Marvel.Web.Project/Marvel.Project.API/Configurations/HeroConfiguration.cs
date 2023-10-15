@@ -4,10 +4,10 @@ using Marvel.Project.API.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-internal class HeroConfiguration : IEntityTypeConfiguration<Hero>
+internal class CharacterConfiguration : IEntityTypeConfiguration<Character>
 {
-    public void Configure(EntityTypeBuilder<Hero> builder)
+    public void Configure(EntityTypeBuilder<Character> builder)
     {
-        builder.ToTable("Heroes");
+        builder.ToTable("Characters");
     }
 }

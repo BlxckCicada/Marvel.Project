@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Marvel.Project.API.Controllers;
 
 [ApiController]
-[Route("movies")]
+[Route("movie")]
 public class MovieController : EntityControllerBase<Movie, Guid>
 {
 

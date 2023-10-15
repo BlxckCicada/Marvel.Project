@@ -12,8 +12,7 @@ internal static class IServiceCollectionExtensions
     {
         // TODO: Map all generic entity handlers here
         return services
-            .AddEntityHandlers<Hero, Guid>(replaceExistingImplementations)
-            .AddEntityHandlers < Villain, Guid>(replaceExistingImplementations)
+            .AddEntityHandlers<Character, Guid>(replaceExistingImplementations)
             .AddEntityHandlers<Movie, Guid>(replaceExistingImplementations);
     }
 

@@ -19,8 +19,6 @@ public interface IMovie : IModel<Guid>
 
     public string Image { get; set; }
 
-    public ICollection<HeroMovie>? Heroes { get; set; }
-
 
 
 }

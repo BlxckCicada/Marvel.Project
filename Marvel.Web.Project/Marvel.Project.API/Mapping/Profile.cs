@@ -5,11 +5,10 @@ public class DefaultProfile : Profile
 {
    public  DefaultProfile()
     {
-        CreateMap<Hero, Hero>().ReverseMap();
-        CreateMap<Villain, Villain>().ReverseMap();
+        CreateMap<Character, Character>().ReverseMap();
+
         CreateMap<Movie, Movie>().ReverseMap();
-        CreateMap<HeroMovie, HeroMovie>().ReverseMap();
-        CreateMap<VillainMovie, VillainMovie>().ReverseMap();
+        _ = CreateMap<CharacterMovie, CharacterMovie>().ReverseMap();
 
 
     }

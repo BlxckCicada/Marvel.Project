@@ -36,6 +36,14 @@ jobs:
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
         working-directory: Marvel.Web.Project/Marvel.Project.API
 
+      - name: Initialize Database
+        run: dotnet tool install --global dotnet-ef && dotnet ef database update
+        working-directory: Marvel.Web.Project/Marvel.Project.API
+
+      - name: Check Database Migration Status
+        run: dotnet ef migrations list --connection "Data Source=marvel.db"
+        working-directory: Marvel.Web.Project/Marvel.Project.API
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:

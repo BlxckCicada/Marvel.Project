@@ -39,13 +39,13 @@ jobs:
         working-directory: Marvel.Web.Project/Marvel.Project.API
 
       - name: Initialize Database
-        run: dotnet tool install --global dotnet-ef && dotnet ef database update 
+        run: dotnet tool install --global dotnet-ef && dotnet ef database update
         working-directory: Marvel.Web.Project/Marvel.Project.API
 
 
 
       #- name: Check Database Migration Status
-     #   run: dotnet ef database list --connection "Data Source=marvel.db"
+     #   run: dotnet ef migrations list --connection "Data Source=marvel.db"
      #   working-directory: Marvel.Web.Project/Marvel.Project.API
 
       - name: Upload artifact for deployment job

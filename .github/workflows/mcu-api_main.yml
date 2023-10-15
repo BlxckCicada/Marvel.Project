@@ -29,8 +29,8 @@ jobs:
       #   run : cd Marvel.Web.Project/Marvel.Project.API
 
       - name: Initialize Database
-         run: dotnet ef database update
-         working-directory: Marvel.Web.Project/Marvel.Project.API
+        run: dotnet ef database update
+        working-directory: Marvel.Web.Project/Marvel.Project.API
 
       - name: Build with dotnet
         run: dotnet build --configuration Release

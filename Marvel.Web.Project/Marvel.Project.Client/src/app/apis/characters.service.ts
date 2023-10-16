@@ -25,6 +25,7 @@ export class CharactersService {
     // return of(this.character);
   }
   getCharacters(): Observable<Character[]> {
+    console.log('url ', this.apiUrl);
     // return of([this.character]);
     return this.http.get<Character[]>(`${this.apiUrl}/character`);
   }

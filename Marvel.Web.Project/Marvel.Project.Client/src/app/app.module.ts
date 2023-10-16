@@ -12,11 +12,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './features/home';
 import { CharactersModule } from './features/characters';
 import { HttpClientModule } from '@angular/common/http';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const Modules = [HomeModule, CharactersModule];
 @NgModule({
   declarations: [AppComponent],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent],
   imports: [
     BrowserModule,

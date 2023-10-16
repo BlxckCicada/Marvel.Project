@@ -17,7 +17,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 const Modules = [HomeModule, CharactersModule];
 @NgModule({
   declarations: [AppComponent],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent],
   imports: [
     BrowserModule,

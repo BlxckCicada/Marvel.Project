@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Character, Role } from '@app/model';
+import { Movie, Role } from '@app/model';
 import { UrlClass } from '@app/model/url.class';
 import { Observable, of } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
-export class CharactersService {
-  // character: Character = {
+export class MoviesService {
+  // movie: Movie = {
   //   id: '123',
   //   firstname: 'Steve',
   //   lastname: 'Rogers',
@@ -19,25 +19,25 @@ export class CharactersService {
   apiUrl = UrlClass.apiUrl;
   // apiUrl = 'https://marvelmcu-api.azurewebsites.net';
   constructor(private http: HttpClient) {}
-  getCharacter(id: string): Observable<Character> {
+  getMovie(id: string): Observable<Movie> {
     console.log('querying ' + id);
-    return this.http.get<Character>(`${this.apiUrl}/character/${id}`);
-    // return of(this.character);
+    return this.http.get<Movie>(`${this.apiUrl}/movie/${id}`);
+    // return of(this.movie);
   }
-  getCharacters(): Observable<Character[]> {
-    // return of([this.character]);
-    return this.http.get<Character[]>(`${this.apiUrl}/character`);
+  getMovies(): Observable<Movie[]> {
+    // return of([this.movie]);
+    return this.http.get<Movie[]>(`${this.apiUrl}/movie`);
   }
-  addCharacter(character: Character): Observable<Character> {
-    return this.http.post<Character>(`${this.apiUrl}`, character);
+  addMovie(movie: Movie): Observable<Movie> {
+    return this.http.post<Movie>(`${this.apiUrl}`, movie);
   }
-  updateCharacter(character: Character): Observable<Character> {
-    return this.http.put<Character>(
-      `${this.apiUrl}/${character.id}`,
-      character
+  updateMovie(movie: Movie): Observable<Movie> {
+    return this.http.put<Movie>(
+      `${this.apiUrl}/${movie.id}`,
+      movie
     );
   }
-  deleteCharacter(character: Character): Observable<Character> {
-    return this.http.delete<Character>(`${this.apiUrl}/`);
+  deleteMovie(movie: Movie): Observable<Movie> {
+    return this.http.delete<Movie>(`${this.apiUrl}/`);
   }
 }

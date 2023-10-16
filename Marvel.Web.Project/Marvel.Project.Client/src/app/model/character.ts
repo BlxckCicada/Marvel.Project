@@ -1,7 +1,7 @@
 export interface Character {
   id?: string;
-  firstname: string;
-  lastname: string;
+  firstName: string;
+  lastName: string;
   name: string;
   image: string;
   description:string ;

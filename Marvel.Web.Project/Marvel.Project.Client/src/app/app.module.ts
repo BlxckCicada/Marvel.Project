@@ -12,9 +12,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './features/home';
 import { CharactersModule } from './features/characters';
 import { HttpClientModule } from '@angular/common/http';
-import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import {
+  HashLocationStrategy,
+  LocationStrategy,
+  PathLocationStrategy,
+} from '@angular/common';
+import { MoviesModule } from './features/movies';
+import { AppCommonModule } from './common';
 
-const Modules = [HomeModule, CharactersModule];
+const Modules = [HomeModule, CharactersModule, MoviesModule];
 @NgModule({
   declarations: [AppComponent],
   providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
@@ -26,7 +32,7 @@ const Modules = [HomeModule, CharactersModule];
     StoreModule.forRoot({ router: routerReducer }),
     EffectsModule.forRoot([]),
     Modules,
-    HttpClientModule
+    HttpClientModule,
   ],
 })
 export class AppModule {}

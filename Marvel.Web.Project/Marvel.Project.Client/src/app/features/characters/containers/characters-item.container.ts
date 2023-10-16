@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Character } from '@app/model';
 
 @Component({
@@ -15,8 +15,10 @@ import { Character } from '@app/model';
 export class CharactersItemContainer {
   @Input() character: Character | undefined;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
   onGoToCharacter(id: string) {
-    this.router.navigate([`/character/${id}`]);
+    console.log('query from go to character ', id);
+    console.log(this.router.config);
+    this.router.navigate([`${id}`], { relativeTo: this.route });
   }
 }

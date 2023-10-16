@@ -5,11 +5,14 @@ import { Observable } from 'rxjs';
 import * as fromCharacterStore from '../store';
 @Component({
   selector: 'app-characters-container',
-  template: `<ng-container *ngIf="character$ | async as characters">
-    <app-characters-component
-      [characters]="characters"
-    ></app-characters-component
-  ></ng-container>`,
+  template: ` <ng-container *ngIf="(character$ | async) == null">
+      <div class="flex justify-center pt-20"><app-spinner ></app-spinner></div>
+    </ng-container>
+    <ng-container *ngIf="character$ | async as characters">
+      <app-characters-component
+        [characters]="characters"
+      ></app-characters-component
+    ></ng-container>`,
   styles: [``],
 })
 export class CharactersContainer {

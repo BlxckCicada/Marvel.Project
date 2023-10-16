@@ -7,10 +7,24 @@ import { Component } from '@angular/core';
       <nav class="navigation">
         <div class=" p-10 text-3xl font-bold"><a routerLink="">Marvel</a></div>
         <div class="p-10 grid md:grid-cols-4">
-          <a routerLink="/home" class="nav-list-link">Home</a>
-          <a routerLink="/character" class="nav-list-link">Characters</a>
-          <a routerLink="/movie" class="nav-list-link">Movies</a>
-          <a routerLink="/about" class="nav-list-link">About</a>
+          <a routerLinkActive="active" routerLink="/home" class="nav-list-link"
+            >Home</a
+          >
+          <a
+            routerLinkActive="active"
+            routerLink="/characters"
+            class="nav-list-link"
+            >Characters</a
+          >
+          <a
+            routerLinkActive="active"
+            routerLink="/movies"
+            class="nav-list-link"
+            >Movies</a
+          >
+          <a routerLinkActive="active" routerLink="/about" class="nav-list-link"
+            >About</a
+          >
         </div>
       </nav>
       <div class="h-screen ">
@@ -34,6 +48,9 @@ import { Component } from '@angular/core';
         }
         .nav-link {
           @apply bg-blue-500;
+        }
+        .active {
+          @apply text-black bg-white;
         }
         .nav-list-link {
           @apply hover:bg-white hover:text-black flex justify-center  h-12 pt-1;

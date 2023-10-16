@@ -10,14 +10,14 @@ import { Character } from '@app/model';
           <h1 class="title text-4xl font-bold">{{ character.name }}</h1>
           <h1 class="title ">
             <i
-              >played by
+              >
               <span class="font-semibold"
-                >{{ character.firstname }}{{ character.lastname }}</span
+                >{{ character.firstName }}  {{ character.lastName }}</span
               ></i
             >
           </h1>
         </div>
-        <div class="img-container">
+        <div class="img-container  w-full h-96">
           <img [src]="character.image" />
         </div>
       </div>
@@ -40,7 +40,7 @@ import { Character } from '@app/model';
         }
         .card,
         .card-details {
-          @apply pt-10;
+          @apply pt-10 pl-16;
         }
         .title {
           @apply flex justify-center;

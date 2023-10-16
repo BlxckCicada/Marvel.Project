@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 import { EffectsFeatureModule, EffectsModule } from '@ngrx/effects';
 import { CharacterEffects, characterReducer, featureName } from './store';
 import { StoreModule } from '@ngrx/store';
+import { AppCommonModule } from '@app/common';
 
 const Containers = [
   CharactersContainer,
@@ -30,7 +31,7 @@ const effectsModule = [
 ];
 @NgModule({
   declarations: [Containers],
-  imports: [CharactersRoutingModule, CommonModule, effectsModule],
+  imports: [CharactersRoutingModule, CommonModule, effectsModule,AppCommonModule],
   exports: [Containers],
 })
 export class CharactersModule {}

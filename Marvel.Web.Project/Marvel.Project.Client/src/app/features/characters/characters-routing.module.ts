@@ -9,6 +9,11 @@ const routes: Routes = [
     path: ':id',
     component: CharacterDetailsContainer,
   },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full',
+  },
 ];
 @NgModule({
   declarations: [],

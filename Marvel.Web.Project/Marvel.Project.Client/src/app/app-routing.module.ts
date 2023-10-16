@@ -7,6 +7,7 @@ const appRoutes: Routes = [
     path: 'home',
     loadChildren: () =>
       import('@app/features/home/home.module').then((m) => m.HomeModule),
+    pathMatch: 'full',
   },
   {
     path: 'character',
@@ -14,6 +15,7 @@ const appRoutes: Routes = [
       import('@app/features/characters/characters.module').then(
         (m) => m.CharactersModule
       ),
+    pathMatch: 'full',
   },
 
   {

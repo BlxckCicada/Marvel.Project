@@ -1,5 +1,17 @@
 [
   {
+    "name": "Doctor Strange in the Multiverse of Madness",
+    "releaseDate": "2022-05-06T00:00:00",
+    "description": "Dr. Stephen Strange casts a forbidden spell that opens a portal to the multiverse. Strange, with the help of his new ally America Chavez, must travel across the multiverse to stop a powerful new threat.",
+    "image": "https://th.bing.com/th/id/R.6f687e5e939967fd8ef78c5467b3c1cd?rik=DsRwN7Qn4NPksw&pid=ImgRaw&r=0"
+  },
+  {
+    "name": "Thor: Love and Thunder",
+    "releaseDate": "2022-07-08T00:00:00",
+    "description": "Thor enlists the help of Valkyrie, Korg and his ex-girlfriend Jane Foster to fight Gorr the God Butcher, a galactic killer who seeks the extinction of the gods.",
+    "image": "https://th.bing.com/th/id/OIP.4P71pDCr8oNV7YCRLSyV8QHaDt?pid=ImgDet&rs=1"
+  },
+  {
     "name": "Spider-Man: No Way Home",
     "releaseDate": "2021-12-17T00:00:00",
     "description": "Peter Parker's secret identity is exposed, and he seeks the help of Doctor Strange to erase everyone's memory of him being Spider-Man. This spell has unintended consequences, leading to the multiverse merging and bringing villains from other dimensions into their world.",

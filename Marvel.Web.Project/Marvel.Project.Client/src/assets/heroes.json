@@ -1,0 +1,322 @@
+[
+  {
+    "name": "Iron Man",
+    "firstName": "Tony",
+    "lastName": "Stark",
+    "description": "Iron Man, also known as Tony Stark, is a fictional superhero in the Marvel Comics universe. He is a genius inventor and billionaire playboy who becomes a superhero by creating a powerful suit of armor. This suit, equipped with various advanced technologies, allows him to fight crime and super villains. Iron Man made his first appearance in 1963 and has since become one of Marvel's most iconic and popular characters, known for his intelligence, charisma, and high-tech powered armor. ",
+    "image": "https://staticg.sportskeeda.com/editor/2023/02/7a86e-16773353574509-1920.jpg",
+    "role": 0
+  },
+  {
+    "name": "Captain America",
+    "firstName": "Steve",
+    "lastName": "Rogers",
+    "description": "Captain America, also known as Steve Rogers, is a fictional superhero in the Marvel Comics universe. He is a super-soldier who fought in World War II and continues to defend freedom and justice as a symbol of American values. Captain America is known for his unwavering courage, exceptional combat skills, and his iconic shield, which he uses both for defense and as a projectile weapon. He is a founding member of the Avengers and a key figure in the Marvel Universe.",
+    "image": "https://media.wired.com/photos/59270270f3e2356fd800b2dc/4:3/w_929,h_697,c_limit/Marvel.jpg",
+    "role": 0
+  },
+  {
+    "name": "Spider-Man",
+    "firstName": "Peter",
+    "lastName": "Parker",
+    "description": "Spider-Man, also known as Peter Parker, is a beloved superhero in the Marvel Universe. He gained his incredible powers from a radioactive spider bite and uses them to protect New York City from various villains. Spider-Man is known for his agility, web-slinging abilities, and witty humor.",
+    "image": "https://th.bing.com/th/id/OIP.5T36xJN5j7JsC4nLdel78gHaEK?w=276&h=180&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Black Widow",
+    "firstName": "Natasha",
+    "lastName": "Romanoff",
+    "description": "Black Widow, also known as Natasha Romanoff, is a skilled spy and assassin who later becomes a superhero. She is a master of martial arts and espionage, often working with the Avengers to thwart global threats.",
+    "image": "https://th.bing.com/th/id/OIP.-TKf_klk2Bp3fuK0UzBP1wHaNL?w=184&h=328&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Thor",
+    "firstName": "Thor",
+    "lastName": "Odinson",
+    "description": "Thor, the God of Thunder, hails from Asgard and wields the enchanted hammer, Mjolnir. He is a mighty warrior and a key member of the Avengers, using his godly powers to protect the realms from various threats.",
+    "image": "https://th.bing.com/th/id/OIP.E807CVgCmAKp9_LvQvvXewHaEo?w=256&h=180&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Hulk",
+    "firstName": "Bruce",
+    "lastName": "Banner",
+    "description": "The Hulk, also known as Bruce Banner, is a scientist who transforms into a massive, green-skinned behemoth when angered or stressed. The Hulk possesses incredible strength and is a force to be reckoned with.",
+    "image": "https://th.bing.com/th/id/OIP.WT9KwHbS2pyExSCuL4CJuAHaED?w=267&h=180&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Black Panther",
+    "firstName": "T'Challa",
+    "lastName": "",
+    "description": "Black Panther, also known as T'Challa, is the king of Wakanda and a highly skilled warrior. He wears the Black Panther suit and has enhanced abilities, making him a formidable superhero and protector of Wakanda.",
+    "image": "https://th.bing.com/th/id/OIP.wO7bo0ritOr37Un0X5qdlwHaFN?w=236&h=183&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Doctor Strange",
+    "firstName": "Stephen",
+    "lastName": "Strange",
+    "description": "Doctor Strange, a former neurosurgeon, becomes a master of mystic arts after a car accident. He protects the world from mystical and magical threats using his knowledge of spells and the Eye of Agamotto.",
+    "image": "https://th.bing.com/th/id/OIP.JERKjcpTdTuNXvIET-9kHgHaD4?w=279&h=180&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Wolverine",
+    "firstName": "Logan",
+    "lastName": "",
+    "description": "Wolverine, also known as Logan, is a mutant with retractable claws and a powerful regenerative healing factor. He is a member of the X-Men and known for his gruff demeanor and combat skills.",
+    "image": "https://th.bing.com/th/id/OIP.Y4R3eGcASnrj6GlzBLtmAwHaFj?w=239&h=180&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Ant-Man",
+    "firstName": "Scott",
+    "lastName": "Lang",
+    "description": "Ant-Man, also known as Scott Lang, can shrink down to the size of an ant and communicate with ants. He wears a suit that allows him to control his size and has helped the Avengers with his unique abilities.",
+    "image": "https://th.bing.com/th/id/OIP.ywxzRuDAOoD4GMSOCzsceQHaEK?w=269&h=180&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Scarlet Witch",
+    "firstName": "Wanda",
+    "lastName": "Maximoff",
+    "description": "Scarlet Witch, also known as Wanda Maximoff, possesses reality-altering powers and is a member of the Avengers. Her magical abilities have both positive and chaotic consequences.",
+    "image": "https://th.bing.com/th/id/OIP.g82LSn9eC8--6XxF-YhCTgHaKf?w=184&h=260&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Hawkeye",
+    "firstName": "Clint",
+    "lastName": "Barton",
+    "description": "Hawkeye, also known as Clint Barton, is a master archer and a key member of the Avengers. He has pinpoint accuracy and is skilled in combat, using a bow and a quiver of specialized arrows.",
+    "image": "https://th.bing.com/th/id/OIP.W6EDDuavQm7rU2d7E61XSQHaH6?w=176&h=187&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Daredevil",
+    "firstName": "Matt",
+    "lastName": "Murdock",
+    "description": "Daredevil, also known as Matt Murdock, is a blind lawyer who fights crime in Hell's Kitchen as a vigilante with heightened senses. He is known for his acrobatic fighting style and his red suit.",
+    "image": "https://th.bing.com/th/id/OIP.UihAh3kERFzZRsRll2FvSgHaGs?w=228&h=206&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Storm",
+    "firstName": "Ororo",
+    "lastName": "Munroe",
+    "description": "Storm, also known as Ororo Munroe, is a mutant with the power to control the weather. She is a member of the X-Men and has served as a leader of the team, using her abilities for both offense and defense.",
+    "image": "https://th.bing.com/th/id/OIP.o11gCmFDCOmeAK-0b1MuYgHaLA?w=184&h=273&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Groot",
+    "firstName": "Groot",
+    "lastName": "",
+    "description": "Groot is a sentient tree-like creature from Planet X. He is a member of the Guardians of the Galaxy and is known for his limited vocabulary, which consists mainly of the phrase 'I am Groot.'",
+    "image": "https://th.bing.com/th/id/OIP.4r62mq_Dcq9eiK6hT32DsQHaKl?w=115&h=180&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Rocket",
+    "firstName": "Rocket",
+    "lastName": "",
+    "description": "Rocket is a genetically enhanced raccoon and a member of the Guardians of the Galaxy. He is an expert marksman and tactician and often partners with Groot on missions.",
+    "image": "https://th.bing.com/th/id/OIP.87IRnzgPgbEyPkiV-PYtRQAAAA?w=135&h=180&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Doctor Doom",
+    "firstName": "Victor",
+    "lastName": "Von Doom",
+    "description": "Doctor Doom, also known as Victor Von Doom, is a brilliant scientist and supervillain. He is the arch-nemesis of the Fantastic Four and seeks to conquer the world with his advanced technology and sorcery.",
+    "image": "https://th.bing.com/th/id/OIP.MGrUZ1AW22qPC-Q0AnC4_AHaEo?w=279&h=180&c=7&r=0&o=5&pid=1.7",
+    "role": 1
+  },
+  {
+    "name": "Jean Grey",
+    "firstName": "Jean",
+    "lastName": "Grey",
+    "description": "Jean Grey, also known as Marvel Girl and Phoenix, is a mutant with telepathic and telekinetic powers. She is a member of the X-Men and has a complex history with the cosmic entity known as the Phoenix Force.",
+    "image": "https://th.bing.com/th/id/OIP.0MHSfUKy70Q7DEFD5BYjvQHaJ3?w=184&h=245&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Vision",
+    "firstName": "Vision",
+    "lastName": "",
+    "description": "Vision is an android created by Ultron and later becomes a member of the Avengers. He possesses superhuman abilities, including density manipulation and energy projection, and is known for his logical and analytical mind.",
+    "image": "https://th.bing.com/th/id/OIP.Pkm5fODoy57JX1rufGgLYAHaHa?w=184&h=184&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Deadpool",
+    "firstName": "Wade",
+    "lastName": "Wilson",
+    "description": "Deadpool, also known as Wade Wilson, is a regenerative mutant mercenary known for his comedic and fourth-wall-breaking personality. He is a skilled swordsman and marksman, and his actions often blur the line between hero and antihero.",
+    "image": "https://th.bing.com/th/id/OIP.jjAwv-Ih5Cr8c9BuxJxkiAHaHa?w=157&h=180&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Loki",
+    "firstName": "Loki",
+    "lastName": "Laufeyson",
+    "description": "Loki, the God of Mischief, is a cunning and mischievous villain with a talent for deception and sorcery. He is the adopted brother of Thor and frequently opposes the Avengers and Thor in his quest for power.",
+    "image": "https://th.bing.com/th/id/OIP.bCTGaLSYb8jnAczjk-plAQHaH4?w=175&h=186&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Thanos",
+    "firstName": "Thanos",
+    "lastName": "",
+    "description": "Thanos is a powerful and genocidal villain who seeks to collect the Infinity Stones to gain ultimate power. He is a formidable adversary for the Avengers and the entire universe.",
+    "image": "https://th.bing.com/th/id/OIP.ao-4HcXBbCWCYjwu_7t20wHaE8?w=254&h=180&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Magneto",
+    "firstName": "Erik",
+    "lastName": "Lehnsher",
+    "description": "Magneto is a mutant with the power to manipulate magnetic fields. He is the leader of the Brotherhood of Mutants and opposes the X-Men, believing in mutant superiority over humans.",
+    "image": "https://th.bing.com/th/id/OIP.nPD4QHgmRNRvYOVZQ0ZKugHaER?w=310&h=180&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Green Goblin",
+    "firstName": "Norman",
+    "lastName": "Osborn",
+    "description": "Green Goblin, also known as Norman Osborn, is a maniacal villain who uses advanced technology and a glider to terrorize Spider-Man and New York City. He is one of Spider-Man's most iconic foes.",
+    "image": "https://th.bing.com/th/id/OIP.OFD5wQ1x09P6fzosAqoYBQHaEB?w=307&h=180&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Red Skull",
+    "firstName": "Johann",
+    "lastName": "Schmidt",
+    "description": "Red Skull, also known as Johann Schmidt, is a Nazi supervillain and the arch-nemesis of Captain America. He is a symbol of hatred and fascism, and his goal is to conquer the world.",
+    "image": "https://th.bing.com/th/id/OIP.yAZ2N1HTFlyEk_ElNZI8gwHaJr?w=147&h=197&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Doctor Octopus",
+    "firstName": "Otto",
+    "lastName": "Octavius",
+    "description": "Doctor Octopus, also known as Otto Octavius, is a brilliant scientist with mechanical tentacles that grant him superhuman strength and agility. He frequently battles Spider-Man.",
+    "image": "https://th.bing.com/th/id/OIP.Scz9_nLv_sYV8irz9Y95fAHaFj?w=260&h=195&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Venom",
+    "firstName": "Eddie",
+    "lastName": "Brock",
+    "description": "Venom, the symbiotic creature bonded to Eddie Brock, is an antihero and sometimes a villain. Venom has a complex relationship with Spider-Man and possesses superhuman abilities.",
+    "image": "https://th.bing.com/th/id/OIP.HAiJgkzxHrTiKtJTuqTkbgHaEK?w=292&h=180&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Kingpin",
+    "firstName": "Wilson",
+    "lastName": "Fisk",
+    "description": "Kingpin, also known as Wilson Fisk, is a powerful and ruthless crime lord in New York City. He is a major adversary for Daredevil and Spider-Man.",
+    "image": "https://th.bing.com/th/id/OIP.U82ae-e9goDnk5ShRM99uwHaJ2?w=135&h=180&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Mystique",
+    "firstName": "Raven",
+    "lastName": "Darkholme",
+    "description": "Mystique, also known as Raven Darkholme, is a mutant shapeshifter and a key member of the Brotherhood of Mutants. She is skilled in espionage and infiltration.",
+    "image": "https://th.bing.com/th/id/OIP.672Obv80VWtelsGPphhkGgHaE4?w=251&h=180&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "The Vulture",
+    "firstName": "Adrian",
+    "lastName": "Toomes",
+    "description": "The Vulture, also known as Adrian Toomes, is a supervillain who possesses a suit that grants him the ability to fly and enhanced strength. He is a frequent adversary of Spider-Man.",
+    "image": "https://th.bing.com/th/id/OIP.-Mpt7C4cjumZsTK-LjdWuQHaGn?w=208&h=186&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Ultron",
+    "firstName": "Ultron",
+    "lastName": "",
+    "description": "Ultron is an artificial intelligence with the goal of eradicating humanity. Created by Tony Stark, he is a powerful and relentless robotic villain that poses a major threat to the Avengers.",
+    "image": "https://th.bing.com/th/id/OIP.4NZaEtsKfSZrKmnio1MqEwHaJL?w=123&h=180&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Hela",
+    "firstName": "Hela",
+    "lastName": "",
+    "description": "Hela is the Asgardian goddess of death and a formidable antagonist in Thor's stories. She seeks to conquer Asgard and is known for her mastery over necromancy and her control over the undead.",
+    "image": "https://th.bing.com/th/id/OIP.95QQw3ZEDVAhBzV6nRKgKgHaFA?w=263&h=180&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Kang the Conqueror",
+    "firstName": "Kang",
+    "lastName": "the Conqueror",
+    "description": "Kang the Conqueror, also known as Nathaniel Richards, is a time-traveling villain with advanced technology. He poses a significant threat to various heroes and teams, including the Avengers.",
+    "image": "https://th.bing.com/th/id/OIP.TxGpkkRIRypLyqlVuQ4ZXQHaEK?w=318&h=180&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Juggernaut",
+    "firstName": "Cain",
+    "lastName": "Marko",
+    "description": "Juggernaut, also known as Cain Marko, is an unstoppable force once he gains momentum. He is often in conflict with the X-Men and is nearly invulnerable when in motion.",
+    "image": "https://th.bing.com/th/id/OIP.HmxpZWyrF3lLCzLIsKBIDgHaFj?w=243&h=182&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Mephisto",
+    "firstName": "Mephisto",
+    "lastName": "",
+    "description": "Mephisto is a powerful demon and a frequent adversary of various Marvel heroes, especially Ghost Rider and Doctor Strange. He is known for making diabolical deals and manipulating souls.",
+    "image": "https://th.bing.com/th/id/OIP.KmBNiR5eR9X0nEymi1CsvwHaIl?w=184&h=213&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "The Mandarin",
+    "firstName": "The Mandarin",
+    "lastName": "",
+    "description": "The Mandarin is a master martial artist and possesses ten powerful rings, each with unique abilities. He is a recurring enemy of Iron Man and a skilled strategist.",
+    "image": "https://th.bing.com/th/id/OIP.FGRdaGy2Vpjd8viJJ8cQHAHaKJ?w=184&h=252&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Sabretooth",
+    "firstName": "Victor",
+    "lastName": "Creed",
+    "description": "Sabretooth, also known as Victor Creed, is a mutant with animalistic traits and a brutal fighting style. He is a long-standing rival of Wolverine and a member of the Brotherhood of Mutants.",
+    "image": "https://th.bing.com/th/id/OIP.ZMSMdw0GiawX4CaKOk_2nQHaLH?w=184&h=276&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Rhino",
+    "firstName": "Aleksei",
+    "lastName": "Sysevich",
+    "description": "Rhino, also known as Aleksei Sysevich, is a supervillain with a nearly indestructible suit that grants him superhuman strength and durability. He often clashes with Spider-Man.",
+    "image": "https://th.bing.com/th/id/OIP.NT7ytOju0ZGldzI9dgXHpgHaHa?w=209&h=209&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Electro",
+    "firstName": "Max",
+    "lastName": "Dillon",
+    "description": "Electro, also known as Max Dillon, has the ability to generate and control electricity. He is a frequent adversary of Spider-Man and is known for his electric powers.",
+    "image": "https://th.bing.com/th/id/OIP.EDrnIpJDtonkXY774tsRZwHaJ4?w=184&h=245&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  },
+  {
+    "name": "Sandman",
+    "firstName": "Flint",
+    "lastName": "Marko",
+    "description": "Sandman, also known as Flint Marko, is a supervillain with the power to manipulate sand and shape-shift. He often faces off against Spider-Man and has a complex history.",
+    "image": "https://th.bing.com/th/id/OIP.H1w9TzS9_bYMNGV5or938AHaLh?w=184&h=286&c=7&r=0&o=5&pid=1.7",
+    "role": 0
+  }
+]

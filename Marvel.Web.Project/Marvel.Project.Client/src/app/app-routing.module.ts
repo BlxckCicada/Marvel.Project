@@ -15,22 +15,22 @@ const appRoutes: Routes = [
       import('@app/features/characters/characters.module').then(
         (m) => m.CharactersModule
       ),
-
   },
   {
     path: 'movies',
     loadChildren: () =>
-      import('@app/features/movies/movies.module').then(
-        (m) => m.MoviesModule
-      ),
-
+      import('@app/features/movies/movies.module').then((m) => m.MoviesModule),
+  },
+  {
+    path: 'about',
+    loadChildren: () =>
+      import('@app/features/about/about.module').then((m) => m.AboutModule),
   },
 
   {
     path: '',
     component: HomeContainer,
   },
-
 ];
 
 @NgModule({

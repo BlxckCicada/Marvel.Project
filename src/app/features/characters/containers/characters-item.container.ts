@@ -17,8 +17,6 @@ export class CharactersItemContainer {
 
   constructor(private router: Router, private route: ActivatedRoute) {}
   onGoToCharacter(id: string) {
-    console.log('query from go to character ', id);
-    console.log(this.router.config);
     this.router.navigate([`${id}`], { relativeTo: this.route });
   }
 }

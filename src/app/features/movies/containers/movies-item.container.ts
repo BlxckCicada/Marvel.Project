@@ -17,8 +17,6 @@ export class MoviesItemContainer {
 
   constructor(private router: Router, private route: ActivatedRoute) {}
   onGoToMovie(id: string) {
-    console.log('query from go to movie ', id);
-    console.log(this.router.config);
     this.router.navigate([`${id}`], { relativeTo: this.route });
   }
 }

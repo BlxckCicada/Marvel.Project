@@ -17,7 +17,7 @@ import { Character } from '@app/model';
             >
           </h1>
         </div>
-        <div class="img-container  w-full h-96">
+        <div class="img-container  ">
           <img [src]="character.image" />
         </div>
       </div>
@@ -30,13 +30,9 @@ import { Character } from '@app/model';
   >`,
   styles: [
     `
-      @tailwind base;
-      @tailwind components;
-      @tailwind utilities;
 
-      @layer base {
         .img-container {
-          @apply w-5/6 pt-10;
+          @apply w-40 h-40 pt-10;
         }
         .card,
         .card-details {
@@ -50,7 +46,7 @@ import { Character } from '@app/model';
         .card-details {
           @apply flex justify-end mt-60;
         }
-      }
+      
     `,
   ],
 })

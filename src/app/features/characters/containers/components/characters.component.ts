@@ -13,11 +13,7 @@ import { Character } from '@app/model';
   `,
   styles: [
     `
-      @tailwind base;
-      @tailwind components;
-      @tailwind utilities;
 
-      @layer base {
         .card {
           @apply w-2/6 h-3/5 bg-red-800;
         }
@@ -27,7 +23,7 @@ import { Character } from '@app/model';
         .title {
           @apply flex justify-center pt-1 pb-6 text-white;
         }
-      }
+    
     `,
   ],
 })

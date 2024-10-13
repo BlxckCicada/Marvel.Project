@@ -19,7 +19,6 @@ export class CharacterDetailsContainer {
   character$: Observable<Character | undefined> | undefined;
 
   constructor(private route: ActivatedRoute, private store: Store) {
-    console.log('testing');
   }
   ngOnInit() {
     this.route.params.subscribe((x) => {

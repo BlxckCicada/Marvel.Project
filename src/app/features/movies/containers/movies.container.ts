@@ -24,7 +24,6 @@ export class MoviesContainer {
   }
 
   ngOnInit() {
-    console.log("Date ", new Date("11 November 2022"))
     this.movie$ = this.store.select(
       fromMovieStore.selectMoviesResults
     );

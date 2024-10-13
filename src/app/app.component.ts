@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -55,6 +56,21 @@ import { Component } from '@angular/core';
         </div>
       </div>
       <div class="h-full my-56">
+        <div class="px-12">
+          <mat-form-field>
+            <mat-label>Choose an option</mat-label>
+            <mat-select [(value)]="selected">
+              <mat-option
+                value="characters"
+                (click)="onNavigateToPage('characters')"
+                >Characters</mat-option
+              >
+              <mat-option value="movies" (click)="onNavigateToPage('movies')"
+                >Movies</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </div>
         <div class="pb-32"><router-outlet></router-outlet></div>
         <footer class="footer">Developed by theblxckcicada</footer>
       </div>
@@ -88,4 +104,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Marvel Web';
+  selected = '';
+  router = inject(Router);
+  route = inject(ActivatedRoute);
+
+  onNavigateToPage(page: string) {
+    this.router.navigate([`${page}`]);
+  }
 }

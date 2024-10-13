@@ -21,12 +21,14 @@ import { MoviesModule } from './features/movies';
 import { AppCommonModule } from './common';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
 const Modules = [
   HomeModule,
   CharactersModule,
   MoviesModule,
   MatMenuModule,
   MatIconModule,
+  MatSelectModule,
 ];
 @NgModule({
   declarations: [AppComponent],

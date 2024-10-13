@@ -80,7 +80,7 @@ export class CharacterEffects {
               character,
             });
           }),
-          tap((_) => window.location.reload()),
+
           catchError((error) => {
             return of(characterActions.addCharacterFailure({ error }));
           })
@@ -99,7 +99,7 @@ export class CharacterEffects {
               character,
             });
           }),
-          tap((_) => window.location.reload()),
+
           catchError((error) => {
             return this.service.addCharacter(character).pipe(
               map(() => {
@@ -122,7 +122,7 @@ export class CharacterEffects {
               character,
             });
           }),
-          tap((_) => window.location.reload()),
+
           catchError((error) => {
             return of(characterActions.deleteCharacterFailure({ error }));
           })

@@ -80,7 +80,7 @@ export class MovieEffects {
               movie,
             });
           }),
-          tap((_) => window.location.reload()),
+
           catchError((error) => {
             return of(movieActions.addMovieFailure({ error }));
           })
@@ -99,7 +99,7 @@ export class MovieEffects {
               movie,
             });
           }),
-          tap((_) => window.location.reload()),
+
           catchError((error) => {
             return this.service.addMovie(movie).pipe(
               map(() => {
@@ -122,7 +122,7 @@ export class MovieEffects {
               movie,
             });
           }),
-          tap((_) => window.location.reload()),
+
           catchError((error) => {
             return of(movieActions.deleteMovieFailure({ error }));
           })

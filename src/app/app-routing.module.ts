@@ -4,11 +4,11 @@ import { HomeModule } from './features/home';
 import { HomeContainer } from './features/home/containers';
 
 const appRoutes: Routes = [
-  {
-    path: 'home',
-    loadChildren: () =>
-      import('@app/features/home/home.module').then((m) => m.HomeModule),
-  },
+  // {
+  //   path: 'home',
+  //   loadChildren: () =>
+  //     import('@app/features/home/home.module').then((m) => m.HomeModule),
+  // },
   {
     path: 'characters',
     loadChildren: () =>
@@ -21,15 +21,10 @@ const appRoutes: Routes = [
     loadChildren: () =>
       import('@app/features/movies/movies.module').then((m) => m.MoviesModule),
   },
-  {
-    path: 'about',
-    loadChildren: () =>
-      import('@app/features/about/about.module').then((m) => m.AboutModule),
-  },
 
   {
-    path: '',
-    component: HomeContainer,
+    path: '**',
+    redirectTo: 'characters',
   },
 ];
 

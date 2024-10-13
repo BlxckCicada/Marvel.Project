@@ -13,10 +13,11 @@
     font-family: Roboto, "Helvetica Neue", sans-serif;
   }
 
-  .background-image{
-    /* background: url('./assets/marvel_background.jpg') */
-    @apply bg-[url('./assets/marvel_background.jpg')] bg-cover;
-
+  .background-image {
+    /* background: url('./assets/marvel_background.png') */
+    @apply bg-[url('./assets/marvel_background.png')] bg-cover;
   }
-
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

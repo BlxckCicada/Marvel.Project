@@ -19,8 +19,15 @@ import {
 } from '@angular/common';
 import { MoviesModule } from './features/movies';
 import { AppCommonModule } from './common';
-
-const Modules = [HomeModule, CharactersModule, MoviesModule];
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+const Modules = [
+  HomeModule,
+  CharactersModule,
+  MoviesModule,
+  MatMenuModule,
+  MatIconModule,
+];
 @NgModule({
   declarations: [AppComponent],
   providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
